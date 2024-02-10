@@ -18,6 +18,12 @@ mkdir -p $HOME/.config/fish
 
 ln -s $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/config.fish
 
+# Install starship prompt
+
+curl -sS https://starship.rs/install.sh | sh
+
+ln -s $HOME/.dotfiles/fish/starship.toml $HOME/.config/starship.toml
+
 # Install fisher
 
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
