@@ -11,6 +11,5 @@ for module in $modules; do
 		continue
 	fi
 
-	chmod +x $module/init.sh
 	bash -c "./$module/init.sh"
 done
