@@ -6,7 +6,7 @@ set fish_greeting
 
 # Aliases
 
-alias cat="bat"
+alias cat="batcat"
 alias upd="sudo apt update && sudo apt upgrade"
 alias ls="eza"
 alias filesize="du -sh * | sort -h"
