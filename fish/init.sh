@@ -34,5 +34,6 @@ while IFS= read -r plugin; do
 	if [[ $plugin == \#* ]]; then
 		continue
 	fi
+
 	fish -c "fisher install $plugin"
 done <plugins
