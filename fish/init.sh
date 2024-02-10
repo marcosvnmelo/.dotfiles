@@ -20,7 +20,7 @@ ln -s $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/config.fish
 
 # Install starship prompt
 
-curl -sS https://starship.rs/install.sh | sh -y
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 ln -s $HOME/.dotfiles/fish/starship.toml $HOME/.config/starship.toml
 
