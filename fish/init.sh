@@ -37,3 +37,5 @@ for plugin in $(cat $PWD/fish/plugins); do
 
 	fish -c "fisher install $plugin"
 done
+
+fish -c "nvm install lts"
