@@ -14,3 +14,5 @@ for module in $modules; do
 	echo "Installing $module"
 	# bash -c "./$module/init.sh"
 done
+
+fish -c "fish_update_completions"
