@@ -4,7 +4,7 @@ echo 'Installing AWS CLI'
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip -d awscli
-sudo ./awscli/install
+sudo bash $PWD/awscli/aws/install
 
-rm awscliv2.zip
-rm -rf awscli
+rm $PWD/awscliv2.zip
+rm -rf $PWD/awscli
