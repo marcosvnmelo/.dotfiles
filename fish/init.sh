@@ -30,10 +30,10 @@ fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/fun
 
 # Install fish plugins
 
-while read plugin; do
+for plugin in $(cat $PWD/plugins); do
 	if [[ $plugin == \#* ]]; then
 		continue
 	fi
 
 	fish -c "fisher install $plugin"
-done <plugins
+done
