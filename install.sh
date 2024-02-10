@@ -7,5 +7,5 @@ while read module; do
 		continue
 	fi
 
-	bash ./$module/init.sh
+	bash -c "./$module/init.sh"
 done <modules
