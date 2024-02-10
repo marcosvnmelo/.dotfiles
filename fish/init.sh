@@ -10,7 +10,7 @@ sudo apt update -y && sudo apt upgrade -y
 
 sudo apt install fish -y
 
-sudo chsh -s /usr/bin/fish
+sudo chsh -s /usr/bin/fish $USER
 
 # Create symbolic link for fish configuration file
 
