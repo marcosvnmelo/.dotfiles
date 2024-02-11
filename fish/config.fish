@@ -32,3 +32,7 @@ starship init fish | source
 # nvm
 
 set --universal nvm_default_version v20.11.0
+
+# go
+
+set -gx PATH $PATH /usr/local/go/bin
