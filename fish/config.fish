@@ -13,6 +13,7 @@ alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 alias fd="fdfind"
+alias grep="rg"
 
 # pnpm
 
