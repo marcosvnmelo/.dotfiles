@@ -4,14 +4,19 @@
 
 modules=$(cat $PWD/modules)
 
-# Execute the init.sh file for each module
+if [ $# -eq 0 ]; then
 
-for module in $modules; do
-	if [[ $module == \#* ]]; then
-		continue
-	fi
+	# Execute the init.sh file for each module
+	for module in $modules; do
+		if [[ $module == \#* ]]; then
+			continue
+		fi
 
-	bash -c "./$module/init.sh"
-done
+		bash -c "./$module/init.sh"
+	done
+
+else
+	bash -c "./$1/init.sh"
+fi
 
 fish -c "fish_update_completions"
