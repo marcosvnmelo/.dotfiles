@@ -15,11 +15,6 @@ alias vim="nvim"
 alias fd="fdfind"
 alias dotfiles="cd ~/.dotfiles && ./install.sh"
 
-# bun
-
-set -gx BUN_INSTALL "$HOME/.bun"
-set -gx PATH "$BUN_INSTALL" $PATH
-
 # Starship
 
 starship init fish | source
@@ -38,3 +33,7 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
