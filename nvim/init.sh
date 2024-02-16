@@ -31,3 +31,4 @@ rm lazygit
 
 pnpm i -g neovim
 pnpm i -g tree-sitter
+pnpm i -g tree-sitter-cli
