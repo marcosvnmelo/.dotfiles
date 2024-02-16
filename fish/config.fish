@@ -13,12 +13,7 @@ alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 alias fd="fdfind"
-alias grep="rg"
-
-# pnpm
-
-set -gx PNPM_HOME "/home/marcos/.local/share/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
+alias dotfiles="cd ~/.dotfiles && ./install.sh"
 
 # bun
 
@@ -36,3 +31,10 @@ set --universal nvm_default_version v20.11.0
 # go
 
 set -gx PATH $PATH /usr/local/go/bin
+
+# pnpm
+set -gx PNPM_HOME "/home/marcos/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
