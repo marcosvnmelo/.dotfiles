@@ -19,6 +19,7 @@ git clone https://github.com/marcosvnmelo/nvim-config ~/.config/nvim
 sudo apt install -y gcc
 sudo apt install -y ripgrep
 sudo apt install -y fd-find
+sudo apt install -y fzf
 sudo apt install -y build-essential
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
