@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
-echo "Installing bun"
+echo '****************************************'
+echo '*            Installing bun            *'
+echo '****************************************'
 
 curl -fsSL https://bun.sh/install | bash

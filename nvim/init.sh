@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-echo 'Installing Neovim'
+echo '*****************************************'
+echo '*           Installing Neovim           *'
+echo '*****************************************'
 
 curl -LO 'https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz'
 

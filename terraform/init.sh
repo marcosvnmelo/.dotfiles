@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-echo 'Installing terraform'
+echo '****************************************'
+echo '*         Installing terraform         *'
+echo '****************************************'
 
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-commonsudo apt-get update && sudo apt-get install -y gnupg software-properties-commonsudo apt-get update && sudo apt-get install -y gnupg software-properties-commonsudo apt-get update && sudo apt-get install -y gnupg software-properties-commonsudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 

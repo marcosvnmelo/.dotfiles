@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-echo "Installing go"
+echo '*****************************************'
+echo '*             Installing go             *'
+echo '*****************************************'
 
 file=$(curl -L -s 'https://go.dev/dl' | grep -m 1 '/dl/go.*.linux-amd64' | awk -F "/" '{print $3}' | awk -F '">' '{print $1}')
 

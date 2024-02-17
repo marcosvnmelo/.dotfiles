@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-echo 'Installing tmux'
+echo '*****************************************'
+echo '*            Installing tmux            *'
+echo '*****************************************'
 
 # Clone Tmux Plugin Manager
 

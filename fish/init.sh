@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
-echo 'Installing fish shell'
+echo '*****************************************'
+echo '*         Installing fish shell         *'
+echo '*****************************************'
 
 # Install fish shell
 
