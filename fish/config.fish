@@ -21,7 +21,7 @@ starship init fish | source
 
 # nvm
 
-set --universal nvm_default_version v20.11.0
+set --universal nvm_default_version v20.11.1
 
 # go
 
