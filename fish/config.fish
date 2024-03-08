@@ -14,6 +14,7 @@ alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 alias fd="fdfind"
 alias dotfiles="cd ~/.dotfiles && ./install.sh"
+alias shutdown="wsl.ext -t Ubuntu"
 
 # Starship
 
