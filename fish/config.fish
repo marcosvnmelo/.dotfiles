@@ -15,6 +15,7 @@ alias vim="nvim"
 alias fd="fdfind"
 alias dotfiles="cd ~/.dotfiles && ./install.sh"
 alias shutdown="wsl.exe -t Ubuntu"
+alias win-docker="/mnt/c/Arquivos\ de\ Programas/Docker/Docker/Docker\ Desktop.exe"
 
 # Starship
 
