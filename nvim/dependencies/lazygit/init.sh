@@ -6,3 +6,6 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 rm lazygit.tar.gz
 rm lazygit
+
+mkdir -p "$HOME"/.config/lazygit
+ln -s "$HOME"/.dotfiles/nvim/dependencies/lazygit/config.yml "$HOME"/.config/lazygit/config.yml
