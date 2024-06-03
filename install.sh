@@ -2,7 +2,7 @@
 
 # Get the list of modules
 
-modules=$(cat $PWD/modules)
+modules=$(cat "$PWD"/modules)
 
 if [ $# -eq 0 ]; then
 

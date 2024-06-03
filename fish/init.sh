@@ -12,19 +12,19 @@ sudo apt update -y && sudo apt upgrade -y
 
 sudo apt install fish -y
 
-sudo chsh -s /usr/bin/fish $USER
+sudo chsh -s /usr/bin/fish "$USER"
 
 # Create symbolic link for fish configuration file
 
-mkdir -p $HOME/.config/fish
+mkdir -p "$HOME"/.config/fish
 
-ln -s $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/config.fish
+ln -s "$HOME"/.dotfiles/fish/config.fish "$HOME"/.config/fish/config.fish
 
 # Install starship prompt
 
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-ln -s $HOME/.dotfiles/fish/starship.toml $HOME/.config/starship.toml
+ln -s "$HOME"/.dotfiles/fish/starship.toml "$HOME"/.config/starship.toml
 
 # Install fisher
 
@@ -32,7 +32,7 @@ fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/fun
 
 # Install fish plugins
 
-for plugin in $(cat $PWD/fish/plugins); do
+while read -r plugin <"$PWD"/fish/plugins; do
 	if [[ $plugin == \#* ]]; then
 		continue
 	fi
