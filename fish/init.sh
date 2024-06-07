@@ -32,12 +32,12 @@ fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/fun
 
 # Install fish plugins
 
-while read -r plugin; do
+while read -r plugin <&4; do
 	if [[ $plugin =~ \#.* ]]; then
 		continue
 	fi
 
 	fish -c "fisher install $plugin"
-done <"$PWD"/fish/plugins
+done 4<"$PWD"/fish/plugins
 
 fish -c "nvm install lts"
