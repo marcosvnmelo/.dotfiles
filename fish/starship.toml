@@ -3,12 +3,13 @@
 add_newline = false
 
 format = """
-[█](#a3aed2)\
+[█](fg:#658594 bg:#658594)\
 $os\
 $username\
-[](bg:#769ff0 fg:#a3aed2)\
+[](fg:#658594 bg:#1F1F28)\
+[](fg:#1F1F28 bg:#2D4F67)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
+[](fg:#2D4F67 bg:#394260)\
 $git_branch\
 $git_status\
 [](fg:#394260 bg:#212736)\
@@ -31,7 +32,7 @@ $time\
 
 [os]
 disabled = false
-style = "bg:#a3aed2 fg:#090c0c"
+style = "bg:#658594 fg:#090c0c"
 
 [os.symbols]
 Windows = "󰍲"
@@ -56,12 +57,12 @@ RedHatEnterprise = "󱄛"
 
 [username]
 show_always = true
-style_user = "bg:#a3aed2 fg:#090c0c"
-style_root = "bg:#a3aed2 fg:#090c0c"
+style_user = "bg:#658594 fg:#090c0c"
+style_root = "bg:#FF9E3B fg:#090c0c"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:#e3e5e5 bg:#769ff0"
+style = "fg:#658594 bg:#2D4F67"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -140,4 +141,4 @@ format = '[[ $symbol( $environment) ](fg:#212736 bg:#1d2230)]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#131720"
-format = '[[  $time ](fg:#a0a9cb bg:#131720)]($style)'
+format = '[[  $time ](fg:#7FB4CA bg:#131720)]($style)'
