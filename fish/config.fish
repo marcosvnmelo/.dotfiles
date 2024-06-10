@@ -13,9 +13,19 @@ alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 alias fd="fdfind"
-alias dotfiles="cd ~/.dotfiles && ./install.sh"
 alias shutdown="wsl.exe -t Ubuntu"
 alias win-docker="/mnt/c/Arquivos\ de\ Programas/Docker/Docker/Docker\ Desktop.exe"
+
+# Functions
+
+function dotfiles -d "Run dotfiles modules"
+    set -f currentDir $PWD
+
+    cd ~/.dotfiles
+    ./install.sh $argv[1]
+
+    cd $currentDir
+end
 
 # Starship
 
