@@ -24,8 +24,6 @@ sudo apt install -y fd-find
 sudo apt install -y fzf
 sudo apt install -y build-essential
 
-bash "$PWD"/nvim/dependencies/lazygit/init.sh
-
 pnpm i -g neovim
 pnpm i -g tree-sitter
 pnpm i -g tree-sitter-cli

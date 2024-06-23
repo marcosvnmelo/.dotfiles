@@ -2,6 +2,7 @@ fish
 tmux
 pnpm
 nvim
+lazygit
 gh
 zip
 aws

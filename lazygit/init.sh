@@ -8,4 +8,4 @@ rm lazygit.tar.gz
 rm lazygit
 
 mkdir -p "$HOME"/.config/lazygit
-ln -s "$HOME"/.dotfiles/nvim/dependencies/lazygit/config.yml "$HOME"/.config/lazygit/config.yml
+ln -s "$HOME"/.dotfiles/lazygit/config.yml "$HOME"/.config/lazygit/config.yml
