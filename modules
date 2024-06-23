@@ -12,4 +12,5 @@ terraform
 go
 chrome
 # ngrok
-jq
+# jq
+# yq
