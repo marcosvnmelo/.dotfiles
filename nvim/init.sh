@@ -18,12 +18,6 @@ git clone https://github.com/marcosvnmelo/nvim-config ~/.config/nvim
 
 # Install neovim dependencies
 
-sudo apt install -y gcc
-sudo apt install -y ripgrep
-sudo apt install -y fd-find
-sudo apt install -y fzf
-sudo apt install -y build-essential
+sudo apt install -y gcc ripgrep fd-find fzf build-essential
 
-pnpm i -g neovim
-pnpm i -g tree-sitter
-pnpm i -g tree-sitter-cli
+fish -c "nvm use lts && pnpm i -g neovim tree-sitter tree-sitter-cli"
