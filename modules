@@ -7,8 +7,8 @@ zip
 aws
 eza
 bat
-bun
-terraform
+# bun
+# terraform
 go
 chrome
 # ngrok
