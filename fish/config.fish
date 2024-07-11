@@ -39,6 +39,8 @@ set --universal nvm_default_version v20.15.0
 # go
 
 set -gx PATH $PATH /usr/local/go/bin
+set -gx GOPATH $HOME/go
+set -gx PATH $PATH $GOPATH/bin
 
 # pnpm
 set -gx PNPM_HOME "/home/marcos/.local/share/pnpm"
