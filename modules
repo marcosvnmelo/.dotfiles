@@ -3,6 +3,7 @@ tmux
 pnpm
 nvim
 lazygit
+delta
 gh
 zip
 # aws
