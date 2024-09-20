@@ -52,3 +52,6 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# Android
+set --export ANDROID_HOME "$HOME/Android/sdk"
