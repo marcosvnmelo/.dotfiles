@@ -13,8 +13,8 @@ alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 alias fd="fdfind"
-alias shutdown="wsl.exe -t Ubuntu-24.04"
-alias win-docker="/mnt/c/Arquivos\ de\ Programas/Docker/Docker/Docker\ Desktop.exe"
+#alias shutdown="wsl.exe -t Ubuntu-24.04"
+#alias win-docker="/mnt/c/Arquivos\ de\ Programas/Docker/Docker/Docker\ Desktop.exe"
 
 # Functions
 
