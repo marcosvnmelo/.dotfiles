@@ -19,3 +19,6 @@ sudo apt install wezterm-nightly -y
 mkdir -p "$HOME"/.config/wezterm
 
 ln -s "$HOME"/.dotfiles/wezterm/wezterm.lua "$HOME"/.config/wezterm/wezterm.lua
+
+# Set wezterm as default terminal
+# sudo update-alternatives --config x-terminal-emulator
