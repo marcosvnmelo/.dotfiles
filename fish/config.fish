@@ -54,4 +54,6 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 # Android
-set --export ANDROID_HOME "$HOME/Android/sdk"
+set -gx ANDROID_HOME "$HOME/Android/sdk"
+set -gx PATH $PATH "$ANDROID_HOME/platform-tools"
+set -gx PATH $PATH "$ANDROID_HOME/emulator"
