@@ -8,7 +8,7 @@ set fish_greeting
 
 alias cat="bat"
 alias upd="sudo apt update && sudo apt upgrade"
-alias ls="eza"
+alias ls="eza --icons=always"
 alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
