@@ -57,3 +57,4 @@ set --export PATH $BUN_INSTALL/bin $PATH
 set -gx ANDROID_HOME "$HOME/Android/sdk"
 set -gx PATH $PATH "$ANDROID_HOME/platform-tools"
 set -gx PATH $PATH "$ANDROID_HOME/emulator"
+set -gx PATH $PATH "$HOME/flutter/bin"
