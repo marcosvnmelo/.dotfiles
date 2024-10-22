@@ -17,6 +17,7 @@ bat
 # ngrok
 # jq
 # yq
+rust
 wezterm
 vscode
 docker
