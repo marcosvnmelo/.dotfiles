@@ -1,5 +1,5 @@
 fish
-snap
+# snap
 tmux
 pnpm
 nvim
@@ -12,13 +12,13 @@ eza
 bat
 # bun
 # terraform
-go
+# go
 # chrome
 # ngrok
 # jq
 # yq
 wezterm
-# vscode
+vscode
 docker
 zen-browser
 fira-code

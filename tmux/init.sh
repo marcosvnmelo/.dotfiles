@@ -5,7 +5,13 @@ echo '*            Installing tmux            *'
 echo '*****************************************'
 
 # Install tmux
-sudo snap install tmux --classic
+if [[ $INSTALL_OS = 'arch' ]]; then
+  yes | sudo pacman -S tmux
+fi
+
+if [[ $INSTALL_OS = 'popos' ]]; then
+  sudo snap install tmux --classic
+fi
 
 # Clone Tmux Plugin Manager
 
