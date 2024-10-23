@@ -13,7 +13,7 @@ echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
 # Hyprland packages
-yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus
+yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus pavucontrol
 
 yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper
 
