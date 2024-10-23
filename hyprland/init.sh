@@ -15,7 +15,7 @@ echo '*********************************************'
 # Hyprland packages
 yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus
 
-yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker
+yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper
 
 # Waybar config
 mkdir -p "$HOME"/.config/waybar
@@ -30,3 +30,6 @@ ln -s "$HOME"/.dotfiles/hyprland/hyprlock.conf "$HOME"/.config/hypr/hyprlock.con
 
 # Hypridle config
 ln -s "$HOME"/.dotfiles/hyprland/hypridle.conf "$HOME"/.config/hypr/hypridle.conf
+
+# Hyprpaper config
+ln -s "$HOME"/.dotfiles/hyprland/hyprpaper.conf "$HOME"/.config/hypr/hyprpaper.conf
