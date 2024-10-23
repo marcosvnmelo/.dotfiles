@@ -19,4 +19,4 @@ yes | sudo pacman -S --needed git base-devel
 sudo mkdir -p /etc/pacman.d/hooks
 cp "$HOME"/.dotfiles/arch/nvidia.hook /etc/pacman.d/hooks
 
-bash -c "git clone https://aur.archlinux.org/yay.git ~/ && cd ~/yay && makepkg -si"
+bash -c "git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay && makepkg -si"
