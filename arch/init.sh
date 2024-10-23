@@ -13,7 +13,7 @@ echo '*            Installing Arch minimal            *'
 echo '*************************************************'
 
 sudo pacman -Syy
-yes | sudo pacman -S nvidia nvidia-utils egl-wayland brightnessctl
+yes | sudo pacman -S nvidia nvidia-utils egl-wayland brightnessctl neofetch
 yes | sudo pacman -S --needed git base-devel
 
 sudo mkdir -p /etc/pacman.d/hooks
