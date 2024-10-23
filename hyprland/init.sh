@@ -15,7 +15,7 @@ echo '*********************************************'
 # Hyprland packages
 yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus pavucontrol
 
-yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper
+yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git
 
 sudo systemctl enable sddm.service
 
