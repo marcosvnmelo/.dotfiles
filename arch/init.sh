@@ -13,10 +13,8 @@ echo '*            Installing Arch minimal            *'
 echo '*************************************************'
 
 sudo pacman -Syy
-yes | sudo pacman -S nvidia nvidia-utils egl-wayland brightnessctl neofetch
+yes | sudo pacman -S linx-headers
+yes | sudo pacman -S dkms nvidia-dkms nvidia-utils egl-wayland brightnessctl neofetch
 yes | sudo pacman -S --needed git base-devel
-
-sudo mkdir -p /etc/pacman.d/hooks
-cp "$HOME"/.dotfiles/arch/nvidia.hook /etc/pacman.d/hooks
 
 bash -c "git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay && makepkg -si"
