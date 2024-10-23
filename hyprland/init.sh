@@ -15,7 +15,7 @@ echo '*********************************************'
 # Hyprland packages
 yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus
 
-yes | yay -S hyprpolkitagent-git
+yes | yay -S hyprpolkitagent-git hyprshot
 
 # Hyprland config
 mkdir -p "$HOME"/.config/hypr
