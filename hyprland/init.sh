@@ -17,6 +17,8 @@ yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus
 
 yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper
 
+sudo systemctl enable sddm.service
+
 # Waybar config
 mkdir -p "$HOME"/.config/waybar
 ln -s "$HOME"/.dotfiles/hyprland/waybar.jsonc "$HOME"/.config/waybar/config
