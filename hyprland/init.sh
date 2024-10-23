@@ -13,7 +13,8 @@ echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
 # Hyprland packages
-yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus pavucontrol
+yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus pavucontrol cliphist
+go install github.com/pdf/cliphist-wofi-img@latest
 
 yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git
 
@@ -35,3 +36,7 @@ ln -s "$HOME"/.dotfiles/hyprland/hypridle.conf "$HOME"/.config/hypr/hypridle.con
 
 # Hyprpaper config
 ln -s "$HOME"/.dotfiles/hyprland/hyprpaper.conf "$HOME"/.config/hypr/hyprpaper.conf
+
+# Wofi config
+mkdir -p "$HOME"/.config/wofi
+ln -s "$HOME"/.dotfiles/hyprland/wofi.conf "$HOME"/.config/wofi/config
