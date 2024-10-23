@@ -15,12 +15,15 @@ echo '*********************************************'
 # Hyprland packages
 yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus
 
-yes | yay -S hyprpolkitagent-git hyprshot swaync
+yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock
+
+# Waybar config
+mkdir -p "$HOME"/.config/waybar
+ln -s "$HOME"/.dotfiles/hyprland/waybar.jsonc "$HOME"/.config/waybar/config
 
 # Hyprland config
 mkdir -p "$HOME"/.config/hypr
 ln -s "$HOME"/.dotfiles/hyprland/hyprland.conf "$HOME"/.config/hypr/hyprland.conf
 
-# Waybar config
-mkdir -p "$HOME"/.config/waybar
-ln -s "$HOME"/.dotfiles/hyprland/waybar.jsonc "$HOME"/.config/waybar/config
+# Hyprlock config
+ln -s "$HOME"/.dotfiles/hyprland/hyprlock.conf "$HOME"/.config/hypr/hyprlock.conf
