@@ -13,9 +13,9 @@ echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
 # Hyprland packages
-yes | sudo pacman -S hyprland waybar dunst sddm nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
+yes | sudo pacman -S hyprland waybar sddm nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
 
-yes | yay -S hyprpolkitagent-git rofi hyprshot hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git
+yes | yay -S hyprpolkitagent-git rofi hyprshot swaync hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git
 
 sudo systemctl enable sddm.service
 
@@ -34,6 +34,3 @@ unzip "$HOME"/.dotfiles/hyprland/kanagawa-gtk.zip -d "$HOME"/.themes
 
 # Fonts config
 ln -s "$HOME"/.dotfiles/hyprland/fontconfig "$HOME"/.config/fontconfig
-
-# Dunst config
-ln -s "$HOME"/.dotfiles/hyprland/dunst "$HOME"/.config/dunst
