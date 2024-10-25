@@ -88,6 +88,8 @@
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
+    "on-click": "killall nm-connection-editor || nm-connection-editor",
+    "on-click-right": "pkill -x nm-applet || nm-applet --indicator",
   },
 
   "pulseaudio": {
