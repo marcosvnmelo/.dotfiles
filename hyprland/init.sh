@@ -31,3 +31,6 @@ ln -s "$HOME"/.dotfiles/hyprland/rofi "$HOME"/.config/rofi
 # GTK theme
 mkdir -p "$HOME"/.themes
 unzip "$HOME"/.dotfiles/hyprland/kanagawa-gtk.zip -d "$HOME"/.themes
+
+# Fonts config
+ln -s "$HOME"/.dotfiles/hyprland/fontconfig "$HOME"/.config/fontconfig
