@@ -25,17 +25,7 @@ mkdir -p "$HOME"/.config/waybar
 ln -s "$HOME"/.dotfiles/hyprland/waybar.jsonc "$HOME"/.config/waybar/config
 
 # Hyprland config
-mkdir -p "$HOME"/.config/hypr
-ln -s "$HOME"/.dotfiles/hyprland/hyprland.conf "$HOME"/.config/hypr/hyprland.conf
-
-# Hyprlock config
-ln -s "$HOME"/.dotfiles/hyprland/hyprlock.conf "$HOME"/.config/hypr/hyprlock.conf
-
-# Hypridle config
-ln -s "$HOME"/.dotfiles/hyprland/hypridle.conf "$HOME"/.config/hypr/hypridle.conf
-
-# Hyprpaper config
-ln -s "$HOME"/.dotfiles/hyprland/hyprpaper.conf "$HOME"/.config/hypr/hyprpaper.conf
+ln -s "$HOME"/.dotfiles/hyprland/hypr "$HOME"/.config/hypr
 
 # Wofi config
 mkdir -p "$HOME"/.config/wofi
