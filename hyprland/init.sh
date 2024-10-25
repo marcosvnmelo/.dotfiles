@@ -13,10 +13,9 @@ echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
 # Hyprland packages
-yes | sudo pacman -S hyprland waybar wofi sddm ttf-font-awesome nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
-go install github.com/pdf/cliphist-wofi-img@latest
+yes | sudo pacman -S hyprland waybar sddm ttf-font-awesome nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
 
-yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git
+yes | yay -S hyprpolkitagent-git rofi hyprshot swaync hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git
 
 sudo systemctl enable sddm.service
 
@@ -26,9 +25,8 @@ ln -s "$HOME"/.dotfiles/hyprland/waybar "$HOME"/.config/waybar
 # Hyprland config
 ln -s "$HOME"/.dotfiles/hyprland/hypr "$HOME"/.config/hypr
 
-# Wofi config
-mkdir -p "$HOME"/.config/wofi
-ln -s "$HOME"/.dotfiles/hyprland/wofi.conf "$HOME"/.config/wofi/config
+# Rofi config
+ln -s "$HOME"/.dotfiles/hyprland/rofi "$HOME"/.config/rofi
 
 # GTK theme
 mkdir -p "$HOME"/.themes
