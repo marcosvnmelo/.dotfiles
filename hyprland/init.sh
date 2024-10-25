@@ -13,7 +13,7 @@ echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
 # Hyprland packages
-yes | sudo pacman -S hyprland waybar sddm ttf-font-awesome nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
+yes | sudo pacman -S hyprland waybar sddm nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
 
 yes | yay -S hyprpolkitagent-git rofi hyprshot swaync hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git
 

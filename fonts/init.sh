@@ -1,11 +1,12 @@
 #!/usr/bin/bash
 
-echo '********************************************'
-echo '*           Installing Fira Code           *'
-echo '********************************************'
+echo '****************************************'
+echo '*           Installing Fonts           *'
+echo '****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S ttf-firacode-nerd
+  yes | sudo pacman -S ttf-firacode-nerd ttf-font-awesome ttf-nerd-fonts-symbols-mono
+  yes | yay -S inter-font
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
