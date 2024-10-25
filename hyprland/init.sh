@@ -21,8 +21,7 @@ yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hy
 sudo systemctl enable sddm.service
 
 # Waybar config
-mkdir -p "$HOME"/.config/waybar
-ln -s "$HOME"/.dotfiles/hyprland/waybar.jsonc "$HOME"/.config/waybar/config
+ln -s "$HOME"/.dotfiles/hyprland/waybar "$HOME"/.config/waybar
 
 # Hyprland config
 ln -s "$HOME"/.dotfiles/hyprland/hypr "$HOME"/.config/hypr
