@@ -38,8 +38,8 @@ ln -s "$HOME"/.dotfiles/hyprland/fontconfig "$HOME"/.config/fontconfig
 # Sddm theme
 git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme ~/sddm-kanagawa-dragon-theme
 sudo mkdir -p /usr/share/sddm/themes
-sudo cp -r ~/sddm-kanagawa-dragon-theme/kanagawa_dragon /usr/share/sddm/themes
-rm -r ~/sddm-kanagawa-dragon-theme
+sudo cp -r ~/sddm-kanagawa-dragon-theme/kanagawa-dragon /usr/share/sddm/themes
+sudo rm -r ~/sddm-kanagawa-dragon-theme
 
 # Sddm config
 sudo mkdir /etc/sddm.conf.d
