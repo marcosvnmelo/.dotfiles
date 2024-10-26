@@ -42,5 +42,5 @@ sudo cp -r ~/sddm-kanagawa-dragon-theme/kanagawa_dragon /usr/share/sddm/themes
 rm -r ~/sddm-kanagawa-dragon-theme
 
 # Sddm config
-sudo mkdir /usr/sddm.conf.d
-sudo ln -s "$HOME"/.dotfiles/hyprland/sddm/sddm.conf /usr/sddm.conf.d/sddm.conf
+sudo mkdir /etc/sddm.conf.d
+sudo ln -s "$HOME"/.dotfiles/hyprland/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
