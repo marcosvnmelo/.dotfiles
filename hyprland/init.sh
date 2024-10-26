@@ -13,9 +13,15 @@ echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
 # Hyprland packages
-yes | sudo pacman -S hyprland waybar rofi-wayland sddm qt5-quickcontrols2 qt6-5compat qt6-svg sddm nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
+yes | sudo pacman -S hyprland qt5-wayland qt6-wayland \
+  waybar \
+  rofi-wayland \
+  sddm qt5-quickcontrols2 qt6-5compat qt6-svg \
+  nautilus pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
 
-yes | yay -S hyprpolkitagent-git hyprshot swaync hyprlock hypridle hyprpicker hyprpaper xdg-desktop-portal-hyprland-git overskride network-manager-applet
+yes | yay -S hyprpolkitagent-git swaync \
+  hyprshot hyprlock hypridle hyprpicker hyprpaper \
+  xdg-desktop-portal-hyprland-git overskride network-manager-applet
 
 sudo systemctl enable sddm.service
 
