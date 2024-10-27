@@ -45,6 +45,9 @@ gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
 sudo flatpak override --filesystem=$HOME/.themes
 sudo flatpak override --filesystem=$HOME/.icons
 
+mkdir ~/.config/gtk-3.0
+touch ~/.config/gtk-3.0/bookmarks
+
 # Fonts config
 ln -s "$HOME"/.dotfiles/hyprland/fontconfig "$HOME"/.config/fontconfig
 
