@@ -45,6 +45,12 @@ element-text {
     highlight:        #7e9cd8;
     text-color:       #dcd7ba;
 }
+element-icon {
+    size:                        2em;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
 window {
     background-color:   #16161d;
     border:             2;
