@@ -45,11 +45,15 @@ gsettings set org.gnome.desktop.interface font-name "NotoSans Nerd Font 11"
 gsettings set org.gnome.desktop.interface document-font-name "NotoSans Nerd Font 11"
 gsettings set org.gnome.desktop.interface monospace-font-name "NotoSansM Nerd Font Mono 10"
 
-sudo ln -s /usr/share/themes ~/.themes
-sudo ln -s /usr/share/icons ~/.icons
+mkdir ~/.themes
+mkdir ~/.icons
 
-sudo flatpak override --filesystem=$HOME/.themes
-sudo flatpak override --filesystem=$HOME/.icons
+flatpak override --user --filesystem=~/.themes
+flatpak override --user --filesystem=~/.icons
+
+sudo cp -r /usr/share/themes/Kanagawa-Borderless ~/.themes
+sudo cp -r /usr/share/icons/Kanagawa ~/.icons
+sudo cp -r /usr/share/icons/Bibata-Modern-Classic ~/.icons
 
 mkdir ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
