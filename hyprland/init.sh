@@ -41,6 +41,15 @@ gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-Borderless
 gsettings set org.gnome.desktop.interface icon-theme Kanagawa
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
+gsettings set org.gnome.desktop.interface font-name "NotoSans Nerd Font 11"
+gsettings set org.gnome.desktop.interface document-font-name "NotoSans Nerd Font 11"
+gsettings set org.gnome.desktop.interface monospace-font-name "NotoSansM Nerd Font Mono 10"
+
+sudo ln -s /usr/share/themes ~/.themes
+sudo ln -s /usr/share/icons ~/.icons
+
+sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --filesystem=$HOME/.icons
 
 mkdir ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
