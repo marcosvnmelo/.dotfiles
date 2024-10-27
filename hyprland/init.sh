@@ -22,7 +22,8 @@ yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprlan
 yes | yay -S swaync \
   hyprshot hyprlock hypridle hyprpicker hyprpaper \
   overskride network-manager-applet \
-  nautilus-open-any-terminal
+  nautilus-open-any-terminal \
+  kanagawa-gtk-theme-git kanagawa-icon-theme-git bibata-cursor-git
 
 sudo systemctl enable sddm.service
 
@@ -36,9 +37,13 @@ ln -s "$HOME"/.dotfiles/hyprland/hypr "$HOME"/.config/hypr
 ln -s "$HOME"/.dotfiles/hyprland/rofi "$HOME"/.config/rofi
 
 # GTK theme
-mkdir -p "$HOME"/.themes
-unzip "$HOME"/.dotfiles/hyprland/Kanagawa-BL.zip -d "$HOME"/.themes
+gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-BorderLess
+gsettings set org.gnome.desktop.interface icon-theme Kanagawa
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
+
 sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --filesystem=$HOME/.icons
 
 # Fonts config
 ln -s "$HOME"/.dotfiles/hyprland/fontconfig "$HOME"/.config/fontconfig
