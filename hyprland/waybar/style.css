@@ -78,6 +78,7 @@ window#waybar.empty #clock {
   border-radius: 4px;
 }
 
+window#waybar.empty.eDP-1 #window,
 window#waybar.empty.eDP-2 #window {
   background: transparent;
 }

@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "height": 30,
-  "output": "eDP-2",
+  "output": ["eDP-1", "eDP-2"],
   "mode": "dock",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
