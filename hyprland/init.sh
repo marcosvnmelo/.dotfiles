@@ -50,3 +50,6 @@ sudo rm -r ~/sddm-kanagawa-dragon-theme
 # Sddm config
 sudo mkdir /etc/sddm.conf.d
 sudo ln -s "$HOME"/.dotfiles/hyprland/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
+
+# Code flags
+sudo ln -s "$HOME"/.dotfiles/hyprland/code-flags.conf "$HOME"/.config/code-flags.conf
