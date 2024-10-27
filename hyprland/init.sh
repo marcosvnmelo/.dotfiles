@@ -17,7 +17,7 @@ yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprlan
   waybar \
   rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg \
-  nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra
+  nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype
 
 yes | yay -S swaync \
   hyprshot hyprlock hypridle hyprpicker hyprpaper \
