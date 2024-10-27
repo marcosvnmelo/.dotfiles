@@ -73,3 +73,6 @@ sudo ln -s "$HOME"/.dotfiles/hyprland/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
 
 # Code flags
 sudo ln -s "$HOME"/.dotfiles/hyprland/code-flags.conf "$HOME"/.config/code-flags.conf
+
+# Swaync style
+ln -s ~/.dotfiles/hyprland/swaync ~/.config/swaync
