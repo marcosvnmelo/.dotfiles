@@ -37,13 +37,10 @@ ln -s "$HOME"/.dotfiles/hyprland/hypr "$HOME"/.config/hypr
 ln -s "$HOME"/.dotfiles/hyprland/rofi "$HOME"/.config/rofi
 
 # GTK theme
-gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-BorderLess
+gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-Borderless
 gsettings set org.gnome.desktop.interface icon-theme Kanagawa
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
-
-sudo flatpak override --filesystem=$HOME/.themes
-sudo flatpak override --filesystem=$HOME/.icons
 
 mkdir ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
