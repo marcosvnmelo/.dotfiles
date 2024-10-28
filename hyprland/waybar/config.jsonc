@@ -21,7 +21,25 @@
   "clock": {
     "intervel": 60,
     "format": "󰥔 {:%I:%M %p}",
-    "max-length": 25,
+    "format-alt": "󰥔 {:%d/%m/%Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": -1,
+      "format": {
+        "months": "<span color='#f9e2af'><b>{}</b></span>",
+        "days": "<span color='#dcd7ba'><b>{}</b></span>",
+        "weeks": "<span color='#2d4f67'><b>W{}</b></span>",
+        "weekdays": "<span color='#2d4f67'><b>{}</b></span>",
+        "today": "<span color='#c34043'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
   },
 
   "backlight": {
