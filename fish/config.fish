@@ -34,6 +34,10 @@ function dotfiles -d "Run dotfiles modules"
     cd $currentDir
 end
 
+function nv-run -d "Run with nvidia"
+    DRI_PRIME=pci-0000_01_00_0 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia $argv
+end
+
 ## Starship ##
 
 starship init fish | source

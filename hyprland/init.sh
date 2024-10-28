@@ -19,7 +19,7 @@ yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprlan
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg \
   nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype
 
-yes | yay -S swaync \
+yes | yay -S swaync envycontrol \
   hyprshot hyprlock hypridle hyprpicker hyprpaper \
   overskride network-manager-applet \
   nautilus-open-any-terminal \
