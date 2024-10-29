@@ -5,7 +5,7 @@ echo '*           Installing Fonts           *'
 echo '****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S ttf-firacode-nerd ttf-font-awesome ttf-nerd-fonts-symbols-mono ttf-noto-nerd noto-fonts noto-fonts-cjk
+  yes | sudo pacman -S ttf-firacode-nerd ttf-font-awesome ttf-nerd-fonts-symbols-mono ttf-noto-nerd noto-fonts noto-fonts-cjk noto-fonts-emoji
   yes | yay -S inter-font
 fi
 

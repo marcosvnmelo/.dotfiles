@@ -14,7 +14,7 @@ echo '*********************************************'
 
 # Hyprland packages
 yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
-  hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
+  hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland rofimoji \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg \
   nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype
 
