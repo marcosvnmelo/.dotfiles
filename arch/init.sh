@@ -17,7 +17,7 @@ yes | sudo pacman -S linux-headers
 yes | sudo pacman -S nvidia-dkms nvidia-utils egl-wayland
 yes | sudo pacman -S intel-media-driver vulkan-intel libva-intel-driver
 yes | sudo pacman -S --needed git base-devel
-yes | sudo pacman -S brightnessctl neofetch bluez bluez-utils
+yes | sudo pacman -S brightnessctl neofetch bluez bluez-utils fuse
 
 bash -c "git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay && makepkg -si"
 
