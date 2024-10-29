@@ -51,9 +51,9 @@ mkdir ~/.icons
 flatpak override --user --filesystem=~/.themes
 flatpak override --user --filesystem=~/.icons
 
-sudo cp -r /usr/share/themes/Kanagawa-Borderless ~/.themes
-sudo cp -r /usr/share/icons/Kanagawa ~/.icons
-sudo cp -r /usr/share/icons/Bibata-Modern-Classic ~/.icons
+cp -r /usr/share/themes/Kanagawa-Borderless ~/.themes
+cp -r /usr/share/icons/Kanagawa ~/.icons
+cp -r /usr/share/icons/Bibata-Modern-Classic ~/.icons
 
 mkdir ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
