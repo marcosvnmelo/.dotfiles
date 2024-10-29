@@ -11,13 +11,13 @@ alias ls="eza --icons=always"
 alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
-alias fd="fdfind"
 
 # Arch Linux
 alias upd="sudo pacman -Syy && sudo pacman -Su"
 
 # Pop!_OS, WSL
 # alias upd="sudo apt update && sudo apt upgrade"
+# alias fd="fdfind"
 
 # WSL
 # alias shutdown="wsl.exe -t Ubuntu-24.04"
