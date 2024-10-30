@@ -21,3 +21,34 @@ Lastly, rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
 ### Pacman hook ([source](https://wiki.archlinux.org/title/NVIDIA#pacman_hook))
 
 A hook will be automatically copied to pacman hooks dir.
+
+## Enable pacman parallel download
+
+Edit `/etc/pacman.conf` and on `# Misc options` change the following line:
+
+```conf
+#ParallelDownloads = 5
+```
+
+to:
+
+```conf
+ParallelDownloads = 10
+```
+
+### Optional but fun
+
+In the same section change the following line:
+
+```conf
+#Color
+
+```
+
+to:
+
+```conf
+Color
+```
+
+and add `ILoveCandy` as the last line of the section.
