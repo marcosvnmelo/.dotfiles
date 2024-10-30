@@ -25,6 +25,7 @@ yes | yay -S swaync envycontrol \
   kanagawa-gtk-theme-git kanagawa-icon-theme-git bibata-cursor-git
 
 sudo systemctl enable sddm.service
+systemctl --user enable hypridle.service
 
 # Waybar config
 ln -s "$HOME"/.dotfiles/hyprland/waybar "$HOME"/.config/waybar
