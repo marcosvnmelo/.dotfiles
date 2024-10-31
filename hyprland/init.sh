@@ -19,7 +19,7 @@ yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprlan
   nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype
 
 yes | yay -S swaync envycontrol \
-  hyprshot \
+  hyprshot kanata-bin \
   network-manager-applet \
   nautilus-open-any-terminal gnome-keyring \
   kanagawa-gtk-theme-git kanagawa-icon-theme-git bibata-cursor-git
@@ -76,3 +76,14 @@ sudo ln -s "$HOME"/.dotfiles/hyprland/code-flags.conf "$HOME"/.config/code-flags
 
 # Swaync style
 ln -s ~/.dotfiles/hyprland/swaync ~/.config/swaync
+
+# Kanata config
+sudo groupadd uinput
+sudo usermod -aG input $USER
+sudo usermod -aG uinput $USER
+echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee -a /etc/udev/rules.d/99-input.rules
+sudo modprobe uinput
+mkdir -p ~/.config/systemd/user
+ln -s ~/.dotfiles/hyprland/kanata/kanata.service ~/.config/systemd/user/kanata.service
+systemctl --user daemon-reload
+systemctl --user enable kanata.service
