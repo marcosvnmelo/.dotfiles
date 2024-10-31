@@ -1,6 +1,6 @@
 * {
   border: none;
-  font-family: "Monospace", "tabler-icons";
+  font-family: monospace, "tabler-icons";
   font-size: 13px;
   min-height: 30px;
 }
@@ -48,7 +48,6 @@ window#waybar.empty {
 
 #custom-notification {
   border-radius: 4px 0 0 4px;
-  font-family: "NotoSansMono Nerd Font";
 }
 
 window#waybar.floating #workspaces,
@@ -74,7 +73,6 @@ window#waybar.empty #clock {
   background: alpha(@theme_base_color, 0.95);
   margin-top: 2px;
   margin-bottom: 2px;
-  margin-bottom: 4px;
   border-radius: 4px;
 }
 

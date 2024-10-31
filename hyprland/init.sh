@@ -58,6 +58,9 @@ cp -r /usr/share/icons/Bibata-Modern-Classic ~/.icons
 mkdir ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
 
+# Fonts config
+ln -s "$HOME"/.dotfiles/hyprland/fontconfig "$HOME"/.config/fontconfig
+
 # Sddm theme
 git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme ~/sddm-kanagawa-dragon-theme
 sudo mkdir -p /usr/share/sddm/themes

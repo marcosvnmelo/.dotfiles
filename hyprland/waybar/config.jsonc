@@ -20,8 +20,8 @@
 
   "clock": {
     "intervel": 60,
-    "format": "󰥔 {:%I:%M %p}",
-    "format-alt": "󰥔 {:%d/%m/%Y}",
+    "format": " {:%I:%M %p}",
+    "format-alt": " {:%d/%m/%Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode-mon-col": 3,
@@ -45,7 +45,8 @@
   "backlight": {
     "device": "nvidia_wmi_ec_backlight",
     "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+    "tooltip": false,
   },
 
   "hyprland/workspaces": {
@@ -76,8 +77,9 @@
 
   "bluetooth": {
     "format": " {status}",
-    "format-connected": " {device_alias}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {device_alias}",
+    "format-connected-battery": "󰥉 {device_alias} {device_battery_percentage}%",
     "format-device-preference": ["device1", "device2"], // preference list deciding the displayed device
     "tooltip-format": "{controller_alias}	{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}	{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -101,9 +103,9 @@
 
   "network": {
     "format-wifi": "{essid} ",
-    "format-ethernet": "",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+    "format-linked": "{ifname} (No IP) 󰈀",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "killall nm-connection-editor || nm-connection-editor",
     "on-click-right": "pkill -x nm-applet || nm-applet --indicator",
@@ -113,7 +115,7 @@
     "format": "{icon}  {volume}%",
     "format-muted": "󰝟",
     "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-bluetooth-muted": "󰂰 {icon} {format_source}",
     "tooltip": false,
     "format-icons": {
       "headphone": "",
@@ -125,7 +127,6 @@
 
   "pulseaudio#source": {
     "format": "{format_source}",
-    // "format-source": "{volume}% ",
     "format-source": "",
     "format-source-muted": "",
     "tooltip": false,
