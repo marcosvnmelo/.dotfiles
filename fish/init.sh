@@ -6,11 +6,17 @@ echo '*****************************************'
 
 # Install fish shell
 
-sudo apt-add-repository ppa:fish-shell/release-3 -y
+if [[ $INSTALL_OS = 'arch' ]]; then
+  yes | sudo pacman -S fish
+fi
 
-sudo apt update -y && sudo apt upgrade -y
+if [[ $INSTALL_OS = 'popos' ]]; then
+  sudo apt-add-repository ppa:fish-shell/release-3 -y
 
-sudo apt install fish -y
+  sudo apt update -y && sudo apt upgrade -y
+
+  sudo apt install fish -y
+fi
 
 sudo chsh -s /usr/bin/fish "$USER"
 
@@ -33,11 +39,11 @@ fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/fun
 # Install fish plugins
 
 while read -r plugin <&4; do
-	if [[ $plugin =~ \#.* ]]; then
-		continue
-	fi
+  if [[ $plugin =~ \#.* ]]; then
+    continue
+  fi
 
-	fish -c "fisher install $plugin"
+  fish -c "fisher install $plugin"
 done 4<"$PWD"/fish/plugins
 
 fish -c "nvm install lts"

@@ -4,19 +4,26 @@ end
 
 set fish_greeting
 
-# Aliases
+## Aliases ##
 
 alias cat="bat"
-alias upd="sudo apt update && sudo apt upgrade"
 alias ls="eza --icons=always"
 alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
-alias fd="fdfind"
-#alias shutdown="wsl.exe -t Ubuntu-24.04"
-#alias win-docker="/mnt/c/Arquivos\ de\ Programas/Docker/Docker/Docker\ Desktop.exe"
 
-# Functions
+# Arch Linux
+alias upd="sudo pacman -Syy && sudo pacman -Su"
+
+# Pop!_OS, WSL
+# alias upd="sudo apt update && sudo apt upgrade"
+# alias fd="fdfind"
+
+# WSL
+# alias shutdown="wsl.exe -t Ubuntu-24.04"
+# alias win-docker="/mnt/c/Arquivos\ de\ Programas/Docker/Docker/Docker\ Desktop.exe"
+
+## Functions ##
 
 function dotfiles -d "Run dotfiles modules"
     set -f currentDir $PWD
@@ -27,16 +34,20 @@ function dotfiles -d "Run dotfiles modules"
     cd $currentDir
 end
 
-# Starship
+function nv-run -d "Run with nvidia"
+    DRI_PRIME=pci-0000_01_00_0 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia $argv
+end
+
+## Starship ##
 
 starship init fish | source
 enable_transience
 
-# nvm
+## nvm ##
 
-set --universal nvm_default_version v20.18.0
+set --universal nvm_default_version v22.11.0
 
-# go
+## go ##
 
 set -gx PATH $PATH /usr/local/go/bin
 set -gx GOPATH $HOME/go
@@ -49,11 +60,11 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-# bun
+## bun ##
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# Android
+## Android ##
 set -gx ANDROID_HOME "$HOME/Android/sdk"
 set -gx PATH $PATH "$ANDROID_HOME/platform-tools"
 set -gx PATH $PATH "$ANDROID_HOME/emulator"

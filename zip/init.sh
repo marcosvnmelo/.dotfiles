@@ -4,5 +4,10 @@ echo '****************************************'
 echo '*            Installing zip            *'
 echo '****************************************'
 
-sudo apt install zip -y
-sudo apt install unzip -y
+if [[ $INSTALL_OS = 'arch' ]]; then
+  yes | sudo pacman -S zip unzip
+fi
+
+if [[ $INSTALL_OS = 'popos' ]]; then
+  sudo apt install zip unzip -y
+fi

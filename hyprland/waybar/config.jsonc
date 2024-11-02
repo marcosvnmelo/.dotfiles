@@ -1,0 +1,157 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "output": ["eDP-1", "eDP-2"],
+  "mode": "dock",
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "tray",
+    "custom/notification",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "pulseaudio#source",
+    "bluetooth",
+    "network",
+    "clock",
+  ],
+
+  "clock": {
+    "intervel": 60,
+    "format": " {:%I:%M %p}",
+    "format-alt": " {:%d/%m/%Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": -1,
+      "format": {
+        "months": "<span color='#f9e2af'><b>{}</b></span>",
+        "days": "<span color='#dcd7ba'><b>{}</b></span>",
+        "weeks": "<span color='#2d4f67'><b>W{}</b></span>",
+        "weekdays": "<span color='#2d4f67'><b>{}</b></span>",
+        "today": "<span color='#c34043'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+
+  "backlight": {
+    "device": "nvidia_wmi_ec_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+    "tooltip": false,
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": "false",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": "",
+    },
+  },
+
+  "hyprland/window": {
+    "max-length": 50,
+    "rewrite": {
+      "(.*) - Mozilla Firefox": " $1",
+      "(.*) — Zen Browser": "Zen: $1",
+      "(.*) - fish": "> [$1]",
+    },
+  },
+
+  "tray": {
+    "icon-size": 12,
+    "spacing": 5,
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {device_alias}",
+    "format-connected-battery": "󰥉 {device_alias} {device_battery_percentage}%",
+    "format-device-preference": ["device1", "device2"], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}	{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}	{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}	{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}	{device_address}	{device_battery_percentage}%",
+    "on-click": "pkill -x blueman-manager || blueman-manager",
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{capacity}% {icon} ",
+    "format-full": "{icon} ",
+    "format-charging": "{capacity}% {icon} ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "network": {
+    "format-wifi": "{essid} ",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+    "format-linked": "{ifname} (No IP) 󰈀",
+    "format-disconnected": "Disconnected ⚠",
+    "on-click": "killall nm-connection-editor || nm-connection-editor",
+    "on-click-right": "pkill -x nm-applet || nm-applet --indicator",
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "󰂰 {icon} {format_source}",
+    "tooltip": false,
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""],
+    },
+    "on-click": "pkill -x pavucontrol || pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+  },
+
+  "pulseaudio#source": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "tooltip": false,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "pkill -x pavucontrol || pavucontrol",
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+}

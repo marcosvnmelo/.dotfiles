@@ -49,3 +49,24 @@ Wayland it's a new and more performative alternative, and can be enabled with th
 - Set `WaylandEnable=true` in `/etc/gdm3/custom.conf`
 - Restart the OS
 - At the log in screen, after select the user, there will be a small gear wheel on the bottom right side, choose **Pop on Wayland** instead of **Pop**
+
+## Arch linux
+
+### Enable gnome-keyring ([source](https://stackoverflow.com/a/66480029))
+
+In GDM+GNOME, when you login, GNOME Keyring is automatically unlocked. However, it doesn't do so in SDDM+(KDE/Hyprland). When you start some GNOME or Electron application like VS Code, they ask you to type the login password again or just froze.
+
+The solution is to edit /etc/pam.d/sddm and add pam_gnome_keyring.so like this (the second line and last line):
+
+```sddm
+#%PAM-1.0
+auth     include        common-auth
+auth     optional       pam_gnome_keyring.so
+account  include        common-account
+password include        common-password
+session  required       pam_loginuid.so
+session  include        common-session
+session  optional       pam_gnome_keyring.so auto_start
+```
+
+This is a solution that I found here that should work for you. For me, the lines were already there, but I simply had to remove the - at the beginning of the lines.

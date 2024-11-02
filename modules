@@ -1,5 +1,7 @@
+arch
+man
 fish
-snap
+# snap
 tmux
 pnpm
 nvim
@@ -12,13 +14,15 @@ eza
 bat
 # bun
 # terraform
-go
+# go
 # chrome
 # ngrok
 # jq
 # yq
+rust
 wezterm
-# vscode
+vscode
 docker
-zen-browser
-fira-code
+flatpak
+fonts
+hyprland
