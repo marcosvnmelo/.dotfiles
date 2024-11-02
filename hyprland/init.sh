@@ -49,6 +49,7 @@ mkdir ~/.icons
 
 flatpak override --user --filesystem=~/.themes
 flatpak override --user --filesystem=~/.icons
+flatpak override --user --env=XCURSOR_PATH=~/.icons
 
 cp -r /usr/share/themes/Kanagawa-Borderless ~/.themes
 cp -r /usr/share/icons/Kanagawa ~/.icons
