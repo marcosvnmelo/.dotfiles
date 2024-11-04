@@ -4,7 +4,7 @@
   "height": 30,
   "output": ["eDP-1", "eDP-2"],
   "mode": "dock",
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "tray",
@@ -17,6 +17,20 @@
     "network",
     "clock",
   ],
+
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-order": ["title", "artist"],
+    "player-icons": {
+      "default": "",
+      "mpv": "",
+    },
+    "status-icons": {
+      "paused": "",
+    },
+    "dynamic-len": 40,
+  },
 
   "clock": {
     "intervel": 60,
@@ -121,6 +135,7 @@
       "headphone": "",
       "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""],
     },
+    "max-volume": 150,
     "on-click": "pkill -x pavucontrol || pavucontrol",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
   },
