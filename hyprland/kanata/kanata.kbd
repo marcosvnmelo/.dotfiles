@@ -16,7 +16,7 @@
 (defalias
   sym-l (multi f24 (tap-hold $tap-time $hold-time esc (layer-toggle symbols)))
 
-  a-mod (multi f24 (tap-hold $tap-time $hold-time a lmet))
+  a-mod (tap-hold $tap-time $hold-time a lmet)
   s-mod (multi f24 (tap-hold $tap-time $hold-time s lalt))
   d-mod (multi f24 (tap-hold $tap-time $hold-time d lsft))
   f-mod (multi f24 (tap-hold $tap-time $hold-time f lctl))
