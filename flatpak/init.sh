@@ -11,7 +11,4 @@ fi
 flatpak install flathub com.github.tchx84.Flatseal \
   com.rtosta.zapzap \
   dev.vencord.Vesktop \
-  io.github.zen_browser.zen \
   it.mijorus.gearlever
-
-xdg-settings set default-web-browser io.github.zen_browser.zen.desktop
