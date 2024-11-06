@@ -1,8 +1,18 @@
 configuration {
-  modes: "drun";
-  font: "Monospace 11";
-  fixed-num-lines: true;
-  drun-match-fields: "name,generic,exec,categories,keywords";
-  drun-display-format: "{name} [<span foreground='#dcd7ba'><i>({generic})</i></span>]";
+    modi: "run,drun,window";
+    show-icons: true;
+    terminal: "wezterm";
+    font: "Monospace 11";
+    fixed-num-lines: true;
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: " 󰕰  Window";
+    display-Network: " 󰤨  Network";
+    sidebar-mode: true;
 }
+
 @theme "kanagawa"

@@ -1,114 +1,112 @@
 * {
-  background:                  #1f1f28;
-  selected-active-foreground:  var(background);
-  separatorcolor:              var(foreground);
-  urgent-foreground:           var(red);
-  alternate-urgent-background: var(lightbg);
-  background-color:            transparent;
-  border-color:                var(foreground);
-  normal-background:           var(background);
-  selected-urgent-background:  var(red);
-  alternate-active-background: var(lightbg);
-  spacing:                     10;
-  alternate-normal-foreground: var(foreground);
-  urgent-background:           var(background);
-  selected-normal-foreground:  #dcd7ba;
-  active-foreground:           #dcd7ba;
-  selected-active-background:  #2d4f67;
-  active-background:           #2d4f67;
-  selected-normal-background:  #2d4f67;
-  alternate-normal-background: #1f1f28;
-  foreground:                  #dcd7ba;
-  selected-urgent-foreground:  #dcd7ba;
-  normal-foreground:           #dcd7ba;
-  alternate-urgent-foreground: #dcd7ba;
-  alternate-active-foreground: #dcd7ba;
+    bg-col:  rgba(31, 31, 40, 90%);
+    bg-col-light: rgba(31, 31, 40, 90%);
+    border-col: var(blue);
+    selected-col: rgba(31, 31, 40, 90%);
+    blue: rgba(127, 180, 202, 90%);
+    fg-col: rgba(197, 201, 197, 90%);
+    fg-col2: rgba(196, 116, 110, 90%);
+    grey: rgba(197, 201, 197, 90%);
+
+    width: 600;
+    font: "Monospace 14";
 }
-element {
-    padding: 10px 10px 10px 25px ;
-    cursor:  pointer;
-    border:  0;
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
 }
-element normal.normal {
-    background-color: #1f1f28;
-    text-color:       #dcd7ba;
-}
-element selected.normal {
-    background-color: var(selected-normal-background);
-    text-color:       #dcd7ba;
-}
-element alternate.normal {
-    background-color: #1f1f28;
-    text-color:       #dcd7ba;
-}
-element-text {
-    highlight:        #7e9cd8;
-    text-color:       #dcd7ba;
-}
-element-icon {
-    size:                        2em;
-    cursor:                      inherit;
-    background-color:            transparent;
-    text-color:                  inherit;
-}
+
 window {
-    background-color:   #16161d;
-    border:             2;
-    border-color:       #7e9cd8;
-    border-radius:      15;
-    width: 600px;
-}
-mainbox {
-    border:  0;
-    background-color: #16161d;
-}
-message {
-    padding:      1px ;
-    border-color: var(separatorcolor);
-    border:       2px dash 0px 0px ;
-}
-textbox {
-    background-color: #1f1f28;
-    text-color: #dcd7ba;
-}
-listview {
-    scrollbar:    false;
-    background-color: #1f1f28;
+    height: 500px;
+    border: 3px;
     border-radius: 15px;
-    fixed-height: 0;
-    border:       0;
-    lines: 10;
+    border-color: @border-col;
+    background-color: @bg-col;
 }
-num-filtered-rows {
-  enabled: false;
+
+mainbox {
+    background-color: @bg-col;
 }
-num-rows {
-  enabled: false;
-}
-textbox-num-sep {
-  enabled: false;
-}
+
 inputbar {
-    padding:    20px 20px 10px 25px ;
-    spacing:    0px ;
-    text-color: #dcd7ba;
-    background-color: #16161d;
+    children: [prompt,entry];
+    background-color: @bg-col;
+    border-radius: 5px;
+    padding: 2px;
 }
-case-indicator {
-    spacing:    0;
-    text-color: var(normal-foreground);
-    enabled: false;
-}
-entry {
-    text-color:        #dcd7ba;
-    cursor:            text;
-    spacing:           0;
-    placeholder-color: #727169;
-    placeholder:       " Search";
-}
+
 prompt {
-    enabled: false;
+    background-color: @blue;
+    padding: 6px;
+    text-color: @bg-col;
+    border-radius: 3px;
+    margin: 20px 0px 0px 20px;
 }
+
 textbox-prompt-colon {
-    enabled: false;
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 0px 0px 20px;
+    columns: 1;
+    lines: 10;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5px;
+    background-color: @bg-col;
+    text-color: @fg-col  ;
+}
+
+element-icon {
+    size: 25px;
+}
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-col2  ;
+}
+
+mode-switcher {
+    spacing: 0;
+  }
+
+button {
+    padding: 10px;
+    background-color: @bg-col-light;
+    text-color: @grey;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @bg-col;
+  text-color: @blue;
+}
+
+message {
+    background-color: @bg-col-light;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: @bg-col-light;
 }
