@@ -24,6 +24,7 @@
     "dynamic-order": ["title", "artist"],
     "player-icons": {
       "default": "",
+      "spotify": "",
       "mpv": "",
     },
     "status-icons": {
@@ -136,7 +137,8 @@
       "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""],
     },
     "max-volume": 150,
-    "on-click": "pkill -x pavucontrol || pavucontrol",
+    "on-click": "killall indicator-sound-switcher || indicator-sound-switcher",
+    "on-click-middle": "pkill -x pavucontrol || pavucontrol",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
   },
 

@@ -20,7 +20,7 @@ yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprlan
 
 yes | yay -S swaync envycontrol \
   hyprshot kanata-bin rofi-power-menu \
-  network-manager-applet \
+  network-manager-applet indicator-sound-switcher \
   nautilus-open-any-terminal gnome-keyring \
   kanagawa-gtk-theme-git kanagawa-icon-theme-git bibata-cursor-git
 
