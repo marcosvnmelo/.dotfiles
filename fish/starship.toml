@@ -3,15 +3,15 @@
 add_newline = false
 
 format = """
-[█](fg:#658594 bg:#658594)\
+[█](fg:#8BA4B0 bg:#8BA4B0)\
 $os\
 $username\
-[](fg:#658594 bg:#1F1F28)\
-[](fg:#1F1F28 bg:#2D4F67)\
+[](fg:#8BA4B0 bg:#1F1F28)\
+[](fg:#1F1F28 bg:#252535)\
 $directory\
-[](fg:#2D4F67 bg:#131720)\
+[](fg:#252535 bg:#131720)\
 $git_branch\
-[](fg:#658594 bg:#131720)\
+[](fg:#8BA4B0 bg:#131720)\
 $c\
 $rust\
 $golang\
@@ -21,14 +21,14 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:#658594 bg:#131720)\
+[](fg:#8BA4B0 bg:#131720)\
 $time\
 [ ](fg:#131720)\
 \n$character"""
 
 [os]
 disabled = false
-style = "bg:#658594 fg:#090c0c"
+style = "bg:#8BA4B0 fg:#090c0c"
 
 [os.symbols]
 Windows = "󰍲"
@@ -54,12 +54,12 @@ Pop = ""
 
 [username]
 show_always = true
-style_user = "bg:#658594 fg:#090c0c"
-style_root = "bg:#FF9E3B fg:#090c0c"
+style_user = "bg:#8BA4B0 fg:#090c0c"
+style_root = "bg:#E6C384 fg:#090c0c"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:#658594 bg:#2D4F67"
+style = "fg:#8BA4B0 bg:#252535"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -74,55 +74,55 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol $branch ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol $branch ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [nodejs]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol ($version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol ($version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [c]
 symbol = " "
 style = "bg:#131720"
-format = '[[ $symbol( $version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol( $version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [rust]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol ($version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol ($version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [golang]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol ($version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol ($version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [php]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol ($version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol ($version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [java]
 symbol = " "
 style = "bg:#131720"
-format = '[[ $symbol( $version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol( $version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [kotlin]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol( $version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol( $version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [haskell]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol( $version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol( $version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [python]
 symbol = ""
 style = "bg:#131720"
-format = '[[ $symbol( $version) ](fg:#658594 bg:#131720)]($style)'
+format = '[[ $symbol( $version) ](fg:#8BA4B0 bg:#131720)]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#131720"
-format = '[[  $time ](fg:#7FB4CA bg:#131720)]($style)'
+format = '[[  $time ](fg:#8BA4B0 bg:#131720)]($style)'
