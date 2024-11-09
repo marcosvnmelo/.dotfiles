@@ -26,5 +26,10 @@ mkdir -p "$HOME"/.config/wezterm
 
 ln -s "$HOME"/.dotfiles/wezterm/wezterm.lua "$HOME"/.config/wezterm/wezterm.lua
 
+# Create symbolic link to gnome-terminal redirect to wezterm
+if [[ $INSTALL_OS = 'arch' ]]; then
+  sudo ln -s ~/.dotfiles/wezterm/fake-gnome-terminal.sh /usr/bin/gnome-terminal
+fi
+
 # Set wezterm as default terminal
 # sudo update-alternatives --config x-terminal-emulator
