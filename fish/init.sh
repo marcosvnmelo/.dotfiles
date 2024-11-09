@@ -18,7 +18,9 @@ if [[ $INSTALL_OS = 'popos' ]]; then
   sudo apt install fish -y
 fi
 
-sudo chsh -s /usr/bin/fish "$USER"
+if [[ $INSTALL_OS = 'wsl' ]]; then
+  sudo chsh -s /usr/bin/fish "$USER"
+fi
 
 # Create symbolic link for fish configuration file
 

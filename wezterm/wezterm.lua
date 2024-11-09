@@ -14,6 +14,8 @@ config.font_size = 12
 
 config.window_background_opacity = 0.9
 
+config.default_prog = { "/usr/bin/fish", "-l" }
+
 -- Pop!_OS
 -- config.enable_wayland = false
 -- config.window_decorations = "RESIZE"
