@@ -16,6 +16,7 @@ window#waybar.empty {
 }
 
 #workspaces,
+#mpris,
 #window,
 #tray,
 #custom-notification,
@@ -28,6 +29,12 @@ window#waybar.empty {
   border-radius: 4px;
   padding-left: 8px;
   padding-right: 8px;
+}
+
+#workspaces,
+#mpris {
+  border-radius: 0px;
+  margin-left: 6px;
 }
 
 #tray,
@@ -52,6 +59,8 @@ window#waybar.empty {
 
 window#waybar.floating #workspaces,
 window#waybar.empty #workspaces,
+window#waybar.floating #mpris,
+window#waybar.empty #mpris,
 window#waybar.floating #window,
 window#waybar.empty #window,
 window#waybar.floating #tray,
@@ -92,5 +101,5 @@ window#waybar.empty.eDP-2 #window {
 }
 
 #workspaces button.active {
-  color: #dcd7ba;
+  color: @theme_text_color;
 }
