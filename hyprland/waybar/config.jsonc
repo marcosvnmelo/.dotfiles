@@ -86,8 +86,8 @@
   },
 
   "tray": {
-    "icon-size": 12,
-    "spacing": 5,
+    "icon-size": 13,
+    "spacing": 6,
   },
 
   "bluetooth": {
