@@ -13,7 +13,7 @@ alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 
 # Arch Linux
-alias upd="sudo pacman -Syy && sudo pacman -Su"
+alias upd="yay -Syu"
 
 # Pop!_OS, WSL
 # alias upd="sudo apt update && sudo apt upgrade"
@@ -36,6 +36,15 @@ end
 
 function nv-run -d "Run with nvidia"
     DRI_PRIME=pci-0000_01_00_0 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia $argv
+end
+
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
 end
 
 ## Starship ##
