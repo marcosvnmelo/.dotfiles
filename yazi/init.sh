@@ -16,9 +16,11 @@ fi
 # Create config directory
 mkdir -p ~/.config/yazi/plugins/
 ln -s ~/.dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml
+ln -s ~/.dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml
 ln -s ~/.dotfiles/yazi/init.lua ~/.config/yazi/init.lua
 
 # Install plugins
 ya pack -a Lil-Dank/lazygit
 ya pack -a Rolv-Apneseth/starship
 ya pack -a yazi-rs/plugins:full-border
+ya pack -a marcosvnmelo/kanagawa-dragon
