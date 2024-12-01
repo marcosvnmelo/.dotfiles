@@ -87,3 +87,6 @@ mkdir -p ~/.config/systemd/user
 ln -s ~/.dotfiles/hyprland/kanata/kanata.service ~/.config/systemd/user/kanata.service
 systemctl --user daemon-reload
 systemctl --user enable kanata.service
+
+# Wireplumber config
+ln -s ~/.dotfiles/hyprland/wireplumber ~/.config
