@@ -5,7 +5,7 @@ echo '*           Installing chrome           *'
 echo '*****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yay -S google-chrome
+  yes | yay -S google-chrome
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
