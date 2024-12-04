@@ -7,7 +7,7 @@ echo '*****************************************'
 # Install fish shell
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S fish
+  yes | sudo pacman -S fish zoxide
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
@@ -49,3 +49,9 @@ while read -r plugin <&4; do
 done 4<"$PWD"/fish/plugins
 
 fish -c "nvm install lts"
+
+# Install Zoxide
+
+if [[ $INSTALL_OS = 'popos' ]]; then
+  fish -c "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
+fi
