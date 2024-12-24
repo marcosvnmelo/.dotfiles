@@ -77,7 +77,7 @@
   },
 
   "hyprland/window": {
-    "max-length": 50,
+    "max-length": 40,
     "rewrite": {
       "(.*) - Mozilla Firefox": " $1",
       "(.*) — Zen Browser": "Zen: $1",
