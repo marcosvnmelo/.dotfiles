@@ -14,23 +14,23 @@
 )
 
 (defalias
-  sym-l (multi f24 (tap-hold $tap-time $hold-time esc (layer-toggle symbols)))
+  sym-l (tap-hold $tap-time $hold-time esc (layer-toggle symbols))
 
   a-mod (tap-hold $tap-time $hold-time a lmet)
-  s-mod (multi f24 (tap-hold $tap-time $hold-time s lalt))
-  d-mod (multi f24 (tap-hold $tap-time $hold-time d lsft))
-  f-mod (multi f24 (tap-hold $tap-time $hold-time f lctl))
+  s-mod (tap-hold $tap-time $hold-time s lalt)
+  d-mod (tap-hold $tap-time $hold-time d lsft)
+  f-mod (tap-hold $tap-time $hold-time f lctl)
 
-  j-mod (multi f24 (tap-hold $tap-time $hold-time j rctl))
-  k-mod (multi f24 (tap-hold $tap-time $hold-time k rsft))
-  l-mod (multi f24 (tap-hold $tap-time $hold-time l ralt))
-  ;-mod (multi f24 (tap-hold $tap-time $hold-time ; rmet))
+  j-mod (tap-hold $tap-time $hold-time j rctl)
+  k-mod (tap-hold $tap-time $hold-time k rsft)
+  l-mod (tap-hold $tap-time $hold-time l ralt)
+  ;-mod (tap-hold $tap-time $hold-time ; rmet)
 
-  del-mod (multi f24 del)
-  left-mod (multi f24 left)
-  down-mod (multi f24 down)
-  up-mod (multi f24 up)
-  right-mod (multi f24 right)
+  del-mod del
+  left-mod left
+  down-mod down
+  up-mod up
+  right-mod right
 )
 
 (deflayer base
