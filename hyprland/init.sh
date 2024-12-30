@@ -19,7 +19,7 @@ yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprlan
   nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype
 
 yes | yay -S swaync envycontrol \
-  hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git \
+  hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
   network-manager-applet indicator-sound-switcher \
   nautilus-open-any-terminal gnome-keyring \
   kanagawa-gtk-theme-git kanagawa-icon-theme-git bibata-cursor-git
