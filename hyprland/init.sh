@@ -14,12 +14,12 @@ echo '*********************************************'
 
 # Hyprland packages
 yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
-  hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland rofimoji \
+  hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg \
   nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype
 
 yes | yay -S swaync envycontrol \
-  hyprshot-git kanata-bin rofi-power-menu \
+  hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git \
   network-manager-applet indicator-sound-switcher \
   nautilus-open-any-terminal gnome-keyring \
   kanagawa-gtk-theme-git kanagawa-icon-theme-git bibata-cursor-git
