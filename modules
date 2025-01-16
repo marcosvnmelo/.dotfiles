@@ -6,6 +6,7 @@ tmux
 pnpm
 nvim
 lazygit
+lazydocker
 delta
 gh
 zip
