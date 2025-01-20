@@ -16,7 +16,7 @@ echo '*********************************************'
 yes | sudo pacman -S hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
   hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg \
-  nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype
+  nautilus python-nautilus file-roller loupe pavucontrol cliphist gtk-engine-murrine gnome-themes-extra wtype nwg-displays
 
 yes | yay -S swaync envycontrol \
   hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
