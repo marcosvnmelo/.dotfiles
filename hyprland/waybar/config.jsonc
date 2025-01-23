@@ -80,8 +80,9 @@
     "max-length": 40,
     "rewrite": {
       "(.*) - Mozilla Firefox": " $1",
-      "(.*) — Zen Browser": "Zen: $1",
+      "(.*) — Zen Browser": "Zen Browser",
       "(.*) - fish": "> [$1]",
+      "tmux(.*)": "  Tmux",
     },
   },
 
