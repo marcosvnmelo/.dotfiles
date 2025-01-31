@@ -54,7 +54,7 @@ enable_transience
 
 ## nvm ##
 
-set --universal nvm_default_version v22.12.0
+set --universal nvm_default_version v22.13.1
 
 ## go ##
 
