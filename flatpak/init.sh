@@ -12,6 +12,8 @@ flatpak install flathub com.github.tchx84.Flatseal \
   com.rtosta.zapzap \
   dev.vencord.Vesktop \
   app.github.zen_browser.zen \
-  it.mijorus.gearlever
+  it.mijorus.gearlever \
+  io.beekeeperstudio.Studio \
+  io.dbeaver.DBeaverCommunity
 
 xdg-settings set default-web-browser app.github.zen_browser.zen.desktop
