@@ -9,6 +9,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 flatpak install flathub com.github.tchx84.Flatseal \
+  com.rtosta.zapzap \
   dev.vencord.Vesktop \
   app.github.zen_browser.zen \
   it.mijorus.gearlever
