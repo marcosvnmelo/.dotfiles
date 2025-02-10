@@ -17,7 +17,7 @@ fi
 mkdir -p ~/.config/yazi/plugins/
 ln -s ~/.dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml
 ln -s ~/.dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml
-ln -s ~/.dotfiles/yazi/init.lua ~/.config/yazi/init.lua
+ln -s ~/.dotfiles/yazi/main.lua ~/.config/yazi/main.lua
 
 # Install plugins
 ya pack -a Lil-Dank/lazygit
