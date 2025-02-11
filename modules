@@ -21,7 +21,8 @@ chrome
 # jq
 # yq
 rust
-wezterm
+# wezterm
+ghostty
 vscode
 docker
 flatpak
