@@ -20,3 +20,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Create a symlink for the tmux configuration file
 
 ln -s "$HOME"/.dotfiles/tmux/.tmux.conf "$HOME"/.tmux.conf
+ln -s "$HOME"/.dotfiles/tmux/open-project.sh "$HOME"/.local/bin/op
