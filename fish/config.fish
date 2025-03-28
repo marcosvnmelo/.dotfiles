@@ -1,3 +1,4 @@
+# @fish-lsp-disable 2002
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -7,7 +8,7 @@ set fish_greeting
 ## Aliases ##
 
 alias cat="bat"
-alias ls="eza --icons=always"
+alias ls="eza --icons=always --color=always"
 alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
@@ -57,7 +58,6 @@ enable_transience
 set --universal nvm_default_version v22.14.0
 
 ## go ##
-
 set -gx PATH $PATH /usr/local/go/bin
 set -gx GOPATH $HOME/go
 set -gx PATH $PATH $GOPATH/bin
