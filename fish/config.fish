@@ -82,3 +82,8 @@ set -gx PATH $PATH "$HOME/flutter/bin"
 
 ## Local bin ##
 set -gx PATH $PATH ~/.local/bin
+
+## FZF plugin config ##
+set fzf_diff_highlighter delta --paging=never --width=20
+set fzf_preview_dir_cmd eza --all --color=always --icons=always
+fzf_configure_bindings --directory=ctrl-t --git_status=ctrl-g
