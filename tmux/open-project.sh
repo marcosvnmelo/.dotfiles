@@ -63,10 +63,14 @@ if [ ! -f "$paths_file" ]; then
   exit 1
 fi
 
+# Get project paths from file
 project_paths=$(jq -r '.paths[]' "$paths_file" | sed "s|~|$HOME|")
+extra_paths=$(jq -r '.extra_paths[]' "$paths_file" | sed "s|~|$HOME|")
+
 project_list=$(echo "$project_paths" | while read -r path; do
   find "$path" -mindepth 1 -maxdepth 1 -type d
 done)
+project_list=$(echo "$project_list $extra_paths" | tr ' ' '\n')
 
 project_dir=$(echo "$project_list" | fzf --height 40% --reverse --header "Select a project")
 
