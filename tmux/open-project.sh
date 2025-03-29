@@ -18,9 +18,11 @@ if [ "$1" = "--preset" ]; then
     project_dir=$(_jq '.project_dir' | sed "s|~|$HOME|")
 
     first_window=$(_jq '.windows[0].name')
+    first_window_cmd=$(_jq '.windows[0].cmd')
 
     if ! tmux has-session -t=$session_name 2>/dev/null; then
       tmux new -ds $session_name -n $first_window -c $project_dir
+      tmux send-keys -t $session_name:0 "$first_window_cmd" C-m
     else
       continue
     fi
@@ -32,17 +34,27 @@ if [ "$1" = "--preset" ]; then
 
       window_name=$(__jq '.name')
       window_dir=$(__jq '.dir' | sed "s|~|$HOME|")
+      window_cmd=$(__jq '.cmd')
 
       if [ "$window_dir" = "null" ]; then
         window_dir=$project_dir
       fi
 
-      if [ "$window_name" != "$first_window" ]; then
-        if [ -z "$window_dir" ]; then
-          tmux new-window -t $session_name -n $window_name
-        else
-          tmux new-window -t $session_name -n $window_name -c $window_dir
-        fi
+      if [ "$window_cmd" = "null" ]; then
+        window_cmd=
+      fi
+
+      if [ "$window_name" == "$first_window" ]; then
+        continue
+      fi
+
+      tmux new-window \
+        -t $session_name \
+        -n $window_name \
+        $(if [ -z "$window_dir" ]; then echo ""; else echo "-c $window_dir"; fi)
+
+      if [ -n "$window_cmd" ]; then
+        tmux send-keys -t $session_name:$window_name "$window_cmd" C-m
       fi
     done
   done
