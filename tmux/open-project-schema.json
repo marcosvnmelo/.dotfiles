@@ -24,6 +24,9 @@
                 },
                 "dir": {
                   "type": "string"
+                },
+                "cmd": {
+                  "type": "string"
                 }
               },
               "required": ["name"]
