@@ -94,7 +94,7 @@ project_name=$(basename "$project_dir" | tr . _)
 tmux_running=$(pgrep tmux)
 
 # If not in tmux, start a new session
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+if [[ -z $TMUX ]]; then
   tmux new-session -s $project_name -c $project_dir
   exit 0
 fi
