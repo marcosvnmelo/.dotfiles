@@ -24,15 +24,15 @@ fi
 
 # Create symbolic link for fish configuration file
 
-mkdir -p "$HOME"/.config/fish
+mkdir -p ~/.config/fish
 
-ln -s "$HOME"/.dotfiles/fish/config.fish "$HOME"/.config/fish/config.fish
+ln -s ~/.dotfiles/fish/config.fish ~/.config/fish/config.fish
 
 # Install starship prompt
 
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-ln -s "$HOME"/.dotfiles/fish/starship.toml "$HOME"/.config/starship.toml
+ln -s ~/.dotfiles/fish/starship.toml ~/.config/starship.toml
 
 # Install fisher
 
@@ -56,3 +56,7 @@ fish -c "npm install -g fish-lsp"
 if [[ $INSTALL_OS = 'popos' ]]; then
   fish -c "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
 fi
+
+# Install custom fish completions
+mkdir -p ~/.config/fish/completions
+ln -s ~/.dotfiles/fish/open-project.fish ~/.config/fish/completions/op.fish
