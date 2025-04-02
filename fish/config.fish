@@ -87,3 +87,7 @@ set -gx PATH $PATH ~/.local/bin
 set fzf_diff_highlighter delta --paging=never --width=20
 set fzf_preview_dir_cmd eza --all --color=always --icons=always
 fzf_configure_bindings --directory=ctrl-t --git_status=ctrl-g
+
+## Custom key bindings ##
+bind ctrl-o '~/.dotfiles/tmux/open-project.sh'
+bind ctrl-shift-o '~/.dotfiles/tmux/open-project.sh --preset'
