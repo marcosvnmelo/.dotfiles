@@ -59,7 +59,7 @@ if [ "$1" = "--preset" ]; then
     done
   done
 
-  first_session=$(jq -r '.[0].session_name' "$preset_file")
+  first_session=$(jq -r '.projects[0].session_name' "$preset_file")
 
   # Attach to the first session
   tmux attach -t $first_session:0
