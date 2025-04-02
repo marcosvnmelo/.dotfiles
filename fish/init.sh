@@ -56,7 +56,3 @@ fish -c "npm install -g fish-lsp"
 if [[ $INSTALL_OS = 'popos' ]]; then
   fish -c "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
 fi
-
-# Install custom fish completions
-mkdir -p ~/.config/fish/completions
-ln -s ~/.dotfiles/fish/open-project.fish ~/.config/fish/completions/op.fish
