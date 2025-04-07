@@ -14,7 +14,7 @@ alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 
 # Arch Linux
-alias upd="yay -Syu"
+alias upd="flatpak update && yay -Syu"
 
 # Pop!_OS, WSL
 # alias upd="sudo apt update && sudo apt upgrade"
