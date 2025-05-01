@@ -36,7 +36,7 @@ ln -s "$HOME"/.dotfiles/hyprland/hypr "$HOME"/.config/hypr
 ln -s "$HOME"/.dotfiles/hyprland/rofi "$HOME"/.config/rofi
 
 # GTK theme
-gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-Borderless
+gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-Dark-Dragon
 gsettings set org.gnome.desktop.interface icon-theme Kanagawa
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
@@ -51,7 +51,7 @@ flatpak override --user --filesystem=~/.themes
 flatpak override --user --filesystem=~/.icons
 flatpak override --user --env=XCURSOR_PATH=~/.icons
 
-cp -r /usr/share/themes/Kanagawa-Borderless ~/.themes
+cp -r /usr/share/themes/Kanagawa-Dark-Dragon ~/.themes
 cp -r /usr/share/icons/Kanagawa ~/.icons
 cp -r /usr/share/icons/Bibata-Modern-Classic ~/.icons
 
