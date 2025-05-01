@@ -57,33 +57,33 @@ window#waybar.empty {
   border-radius: 4px 0 0 4px;
 }
 
-window#waybar.floating #workspaces,
-window#waybar.empty #workspaces,
-window#waybar.floating #mpris,
-window#waybar.empty #mpris,
-window#waybar.floating #window,
-window#waybar.empty #window,
-window#waybar.floating #tray,
-window#waybar.empty #tray,
-window#waybar.floating #custom-notification,
-window#waybar.empty #custom-notification,
-window#waybar.floating #backlight,
-window#waybar.empty #backlight,
-window#waybar.floating #battery,
-window#waybar.empty #battery,
-window#waybar.floating #pulseaudio,
-window#waybar.empty #pulseaudio,
-window#waybar.floating #bluetooth,
-window#waybar.empty #bluetooth,
-window#waybar.floating #network,
-window#waybar.empty #network,
-window#waybar.floating #clock,
-window#waybar.empty #clock {
-  background: alpha(@theme_bg_color, 0.8);
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border-radius: 4px;
-}
+/* window#waybar.floating #workspaces, */
+/* window#waybar.empty #workspaces, */
+/* window#waybar.floating #mpris, */
+/* window#waybar.empty #mpris, */
+/* window#waybar.floating #window, */
+/* window#waybar.empty #window, */
+/* window#waybar.floating #tray, */
+/* window#waybar.empty #tray, */
+/* window#waybar.floating #custom-notification, */
+/* window#waybar.empty #custom-notification, */
+/* window#waybar.floating #backlight, */
+/* window#waybar.empty #backlight, */
+/* window#waybar.floating #battery, */
+/* window#waybar.empty #battery, */
+/* window#waybar.floating #pulseaudio, */
+/* window#waybar.empty #pulseaudio, */
+/* window#waybar.floating #bluetooth, */
+/* window#waybar.empty #bluetooth, */
+/* window#waybar.floating #network, */
+/* window#waybar.empty #network, */
+/* window#waybar.floating #clock, */
+/* window#waybar.empty #clock { */
+/*   background: alpha(@theme_bg_color, 0.8); */
+/*   margin-top: 2px; */
+/*   margin-bottom: 2px; */
+/*   border-radius: 4px; */
+/* } */
 
 window#waybar.empty.eDP-1 #window,
 window#waybar.empty.eDP-2 #window {
