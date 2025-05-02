@@ -6,7 +6,7 @@ echo '*******************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
   # Install Docker
-  yes | sudo pacman -S docker
+  yes | sudo pacman -S docker docker-compose
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
