@@ -20,7 +20,7 @@ chrome
 # ngrok
 # jq
 # yq
-rust
+# rust
 # wezterm
 ghostty
 vscode
