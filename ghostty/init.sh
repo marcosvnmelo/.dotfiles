@@ -18,6 +18,7 @@ fi
 
 mkdir -p ~/.config/ghostty
 
+rm ~/.config/ghostty/config
 ln -s ~/.dotfiles/ghostty/config.conf ~/.config/ghostty/config
 
 # Create symbolic link to gnome-terminal redirect to ghostty
