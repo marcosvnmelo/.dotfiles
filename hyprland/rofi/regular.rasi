@@ -1,10 +1,10 @@
 configuration {
-  modi:                 "drun,window,run";
-  show-icons:           true;
+  modi:                 "drun,run,filebrowser,window";
+  dpi:                  90;
+  show-icons:           false;
   icon-theme:           "Papirus";
-  terminal:             "ghostty";
+  terminal:             "footclient";
   window-format:        "{w} · {c} · {t}";
-  drun-display-format:  "{name}";
   disable-history:      false;
   max-history-size:     50;
 
@@ -21,16 +21,15 @@ configuration {
 @import "colors"
 
 window {
-  /*Removing height make the window height equal to num of opts*/
-  /*height: 40%;*/
+  height: 60%;
   width: 40%;
   orientation: vertical;
   location: center;
   anchor: center;
   x-offset: 0px;
   y-offset: 0px;
-  margin: 8px;
-  // padding: 8px;
+  margin: 4px;
+  padding: 4px;
   border: 3px;
   border-radius: 10px;
   spacing: 0px;
@@ -39,78 +38,52 @@ window {
 
 mainbox {
   spacing: 4px;
-  children: [ inputbar, mode-switcher, listview ];
+  children: [ inputbar, listview ];
 }
 
 inputbar {
   spacing: 3px;
   /*padding: top right bottom left*/
   padding: 0px;
-  children: [ textbox-prompt-colon, entry ];
+  children: [ prompt, entry ];
 }
 
 prompt {
   padding: 3px;
-  border-radius: 5px;
-}
-
-textbox-prompt-colon {
-  expand: false;
-  padding: 3px 18px;
-  border-radius: 5px 0px 0px 0px;
-  str: ""; /* */
-  horizontal-align: 0.5;
-  vertical-align: 0.5;
+  border-radius: 4px 0px 0px 0px;
 }
 
 entry {
-  placeholder:  " Search...";
-  padding: 5px;
-  border-radius: 5px;
-}
-
-mode-switcher {
-  spacing: 3px;
-  orientation: horizontal;
-}
-
-button {
+  placeholder:  "Search...";
   padding: 3px;
   border-radius: 0px;
 }
 
 listview {
-  lines: 8;
-  columns: 1;
+  lines: 12;
   spacing: 3px;
   scrollbar: false;
   cycle: false;
-  dynamic: false;
   fixed-height: false;
-  spacing: 0px;
-  /* List view has the dash border, Remove it here */
-  /*border: 0px;*/
+  dynamic: false; // Shrinks windows to occupy search result
   margin: 0px;
-  // padding: 8px;
+  padding: 0px;
   border: 0px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0px;
 }
 
 element {
   border: 0px;
-  // border-radius: 5px;
+  border-radius: 0px;
   padding: 3px;
-
-  children: [ element-icon, element-text ];
-  orientation: horizontal;
 }
 
 element-text {
-  padding: 0px 2em;
   horizontal-align: 0;
   vertical-align: 0.5;
 }
 
 element-icon {
-  size: 2em;
+  width: 2em;
+  height: 1.5em;
 }
