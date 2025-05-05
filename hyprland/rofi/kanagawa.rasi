@@ -1,11 +1,11 @@
 * {
-    bg-col:  rgba(31, 31, 40, 90%);
-    bg-col-light: rgba(31, 31, 40, 90%);
+    bg-col:  rgba(24, 22, 22, 100%);
+    bg-col-light: rgba(24, 22, 22, 100%);
     border-col: var(blue);
-    selected-col: rgba(31, 31, 40, 90%);
+    selected-col: rgba(24, 22, 22, 100%);
     blue: rgba(127, 180, 202, 90%);
-    fg-col: rgba(197, 201, 197, 90%);
-    fg-col2: rgba(196, 116, 110, 90%);
+    fg-col: rgba(242, 235, 188, 90%);
+    fg-col2: var(blue);
     grey: rgba(197, 201, 197, 90%);
 
     width: 600;
@@ -37,7 +37,7 @@ inputbar {
 }
 
 prompt {
-    background-color: @blue;
+    background-color: @fg-col;
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;
@@ -107,6 +107,6 @@ message {
 textbox {
     padding: 6px;
     margin: 20px 0px 0px 20px;
-    text-color: @blue;
+    text-color: @fg-col;
     background-color: @bg-col-light;
 }
