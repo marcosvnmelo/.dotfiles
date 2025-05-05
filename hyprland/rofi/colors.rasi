@@ -121,4 +121,3 @@ element alternate.active {
   text-color:       @foreground;
 }
 
-@import "~/.cache/hellwal/rofi.rasi"
