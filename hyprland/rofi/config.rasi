@@ -17,6 +17,13 @@ configuration {
 	display-ssh:          "󰣀 SSH";
 	display-keys:         " Keys";
   display-vscode:       " VSCode";
+
+  run,drun,window {
+    fallback-icon: "application-x-executable";
+  }
+  vscode {
+    fallback-icon: "visual-studio-code";
+  }
 }
 
 @import "colors"
