@@ -56,11 +56,11 @@ listview {
   margin: 0px;
   /* List view has the dash border, Remove it here */
   border: 0px;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 element {
   border: 0px;
-  border-radius: 10px;
+  border-radius: 0px;
   padding: 5px;
 }
