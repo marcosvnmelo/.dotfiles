@@ -2,7 +2,7 @@
 
 if [ -n "$1" ]; then
   project_path=$(echo "$1" | sed "s|~|$HOME|")
-  xdg-open "vscode://$project_path"
+  code "$project_path"
 
   exit 0
 fi
