@@ -89,6 +89,5 @@ element-text {
 }
 
 element-icon {
-  width: 2em;
-  height: 1.5em;
+  size: 2em;
 }
