@@ -1,7 +1,6 @@
 configuration {
   modi:                 "drun,window,run,vscode:~/.config/rofi/rofi-vscode.sh";
   show-icons:           true;
-  icon-theme:           "Papirus";
   terminal:             "ghostty";
   window-format:        "{w} · {c} · {t}";
   drun-display-format:  "{name}";
