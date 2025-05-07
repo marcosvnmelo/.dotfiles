@@ -17,6 +17,7 @@ configuration {
 	display-ssh:          "󰣀 SSH";
 	display-keys:         " Keys";
   display-calc:         " Calc";
+  display-cliphist-rofi-img : " Clipboard";
 }
 
 @import "colors"

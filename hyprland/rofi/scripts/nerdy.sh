@@ -1,0 +1,1 @@
+../rofi-nerdy/rofi-nerdy.sh
