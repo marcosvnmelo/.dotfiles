@@ -14,6 +14,7 @@ flatpak install flathub com.github.tchx84.Flatseal \
   app.zen_browser.zen \
   it.mijorus.gearlever \
   io.beekeeperstudio.Studio \
-  io.dbeaver.DBeaverCommunity
+  io.dbeaver.DBeaverCommunity \
+  com.github.unrud.VideoDownloader
 
 xdg-settings set default-web-browser app.zen_browser.zen.desktop
