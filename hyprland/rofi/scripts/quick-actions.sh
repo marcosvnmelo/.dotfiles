@@ -12,7 +12,7 @@ options=(
 )
 
 # Present main menu with proper formatting
-chosen_action=$(printf "%s\n" "${options[@]}" | rofi -dmenu -i -config regular -p "Quick Actions")
+chosen_action=$(printf "%s\n" "${options[@]}" | rofi -dmenu -i -config regular -p "󰅒 Quick Actions")
 
 # Exit if no selection
 if [[ -z "$chosen_action" ]]; then
@@ -29,6 +29,9 @@ URLS=(
   ["Github"]="https://github.com/search?q="
   ["Stackoverflow"]="http://stackoverflow.com/search?q="
   ["Duckduckgo"]="https://www.duckduckgo.com/?q="
+  ["ArchPackages"]="https://archlinux.org/packages/?q="
+  ["AUR"]="https://aur.archlinux.org/packages?O=0&SeB=nd&outdated=&SB=p&SO=d&PP=50&submit=Go&K="
+  ["Translate"]="https://translate.google.com/?sl=auto&tl=en&op=translate&text="
 )
 
 gen_url_list() {
@@ -38,6 +41,9 @@ gen_url_list() {
   echo "Github"
   echo "Stackoverflow"
   echo "Duckduckgo"
+  echo "ArchPackages"
+  echo "AUR"
+  echo "Translate"
 }
 
 if [[ "$chosen_action" == "${actions["search"]}" ]]; then
