@@ -2,10 +2,18 @@
   "layer": "top",
   "position": "top",
   "height": 30,
-  "output": ["eDP-1", "eDP-2"],
+  "output": [
+    "eDP-1",
+    "eDP-2"
+  ],
   "mode": "dock",
-  "modules-left": ["hyprland/workspaces", "mpris"],
-  "modules-center": ["hyprland/window"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "mpris"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
     "tray",
     "custom/notification",
@@ -15,24 +23,25 @@
     "pulseaudio#source",
     "bluetooth",
     "network",
-    "clock",
+    "clock"
   ],
-
   "mpris": {
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
-    "dynamic-order": ["title", "artist"],
+    "dynamic-order": [
+      "title",
+      "artist"
+    ],
     "player-icons": {
       "default": "",
       "spotify": "",
-      "mpv": "",
+      "mpv": ""
     },
     "status-icons": {
-      "paused": "",
+      "paused": ""
     },
-    "dynamic-len": 40,
+    "dynamic-len": 40
   },
-
   "clock": {
     "intervel": 60,
     "format": " {:%I:%M %p}",
@@ -47,76 +56,83 @@
         "days": "<span color='#dcd7ba'><b>{}</b></span>",
         "weeks": "<span color='#2d4f67'><b>W{}</b></span>",
         "weekdays": "<span color='#2d4f67'><b>{}</b></span>",
-        "today": "<span color='#c34043'><b><u>{}</u></b></span>",
-      },
+        "today": "<span color='#c34043'><b><u>{}</u></b></span>"
+      }
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
+      "on-scroll-down": "shift_down"
+    }
   },
-
   "backlight": {
     "device": "nvidia_wmi_ec_backlight",
     "format": "{percent}% {icon}",
-    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
-    "tooltip": false,
+    "format-icons": [
+      "󰃞",
+      "󰃝",
+      "󰃟",
+      "󰃠"
+    ],
+    "tooltip": false
   },
-
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{name}: {icon}",
     "tooltip": "false",
     "all-outputs": true,
     "sort-by-number": true,
     "format-icons": {
       "urgent": "",
       "active": "",
-      "default": "",
-    },
+      "default": ""
+    }
   },
-
   "hyprland/window": {
     "max-length": 40,
     "rewrite": {
       "(.*) - Mozilla Firefox": " $1",
       "(.*) — Zen Browser": "Zen Browser",
       "(.*) - fish": "> [$1]",
-      "tmux(.*)": "  Tmux",
-    },
+      "tmux(.*)": "  Tmux"
+    }
   },
-
   "tray": {
     "icon-size": 13,
-    "spacing": 6,
+    "spacing": 6
   },
-
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "󰂲",
     "format-connected": "󰂱 {device_alias}",
     "format-connected-battery": "󰥉 {device_alias} {device_battery_percentage}%",
-    "format-device-preference": ["device1", "device2"], // preference list deciding the displayed device
-    "tooltip-format": "{controller_alias}	{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}	{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}	{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}	{device_address}	{device_battery_percentage}%",
-    "on-click": "pkill -x blueman-manager || blueman-manager",
+    "format-device-preference": [
+      "device1",
+      "device2"
+    ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias} {controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias} {controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias} {device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias} {device_address} {device_battery_percentage}%",
+    "on-click": "pkill -x blueman-manager || blueman-manager"
   },
-
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "format": "{capacity}% {icon} ",
     "format-full": "{icon} ",
     "format-charging": "{capacity}% {icon} ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
-
   "network": {
     "format-wifi": "{essid} ",
     "format-ethernet": "󰈀",
@@ -124,9 +140,8 @@
     "format-linked": "{ifname} (No IP) 󰈀",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "killall nm-connection-editor || nm-connection-editor",
-    "on-click-right": "pkill -x nm-applet || nm-applet --indicator",
+    "on-click-right": "pkill -x nm-applet || nm-applet --indicator"
   },
-
   "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-muted": "󰝟",
@@ -135,23 +150,30 @@
     "tooltip": false,
     "format-icons": {
       "headphone": "",
-      "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""],
+      "default": [
+        "",
+        "",
+        "󰕾",
+        "󰕾",
+        "󰕾",
+        "",
+        "",
+        ""
+      ]
     },
     "max-volume": 150,
     "on-click": "killall indicator-sound-switcher || indicator-sound-switcher",
     "on-click-middle": "pkill -x pavucontrol || pavucontrol",
-    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
-
   "pulseaudio#source": {
     "format": "{format_source}",
     "format-source": "",
     "format-source-muted": "",
     "tooltip": false,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-click-right": "pkill -x pavucontrol || pavucontrol",
+    "on-click-right": "pkill -x pavucontrol || pavucontrol"
   },
-
   "custom/notification": {
     "tooltip": false,
     "format": "{icon}",
@@ -163,13 +185,13 @@
       "inhibited-notification": "<span foreground='red'><sup></sup></span>",
       "inhibited-none": "",
       "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": "",
+      "dnd-inhibited-none": ""
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
-    "escape": true,
-  },
+    "escape": true
+  }
 }
