@@ -87,7 +87,13 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
     exit 1
   fi
 
-  avd=$(echo $avd_list | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
+  gen_avd_list() {
+    for avd in $avd_list; do
+      echo "$avd"
+    done
+  }
+
+  avd=$( (gen_avd_list) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
 
   if [[ -z "$avd" ]]; then
     exit
