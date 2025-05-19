@@ -5,7 +5,7 @@ echo '*            Installing btop            *'
 echo '*****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S btop
+  sudo pacman -S --noconfirm --needed btop
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

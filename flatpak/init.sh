@@ -5,10 +5,10 @@ echo '*         Installing Flatpak         *'
 echo '**************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S flatpak
+  sudo pacman -S --noconfirm --needed flatpak
 fi
 
-flatpak install flathub com.github.tchx84.Flatseal \
+flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   com.rtosta.zapzap \
   dev.vencord.Vesktop \
   app.zen_browser.zen \

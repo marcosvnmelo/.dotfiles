@@ -5,7 +5,7 @@ echo '*         Installing Delta         *'
 echo '************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S git-delta
+  sudo pacman -S --noconfirm --needed git-delta
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

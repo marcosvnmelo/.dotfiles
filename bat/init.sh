@@ -5,7 +5,7 @@ echo '*            Installing bat            *'
 echo '****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S bat
+  sudo pacman -S --noconfirm --needed bat
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

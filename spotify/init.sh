@@ -5,7 +5,7 @@ echo '*           Installing Spotify Client            *'
 echo '**************************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | yay -S spotify-launcher
+  yay -S --noconfirm --needed spotify-launcher
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

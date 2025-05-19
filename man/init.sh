@@ -12,4 +12,4 @@ echo '****************************************'
 echo '*            Installing Man            *'
 echo '****************************************'
 
-yes | sudo pacman -S man-db
+sudo pacman -S --noconfirm --needed man-db

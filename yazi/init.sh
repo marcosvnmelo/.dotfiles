@@ -5,7 +5,7 @@ echo '*           Installing Yazi           *'
 echo '***************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S yazi ffmpegthumbnailer ffmpeg p7zip jq poppler imagemagick
+  sudo pacman -S --noconfirm --needed yazi ffmpegthumbnailer ffmpeg p7zip jq poppler imagemagick
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

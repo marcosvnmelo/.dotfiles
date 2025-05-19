@@ -7,7 +7,7 @@ echo '**************************************'
 # Install wezterm
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | yay -S wezterm-git
+  yay -S --noconfirm --needed wezterm-git
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

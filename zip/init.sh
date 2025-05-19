@@ -5,7 +5,7 @@ echo '*            Installing zip            *'
 echo '****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S zip unzip
+  sudo pacman -S --noconfirm --needed zip unzip
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

@@ -5,7 +5,7 @@ echo '*           Installing Lazygit           *'
 echo '******************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S lazygit
+  sudo pacman -S --noconfirm --needed lazygit
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

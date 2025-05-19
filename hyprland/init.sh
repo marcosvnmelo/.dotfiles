@@ -13,7 +13,7 @@ echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
 # Hyprland packages
-yes | sudo pacman -S hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
+sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
   hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
   gtk-engine-murrine gnome-themes-extra \
@@ -21,7 +21,7 @@ yes | sudo pacman -S hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
   cliphist wtype \
   mpv
 
-yes | yay -S swaync envycontrol \
+yay -S --noconfirm --needed swaync envycontrol \
   hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
   network-manager-applet indicator-sound-switcher \
   arrpc \

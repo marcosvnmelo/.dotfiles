@@ -6,7 +6,7 @@ echo '*****************************************'
 
 # Install tmux
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S tmux
+  sudo pacman -S --noconfirm --needed tmux
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

@@ -7,7 +7,7 @@ echo '*****************************************'
 # Install fish shell
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S fish zoxide
+  sudo pacman -S --noconfirm --needed fish zoxide
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

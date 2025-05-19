@@ -12,12 +12,12 @@ echo '*************************************************'
 echo '*            Installing Arch minimal            *'
 echo '*************************************************'
 
-sudo pacman -Syy
-yes | sudo pacman -S linux-headers
-yes | sudo pacman -S nvidia-dkms nvidia-utils egl-wayland
-yes | sudo pacman -S intel-media-driver vulkan-intel libva-intel-driver
-yes | sudo pacman -S --needed git base-devel
-yes | sudo pacman -S brightnessctl neofetch bluez bluez-utils fuse sof-firmware
+sudo pacman -Syy --noconfirm
+sudo pacman -S --noconfirm --needed linux-headers
+sudo pacman -S --noconfirm --needed nvidia-dkms nvidia-utils egl-wayland
+sudo pacman -S --noconfirm --needed intel-media-driver vulkan-intel libva-intel-driver
+sudo pacman -S --noconfirm --needed git base-devel
+sudo pacman -S --noconfirm --needed brightnessctl neofetch bluez bluez-utils fuse sof-firmware
 
 bash -c "git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay && makepkg -si"
 

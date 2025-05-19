@@ -7,7 +7,7 @@ echo '**************************************'
 # Install ghostty
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S ghostty
+  sudo pacman -S --noconfirm --needed ghostty
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

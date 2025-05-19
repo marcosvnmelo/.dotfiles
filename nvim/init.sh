@@ -5,7 +5,7 @@ echo '*           Installing Neovim           *'
 echo '*****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S neovim
+  sudo pacman -S --noconfirm --needed neovim
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
@@ -25,7 +25,7 @@ git clone https://github.com/marcosvnmelo/nvim-config ~/.config/nvim
 # Install neovim dependencies
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S ripgrep fd fzf
+  sudo pacman -S --noconfirm --needed ripgrep fd fzf
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

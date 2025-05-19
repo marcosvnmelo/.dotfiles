@@ -5,7 +5,7 @@ echo '*         Installing VSCode         *'
 echo '*************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | yay -S visual-studio-code-bin
+  yay -S --noconfirm --needed visual-studio-code-bin
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

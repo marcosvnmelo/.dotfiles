@@ -14,7 +14,7 @@ echo '***********************************'
 
 # Install Rustup
 
-yes | sudo pacman -S rustup
+sudo pacman -S --noconfirm --needed rustup
 
 # Install Rust
 rustup default stable

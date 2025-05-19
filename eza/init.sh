@@ -5,7 +5,7 @@ echo '*            Installing eza            *'
 echo '****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S eza
+  sudo pacman -S --noconfirm --needed eza
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then

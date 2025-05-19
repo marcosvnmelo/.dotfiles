@@ -5,7 +5,7 @@ echo '*         Installing GitHub CLI         *'
 echo '*****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yes | sudo pacman -S github-cli
+  sudo pacman -S --noconfirm --needed github-cli
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
