@@ -105,11 +105,7 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
     exit
   fi
 
-  if [[ "$gpu_mode" == "host" ]]; then
-    DRI_PRIME=pci-0000_01_00_0 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia
-  fi
-
-  nohup $emulator_path "@$avd" -no-snapshot -gpu "${GPU_MODES[$gpu_mode]}" >/dev/null 2>&1 &
+  tmux new-session -d -s android-emulator "export DRI_PRIME=0; $emulator_path @$avd -no-boot-anim -no-snapshot -gpu ${GPU_MODES[$gpu_mode]}"
 
   exit
 fi
