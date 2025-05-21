@@ -87,10 +87,14 @@ sudo usermod -aG input $USER
 sudo usermod -aG uinput $USER
 echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee -a /etc/udev/rules.d/99-input.rules
 sudo modprobe uinput
-mkdir -p ~/.config/systemd/user
-ln -s ~/.dotfiles/hyprland/kanata/kanata.service ~/.config/systemd/user/kanata.service
-systemctl --user daemon-reload
-systemctl --user enable kanata.service
 
 # Wireplumber config
 ln -s ~/.dotfiles/hyprland/wireplumber ~/.config
+
+# Systemd config
+mkdir -p ~/.config/systemd/user
+
+ln -s ~/.dotfiles/hyprland/systemd/kanata.service ~/.config/systemd/user/kanata.service
+
+systemctl --user daemon-reload
+systemctl --user enable kanata.service
