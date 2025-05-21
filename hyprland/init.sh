@@ -95,6 +95,8 @@ ln -s ~/.dotfiles/hyprland/wireplumber ~/.config
 mkdir -p ~/.config/systemd/user
 
 ln -s ~/.dotfiles/hyprland/systemd/kanata.service ~/.config/systemd/user/kanata.service
+ln -s ~/.dotfiles/hyprland/systemd/kill-adb-on-logout.service ~/.config/systemd/user/kill-adb-on-logout.service
 
 systemctl --user daemon-reload
 systemctl --user enable kanata.service
+systemctl --user enable kill-adb-on-logout.service
