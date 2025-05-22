@@ -48,8 +48,9 @@ while read -r plugin <&4; do
   fish -c "fisher install $plugin"
 done 4<"$PWD"/fish/plugins
 
-fish -c "nvm install lts"
-fish -c "npm install -g fish-lsp"
+fish -c "nvm install lts && \
+  npm install -g fish-lsp && \
+  fish-lsp complete > ~/.config/fish/completions/fish-lsp.fish"
 
 # Install Zoxide
 
