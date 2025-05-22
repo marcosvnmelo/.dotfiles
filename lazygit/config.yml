@@ -27,3 +27,9 @@ git:
   paging:
     colorArg: always
     pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+customCommands:
+  - key: 'O'
+    context: 'status'
+    command: 'gh repo view --web'
+    loadingText: 'Opening in browser...'
+    output: terminal
