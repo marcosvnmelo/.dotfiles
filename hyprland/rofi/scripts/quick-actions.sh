@@ -105,7 +105,11 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
     exit
   fi
 
-  tmux new-session -d -s android-emulator "export DRI_PRIME=0; $emulator_path @$avd -no-boot-anim -no-snapshot -gpu ${GPU_MODES[$gpu_mode]}"
+  tmux new-session -d -s android-emulator \
+    -e LIBVA_DRIVER_NAME=nvidia \
+    -e GBM_BACKEND=nvidia-drm \
+    -e __GLX_VENDOR_LIBRARY_NAME=nvidia \
+    "$emulator_path \@$avd -no-boot-anim -no-snapshot -gpu ${GPU_MODES[$gpu_mode]}"
 
   exit
 fi
