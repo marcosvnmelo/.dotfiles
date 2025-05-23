@@ -32,4 +32,7 @@ if [[ $INSTALL_OS = 'popos' ]]; then
   sudo apt install -y gcc ripgrep fd-find fzf build-essential
 fi
 
-fish -c "nvm use lts && pnpm i -g neovim tree-sitter tree-sitter-cli"
+fish -c "nvm use lts && \
+  pnpm i -g neovim tree-sitter tree-sitter-cli \
+  cspell @cspell/dict-pt-br && \
+  cspell link add @cspell/dict-pt-br"
