@@ -17,4 +17,6 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   io.dbeaver.DBeaverCommunity \
   com.github.unrud.VideoDownloader
 
+# Zen browser
 xdg-settings set default-web-browser app.zen_browser.zen.desktop
+flatpak override --user --env=MOZ_DISABLE_WAYLAND_PROXY=1 app.zen_browser.zen
