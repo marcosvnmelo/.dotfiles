@@ -54,4 +54,12 @@ fish -c "nvm install lts && \
   npm install -g fish-lsp && \
   fish-lsp complete > ~/.config/fish/completions/fish-lsp.fish"
 
+# Install completions
 
+get_completions_list() {
+  ls "$CURRENT_DIR"/completions | xargs echo
+}
+
+for completion in $(get_completions_list); do
+  ln -sf ~/.dotfiles/fish/completions/$completion ~/.config/fish/completions/$completion
+done
