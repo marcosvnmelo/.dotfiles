@@ -58,10 +58,13 @@ sudo mkdir /etc/sddm.conf.d
 sudo ln -sf ~/.dotfiles/hyprland/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
 
 # Sddm theme
-git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme ~/sddm-kanagawa-dragon-theme
+mkdir -p /tmp/dotfiles
+
+git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme /tmp/dotfiles/sddm-theme
+
 sudo mkdir -p /usr/share/sddm/themes
-sudo cp -r ~/sddm-kanagawa-dragon-theme/kanagawa-dragon /usr/share/sddm/themes
-sudo rm -r ~/sddm-kanagawa-dragon-theme
+sudo cp -r /tmp/dotfiles/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
+sudo rm -r /tmp/dotfiles
 
 # Code flags
 sudo ln -sf ~/.dotfiles/hyprland/code-flags.conf ~/.config/code-flags.conf
