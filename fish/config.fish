@@ -12,6 +12,7 @@ alias ls="eza --icons=always --color=always"
 alias filesize="du -sh * | sort -h"
 alias foldersize="du -h -d 1 ."
 alias vim="nvim"
+alias neofetch="fastfetch"
 
 # Arch Linux
 alias upd="flatpak update && yay -Syu"
