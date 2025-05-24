@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS != 'arch' ]]; then
   echo '*****************************************************'
   echo "*            Ignoring Man on $INSTALL_OS            *"
   echo '*****************************************************'

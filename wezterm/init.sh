@@ -11,24 +11,24 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
-  curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+  if [[ -z $(which wezterm) ]]; then
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
 
-  echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+  fi
 
-  sudo apt update -y
-
-  sudo apt install wezterm-nightly -y
+  sudo apt update -y && sudo apt install wezterm-nightly -y
 fi
 
 # Create symbolic link for wezterm configuration file
 
-mkdir -p "$HOME"/.config/wezterm
+mkdir -p ~/.config/wezterm
 
-ln -s "$HOME"/.dotfiles/wezterm/wezterm.lua "$HOME"/.config/wezterm/wezterm.lua
+ln -sf ~/.dotfiles/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
 # Create symbolic link to gnome-terminal redirect to wezterm
 if [[ $INSTALL_OS = 'arch' ]]; then
-  sudo ln -s ~/.dotfiles/wezterm/fake-gnome-terminal.sh /usr/bin/gnome-terminal
+  sudo ln -sf ~/.dotfiles/wezterm/fake-gnome-terminal.sh /usr/bin/gnome-terminal
 fi
 
 # Set wezterm as default terminal

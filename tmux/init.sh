@@ -15,7 +15,13 @@ fi
 
 # Clone Tmux Plugin Manager
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [[ -d ~/.tmux/plugins/tpm ]]; then
+  echo "Tmux Plugin Manager already installed"
+  echo "Updating Tmux Plugin Manager"
+  git -C ~/.tmux/plugins/tpm pull
+else
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # Create a symlink for the tmux configuration file
 

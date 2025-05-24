@@ -15,12 +15,16 @@ if [[ $INSTALL_OS = 'popos' ]]; then
 
   rm nvim-linux64.tar.gz
 
-  sudo ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
+  sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/bin/nvim
 fi
 
 mkdir -p ~/.config/nvim
 
-git clone https://github.com/marcosvnmelo/nvim-config ~/.config/nvim
+if [[ -d ~/.config/nvim/init.vim ]]; then
+  echo "Neovim already installed"
+else
+  git clone https://github.com/marcosvnmelo/nvim-config ~/.config/nvim
+fi
 
 # Install neovim dependencies
 

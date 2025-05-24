@@ -4,7 +4,7 @@ echo '*********************************************'
 echo '*           Installing Lazydocker           *'
 echo '*********************************************'
 
-if [[ $INSTALL_OS = 'wsl' ]]; then
+if [[ $INSTALL_IN_WSL ]]; then
   echo '************************************************************'
   echo "*            Ignoring Lazydocker on $INSTALL_OS            *"
   echo '************************************************************'
@@ -12,12 +12,7 @@ if [[ $INSTALL_OS = 'wsl' ]]; then
   return 0 2>/dev/null || exit 0
 fi
 
-$DOTFILES_DIR = $PWD
-cd $HOME
-
-curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
-
-cd $DOTFILES_DIR
+bash -c "curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash"
 
 mkdir -p ~/.config/lazydocker
-ln -s ~/.dotfiles/lazydocker/config.yml ~/.config/lazydocker/config.yml
+ln -sf ~/.dotfiles/lazydocker/config.yml ~/.config/lazydocker/config.yml

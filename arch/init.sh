@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS != 'arch' ]]; then
   echo '**************************************************************'
   echo "*            Ignoring Arch minimal on $INSTALL_OS            *"
   echo '**************************************************************'
@@ -19,6 +19,8 @@ sudo pacman -S --noconfirm --needed intel-media-driver vulkan-intel libva-intel-
 sudo pacman -S --noconfirm --needed git base-devel
 sudo pacman -S --noconfirm --needed brightnessctl neofetch bluez bluez-utils fuse sof-firmware
 
-bash -c "git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay && makepkg -si"
+if [[ -z $(which yay) ]]; then
+  bash -c "git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay && makepkg -si"
+fi
 
 sudo systemctl enable bluetooth

@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 echo '*****************************************'
-echo '*           Installing chrome           *'
+echo '*           Installing Chrome           *'
 echo '*****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
@@ -9,9 +9,12 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
-  curl -L 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' -o 'chrome.deb'
+  mkdir -p /tmp/dotfiles
 
-  sudo apt install --fix-missing ./chrome.deb -y
+  curl -L 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' \
+    -o /tmp/dotfiles/chrome.deb
 
-  rm chrome.deb
+  sudo apt install --fix-missing /tmp/dotfiles/chrome.deb -y
+
+  rm -rf /tmp/dotfiles
 fi

@@ -28,13 +28,15 @@ fi
 
 mkdir -p ~/.config/fish
 
-ln -s ~/.dotfiles/fish/config.fish ~/.config/fish/config.fish
+ln -sf ~/.dotfiles/fish/config.fish ~/.config/fish/config.fish
 
 # Install starship prompt
 
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+if [[ -z $(which starship) ]]; then
+  curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
 
-ln -s ~/.dotfiles/fish/starship.toml ~/.config/starship.toml
+ln -sf ~/.dotfiles/fish/starship.toml ~/.config/starship.toml
 
 # Install fisher
 

@@ -19,11 +19,11 @@ fi
 mkdir -p ~/.config/ghostty
 
 rm ~/.config/ghostty/config
-ln -s ~/.dotfiles/ghostty/config.conf ~/.config/ghostty/config
+ln -sf ~/.dotfiles/ghostty/config.conf ~/.config/ghostty/config
 
 # Create symbolic link to gnome-terminal redirect to ghostty
 if [[ $INSTALL_OS = 'arch' ]]; then
-  sudo ln -s ~/.dotfiles/ghostty/fake-gnome-terminal.sh /usr/bin/gnome-terminal
+  sudo ln -sf ~/.dotfiles/ghostty/fake-gnome-terminal.sh /usr/bin/gnome-terminal
 fi
 
 # Set ghostty as default terminal

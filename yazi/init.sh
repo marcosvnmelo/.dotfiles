@@ -11,13 +11,14 @@ fi
 if [[ $INSTALL_OS = 'popos' ]]; then
   # TODO: implement script
   echo 'Not implemented yet'
+  return 0 2>/dev/null || exit 0
 fi
 
 # Create config directory
 mkdir -p ~/.config/yazi/plugins/
-ln -s ~/.dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml
-ln -s ~/.dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml
-ln -s ~/.dotfiles/yazi/init.lua ~/.config/yazi/init.lua
+ln -sf ~/.dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml
+ln -sf ~/.dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml
+ln -sf ~/.dotfiles/yazi/init.lua ~/.config/yazi/init.lua
 
 # Install plugins
 ya pack -a Lil-Dank/lazygit

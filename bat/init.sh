@@ -9,9 +9,13 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
-  curl -L 'https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-musl_0.24.0_amd64.deb' -o 'bat.deb'
+  mkdir -p /tmp/dotfiles
 
-  sudo dpkg -i bat.deb
+  BAT_VERSION=$(curl -s "https://api.github.com/repos/sharkdp/bat/releases/latest" | grep -Po '"tag_name": "\K[^"]*' | sed 's/v//')
+  curl -L "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat-musl_${BAT_VERSION}_amd64.deb" \
+    -o /tmp/dotfiles/bat.deb
 
-  rm bat.deb
+  sudo dpkg -i /tmp/dotfiles/bat.deb
+
+  rm -rf /tmp/dotfiles
 fi

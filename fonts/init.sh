@@ -5,20 +5,24 @@ echo '*           Installing Fonts           *'
 echo '****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  sudo pacman -S --noconfirm --needed ttf-firacode-nerd noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-nerd-fonts-symbols-mono
+  sudo pacman -S --noconfirm --needed ttf-firacode-nerd \
+    noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
+    ttf-nerd-fonts-symbols-mono
   yay -S --noconfirm --needed inter-font
 fi
 
 if [[ $INSTALL_OS = 'popos' ]]; then
   FONT_VERSION=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | grep -Po '"tag_name": "v\K[^"]*')
-  curl -Lo fira_code.zip "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
-  mkdir tmp
-  unzip fira_code.zip -d tmp
+  mkdir -p /tmp/dotfiles
+  mkdir -p ~/.local/share/fonts
 
-  mkdir -p "$HOME"/.local/share/fonts
-  mv tmp/*.ttf "$HOME"/.local/share/fonts
+  curl -Lo /tmp/dotfiles/fira_code.zip \
+    "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
-  rm fira_code.zip
-  rm -r tmp
+  unzip /tmp/dotfiles/fira_code.zip -d /tmp/dotfiles
+
+  mv /tmp/dotfiles/*.ttf ~/.local/share/fonts
+
+  rm -rf /tmp/dotfiles
 fi
