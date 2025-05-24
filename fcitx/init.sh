@@ -10,4 +10,5 @@ fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
   # TODO: implement script
+  echo 'Not implemented yet'
 fi
