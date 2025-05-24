@@ -37,6 +37,6 @@ if [[ $INSTALL_OS = 'debian' ]]; then
 fi
 
 fish -c "nvm use lts && \
-  pnpm i -g neovim tree-sitter tree-sitter-cli \
+  pnpm add -g --allow-build=tree-sitter-cli neovim tree-sitter tree-sitter-cli \
   cspell @cspell/dict-pt-br && \
   cspell link add @cspell/dict-pt-br"
