@@ -4,6 +4,12 @@ echo '*****************************************'
 echo '*         Installing fish shell         *'
 echo '*****************************************'
 
+IS_FIRST_INSTALL=true
+
+if [[ -n $(which fish) ]]; then
+  IS_FIRST_INSTALL=false
+fi
+
 # Install fish shell
 
 if [[ $INSTALL_OS = 'arch' ]]; then
@@ -42,15 +48,19 @@ ln -sf ~/.dotfiles/fish/starship.toml ~/.config/starship.toml
 
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 
-# Install fish plugins
+if [[ $IS_FIRST_INSTALL = true ]]; then
+  # Install plugins
+  gen_plugins_list() {
+    cat "$CURRENT_DIR"/plugins.list | sed 's/#.*//g' | xargs echo
+  }
 
-gen_plugins_list() {
-  cat "$CURRENT_DIR"/plugins.list | sed 's/#.*//g' | xargs echo
-}
-
-for plugin in $(gen_plugins_list); do
-  fish -c "fisher install $plugin"
-done
+  for plugin in $(gen_plugins_list); do
+    fish -c "fisher install $plugin"
+  done
+else
+  # Update plugins
+  fish -c "fisher update"
+fi
 
 fish -c "nvm install lts && \
   npm install -g fish-lsp && \
