@@ -16,7 +16,6 @@ echo '*********************************************'
 sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
   hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
-  gtk-engine-murrine gnome-themes-extra \
   nautilus python-nautilus file-roller loupe pavucontrol nwg-displays \
   cliphist wtype \
   mpv
@@ -25,8 +24,7 @@ yay -S --noconfirm --needed swaync envycontrol \
   hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
   network-manager-applet indicator-sound-switcher \
   arrpc \
-  nautilus-open-any-terminal gnome-keyring \
-  kanagawa-gtk-theme-git kanagawa-icon-theme-git bibata-cursor-git
+  nautilus-open-any-terminal gnome-keyring
 
 # Waybar config
 ln -sf ~/.dotfiles/hyprland/waybar ~/.config/waybar
@@ -46,19 +44,7 @@ gsettings set org.gnome.desktop.interface font-name "NotoSans Font 11"
 gsettings set org.gnome.desktop.interface document-font-name "NotoSans Font 11"
 gsettings set org.gnome.desktop.interface monospace-font-name "NotoSansM Nerd Font Mono 10"
 
-# Flatpak overrides
-flatpak override --user --filesystem=~/.themes
-flatpak override --user --filesystem=~/.icons
-flatpak override --user --env=XCURSOR_PATH=~/.icons
-
-# Themes and icons
-mkdir ~/.themes
-mkdir ~/.icons
-
-cp -r /usr/share/themes/Kanagawa-Dark-Dragon ~/.themes
-cp -r /usr/share/icons/Kanagawa ~/.icons
-cp -r /usr/share/icons/Bibata-Modern-Classic ~/.icons
-
+# Bookmarks
 mkdir ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
 
