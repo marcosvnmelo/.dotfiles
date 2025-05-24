@@ -11,7 +11,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   yay -S --noconfirm --needed inter-font
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   FONT_VERSION=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | grep -Po '"tag_name": "v\K[^"]*')
 
   mkdir -p /tmp/dotfiles

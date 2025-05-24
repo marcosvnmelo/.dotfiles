@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed bat
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   mkdir -p /tmp/dotfiles
 
   BAT_VERSION=$(curl -s "https://api.github.com/repos/sharkdp/bat/releases/latest" | grep -Po '"tag_name": "\K[^"]*' | sed 's/v//')

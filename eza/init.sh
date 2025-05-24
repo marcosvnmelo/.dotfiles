@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed eza
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   if [[ -z $(which eza) ]]; then
     sudo mkdir -p /etc/apt/keyrings
     wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg

@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed yazi ffmpegthumbnailer ffmpeg p7zip jq poppler imagemagick
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   # TODO: implement script
   echo 'Not implemented yet'
   return 0 2>/dev/null || exit 0

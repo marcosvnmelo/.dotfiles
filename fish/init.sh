@@ -10,7 +10,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed fish zoxide
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   sudo apt-add-repository ppa:fish-shell/release-3 -y
 
   sudo apt update -y && sudo apt upgrade -y

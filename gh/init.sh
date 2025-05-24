@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed github-cli
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   if [[ -z $(which gh) ]]; then
     type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&

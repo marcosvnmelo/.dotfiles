@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   echo '******************************************************'
   echo "*            Ignoring Rust on $INSTALL_OS            *"
   echo '******************************************************'

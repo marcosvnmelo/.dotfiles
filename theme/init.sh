@@ -13,7 +13,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   yay -S --noconfirm --needed bibata-cursor-git
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   sudo apt install gtk2-engines-murrine -y
 fi
 

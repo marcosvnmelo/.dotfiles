@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed go
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   file=$(curl -L -s 'https://go.dev/dl' | grep -m 1 '/dl/go.*.linux-amd64' | awk -F "/" '{print $3}' | awk -F '">' '{print $1}')
 
   mkdir -p /tmp/dotfiles

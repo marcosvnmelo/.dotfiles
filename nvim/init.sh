@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed neovim
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   curl -LO 'https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz'
 
   sudo tar -C /opt -xzf nvim-linux64.tar.gz
@@ -32,7 +32,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed ripgrep fd fzf
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   sudo apt install -y gcc ripgrep fd-find fzf build-essential
 fi
 

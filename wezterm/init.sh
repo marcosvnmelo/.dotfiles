@@ -10,7 +10,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   yay -S --noconfirm --needed wezterm-git
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   if [[ -z $(which wezterm) ]]; then
     curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
 

@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   yay -S --noconfirm --needed visual-studio-code-bin
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   xdg-open "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 
 # Run after download

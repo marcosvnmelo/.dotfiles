@@ -9,7 +9,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed docker docker-compose
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   if [[ -z $(which docker) ]]; then
     # Add Docker's official GPG key:
     sudo apt-get update

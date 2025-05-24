@@ -8,7 +8,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
   yay -S --noconfirm --needed spotify-launcher
 fi
 
-if [[ $INSTALL_OS = 'popos' ]]; then
+if [[ $INSTALL_OS = 'debian' ]]; then
   # TODO: implement debian based distros
   echo 'Not implemented yet'
   return 0 2>/dev/null || exit 0
