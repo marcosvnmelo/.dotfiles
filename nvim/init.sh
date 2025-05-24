@@ -18,11 +18,10 @@ if [[ $INSTALL_OS = 'debian' ]]; then
   sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/bin/nvim
 fi
 
-mkdir -p ~/.config/nvim
-
-if [[ -d ~/.config/nvim/init.vim ]]; then
+if [[ -d ~/.config/nvim ]]; then
   echo "Neovim already installed"
 else
+  mkdir -p ~/.config/nvim
   git clone https://github.com/marcosvnmelo/nvim-config ~/.config/nvim
 fi
 
