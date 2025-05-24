@@ -16,9 +16,11 @@ if [[ $INSTALL_OS = 'popos' ]]; then
   sudo apt update -y && sudo apt upgrade -y
 
   sudo apt install fish -y
+
+  fish -c "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
 fi
 
-if [[ $INSTALL_OS = 'wsl' ]]; then
+if [[ $INSTALL_IN_WSL ]]; then
   sudo chsh -s /usr/bin/fish "$USER"
 fi
 
@@ -52,8 +54,4 @@ fish -c "nvm install lts && \
   npm install -g fish-lsp && \
   fish-lsp complete > ~/.config/fish/completions/fish-lsp.fish"
 
-# Install Zoxide
 
-if [[ $INSTALL_OS = 'popos' ]]; then
-  fish -c "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
-fi
