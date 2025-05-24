@@ -42,13 +42,13 @@ fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/fun
 
 # Install fish plugins
 
-while read -r plugin <&4; do
-  if [[ $plugin =~ \#.* ]]; then
-    continue
-  fi
+gen_plugins_list() {
+  cat "$CURRENT_DIR"/plugins.list | sed 's/#.*//g' | xargs echo
+}
 
+for plugin in $(gen_plugins_list); do
   fish -c "fisher install $plugin"
-done 4<"$PWD"/fish/plugins
+done
 
 fish -c "nvm install lts && \
   npm install -g fish-lsp && \
