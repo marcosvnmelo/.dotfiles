@@ -27,12 +27,7 @@ alias upd="flatpak update && yay -Syu"
 ## Functions ##
 
 function dotfiles -d "Run dotfiles modules"
-    set -f currentDir $PWD
-
-    cd ~/.dotfiles
-    ./install.sh $argv[1]
-
-    cd $currentDir
+    ~/.dotfiles/install.sh $argv[1]
 end
 
 function nv-run -d "Run with nvidia"
