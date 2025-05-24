@@ -18,7 +18,7 @@ bat
 # go
 chrome
 # ngrok
-# jq
+jq
 # yq
 # rust
 # wezterm

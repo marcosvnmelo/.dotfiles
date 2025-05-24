@@ -4,4 +4,10 @@ echo '*************************************'
 echo '*           Installing jq           *'
 echo '*************************************'
 
-sudo apt install jq -y
+if [[ $INSTALL_OS = 'arch' ]]; then
+  sudo pacman -S --noconfirm --needed jq
+fi
+
+if [[ $INSTALL_OS = 'popos' ]]; then
+  sudo apt install jq -y
+fi
