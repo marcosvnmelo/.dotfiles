@@ -27,13 +27,22 @@ yay -S --noconfirm --needed swaync envycontrol \
   nautilus-open-any-terminal gnome-keyring
 
 # Waybar config
-ln -sf ~/.dotfiles/hyprland/waybar ~/.config/waybar
+if [[ -d ~/.config/waybar ]]; then
+  rm -rf ~/.config/waybar
+fi
+ln -s $CURRENT_DIR/waybar ~/.config/waybar
 
 # Hyprland config
-ln -sf ~/.dotfiles/hyprland/hypr ~/.config/hypr
+if [[ -d ~/.config/hypr ]]; then
+  rm -rf ~/.config/hypr
+fi
+ln -s $CURRENT_DIR/hypr ~/.config/hypr
 
 # Rofi config
-ln -sf ~/.dotfiles/hyprland/rofi ~/.config/rofi
+if [[ -d ~/.config/rofi ]]; then
+  rm -rf ~/.config/rofi
+fi
+ln -s $CURRENT_DIR/rofi ~/.config/rofi
 
 # GTK settings
 gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-Dark-Dragon
@@ -49,13 +58,16 @@ mkdir ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
 
 # Fonts config
-ln -sf ~/.dotfiles/hyprland/fontconfig ~/.config/fontconfig
+if [[ -d ~/.config/fontconfig ]]; then
+  rm -rf ~/.config/fontconfig
+fi
+ln -s $CURRENT_DIR/fontconfig ~/.config/fontconfig
 
 # Sddm config
 sudo systemctl enable sddm.service
 
 sudo mkdir /etc/sddm.conf.d
-sudo ln -sf ~/.dotfiles/hyprland/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
+sudo ln -sf $CURRENT_DIR/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
 
 # Sddm theme
 mkdir -p /tmp/dotfiles
@@ -67,10 +79,13 @@ sudo cp -r /tmp/dotfiles/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
 sudo rm -r /tmp/dotfiles
 
 # Code flags
-sudo ln -sf ~/.dotfiles/hyprland/code-flags.conf ~/.config/code-flags.conf
+sudo ln -sf $CURRENT_DIR/code-flags.conf ~/.config/code-flags.conf
 
 # Swaync style
-ln -sf ~/.dotfiles/hyprland/swaync ~/.config/swaync
+if [[ -d ~/.config/swaync ]]; then
+  rm -rf ~/.config/swaync
+fi
+ln -s $CURRENT_DIR/swaync ~/.config/swaync
 
 # Kanata config
 USER_GROUPS=$(groups $USER)
@@ -83,13 +98,16 @@ if [[ $USER_GROUPS != *uinput* ]]; then
 fi
 
 # Wireplumber config
-ln -sf ~/.dotfiles/hyprland/wireplumber ~/.config
+if [[ -d ~/.config/wireplumber ]]; then
+  rm -rf ~/.config/wireplumber
+fi
+ln -s $CURRENT_DIR/wireplumber ~/.config
 
 # Systemd config
 mkdir -p ~/.config/systemd/user
 
-ln -sf ~/.dotfiles/hyprland/systemd/kanata.service ~/.config/systemd/user/kanata.service
-ln -sf ~/.dotfiles/hyprland/systemd/kill-adb-on-logout.service ~/.config/systemd/user/kill-adb-on-logout.service
+ln -sf $CURRENT_DIR/systemd/kanata.service ~/.config/systemd/user/kanata.service
+ln -sf $CURRENT_DIR/systemd/kill-adb-on-logout.service ~/.config/systemd/user/kill-adb-on-logout.service
 
 systemctl --user daemon-reload
 systemctl --user enable kanata.service
