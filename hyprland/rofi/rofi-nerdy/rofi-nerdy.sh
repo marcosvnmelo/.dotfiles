@@ -6,5 +6,5 @@ if [ -n "$1" ]; then
   exit 0
 fi
 
-emoji_path=~/.config/rofi/rofi-nerdy/emojis.lst
+emoji_path=~/.config/rofi/rofi-nerdy/emojis.list
 cat $emoji_path

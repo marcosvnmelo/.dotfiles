@@ -37,7 +37,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := os.Truncate("./emojis.lst", 0); err != nil {
+	if err := os.Truncate("./emojis.list", 0); err != nil {
 		fmt.Printf("Error truncating file: %v", err)
 	}
 
@@ -54,7 +54,7 @@ func main() {
 		return icons[i].Name < icons[j].Name
 	})
 
-	outFile, err := os.OpenFile("./emojis.lst", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	outFile, err := os.OpenFile("./emojis.list", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		fmt.Printf("Error opening file: %v", err)
 		os.Exit(1)
