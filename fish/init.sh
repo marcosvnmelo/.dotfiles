@@ -20,7 +20,7 @@ if [[ $INSTALL_OS = 'debian' ]]; then
   fish -c "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh"
 fi
 
-if [[ $INSTALL_IN_WSL ]]; then
+if [[ $INSTALL_IN_WSL = true ]]; then
   sudo chsh -s /usr/bin/fish "$USER"
 fi
 

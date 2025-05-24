@@ -4,7 +4,7 @@ echo '*********************************************'
 echo '*           Installing Lazydocker           *'
 echo '*********************************************'
 
-if [[ $INSTALL_IN_WSL ]]; then
+if [[ $INSTALL_IN_WSL = true ]]; then
   echo '************************************************************'
   echo "*            Ignoring Lazydocker on $INSTALL_OS            *"
   echo '************************************************************'
