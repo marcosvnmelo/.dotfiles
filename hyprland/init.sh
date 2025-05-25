@@ -111,9 +111,16 @@ ls -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr-cards/cardNvidia
 # Systemd config
 mkdir -p ~/.config/systemd/user
 
-ln -sf $CURRENT_DIR/systemd/kanata.service ~/.config/systemd/user/kanata.service
-ln -sf $CURRENT_DIR/systemd/kill-adb-on-logout.service ~/.config/systemd/user/kill-adb-on-logout.service
+function gen_services_list() {
+  ls $CURRENT_DIR/systemd/*.service
+}
+
+for file in $(gen_services_list); do
+  ln -sf $file ~/.config/systemd/user/$(basename $file)
+done
 
 systemctl --user daemon-reload
-systemctl --user enable kanata.service
-systemctl --user enable kill-adb-on-logout.service
+
+for file in $(gen_services_list); do
+  systemctl --user enable $(basename $file)
+done
