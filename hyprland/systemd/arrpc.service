@@ -1,0 +1,15 @@
+[Unit]
+Description=arRPC (Discord RPC)
+Documentation=https://arrpc.openasar.dev/
+After=network.target
+
+[Service]
+Type=simple
+Environment=PATH=/usr/bin
+ExecStart=/usr/bin/sh -c 'export PATH=$HOME/.local/share/pnpm:$HOME/.local/share/nvm/$(ls $HOME/.local/share/nvm | tail -n1)/bin:$PATH && pnpm dlx arrpc'
+
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

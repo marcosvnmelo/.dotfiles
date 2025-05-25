@@ -23,7 +23,6 @@ sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland xdg-des
 yay -S --noconfirm --needed swaync envycontrol \
   hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
   network-manager-applet indicator-sound-switcher \
-  arrpc \
   nautilus-open-any-terminal gnome-keyring
 
 # Waybar config
@@ -110,6 +109,9 @@ ls -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr-cards/cardNvidia
 
 # Systemd config
 mkdir -p ~/.config/systemd/user
+
+sudo ln -sf "$CURRENT_DIR"/systemd/arrpc_gen_env_vars.sh /usr/local/bin/arrpc_gen_env_vars.sh
+sudo /usr/local/bin/arrpc_gen_env_vars.sh >/run/arrpc-env.conf
 
 function gen_services_list() {
   ls $CURRENT_DIR/systemd/*.service
