@@ -16,7 +16,6 @@ bat
 # bun
 # terraform
 go
-chrome
 # ngrok
 jq
 # yq
@@ -26,6 +25,7 @@ ghostty
 vscode
 docker
 flatpak
+chrome
 fonts
 hyprland
 theme

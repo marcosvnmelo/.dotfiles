@@ -5,7 +5,7 @@ echo '*           Installing Chrome           *'
 echo '*****************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  yay -S --noconfirm --needed google-chrome
+  flatpak install -y --or-update flathub com.google.Chrome
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
