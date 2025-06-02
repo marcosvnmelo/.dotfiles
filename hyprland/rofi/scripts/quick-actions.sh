@@ -105,11 +105,17 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
     exit
   fi
 
-  tmux new-session -d -s android-emulator \
-    -e LIBVA_DRIVER_NAME=nvidia \
-    -e GBM_BACKEND=nvidia-drm \
-    -e __GLX_VENDOR_LIBRARY_NAME=nvidia \
-    "$emulator_path \@$avd -no-boot-anim -no-snapshot -gpu ${GPU_MODES[$gpu_mode]}"
+  emulator_cmd="$emulator_path \@$avd -no-boot-anim -no-snapshot -gpu ${GPU_MODES[$gpu_mode]}"
+
+  if [[ "GPU_MODES[$gpu_mode]" != "host" ]]; then
+    tmux new-session -d -s android-emulator \
+      -e LIBVA_DRIVER_NAME=nvidia \
+      -e GBM_BACKEND=nvidia-drm \
+      -e __GLX_VENDOR_LIBRARY_NAME=nvidia \
+      "$emulator_cmd"
+  fi
+
+  tmux new-session -d -s android-emulator "$emulator_cmd"
 
   exit
 fi
