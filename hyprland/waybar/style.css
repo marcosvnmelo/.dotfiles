@@ -93,13 +93,19 @@ window#waybar.empty.eDP-2 #window {
 #tray {
   font-size: 12px;
 }
+
 #workspaces {
   padding: 0px 5px;
 }
+
 #workspaces button {
-  color: #727169;
+  color: @insensitive_fg_color;
 }
 
 #workspaces button.active {
   color: @theme_text_color;
+}
+
+#workspaces button.urgent {
+  color: @warning_color;
 }
