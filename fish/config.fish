@@ -1,4 +1,3 @@
-# @fish-lsp-disable 2002
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -7,12 +6,29 @@ set fish_greeting
 
 ## Aliases ##
 
-alias cat="bat"
-alias ls="eza --icons=always --color=always"
-alias filesize="du -sh * | sort -h"
-alias foldersize="du -h -d 1 ."
-alias vim="nvim"
-alias neofetch="fastfetch"
+function cat -d "Use bat instead of cat"
+    bat $argv
+end
+
+function ls -d "Use eza with icons and colors"
+    eza --icons=always --color=always $argv
+end
+
+function filesize -d "Show file sizes sorted by size"
+    du -sh * | sort -h
+end
+
+function foldersize -d "Show folder size with depth 1"
+    du -h -d 1 .
+end
+
+function vim -d "Use neovim instead of vim"
+    nvim $argv
+end
+
+function neofetch -d "Use fastfetch instead of neofetch"
+    fastfetch $argv
+end
 
 function upd -d "Update all packages"
     # Arch Linux
