@@ -35,6 +35,7 @@ if [ "$1" = "--preset" ]; then
       window_name=$(__jq '.name')
       window_dir=$(__jq '.dir' | sed "s|~|$HOME|")
       window_cmd=$(__jq '.cmd')
+      window_oneshot=$(__jq '.oneshot')
 
       if [ "$window_dir" = "null" ]; then
         window_dir=$project_dir
@@ -44,6 +45,12 @@ if [ "$1" = "--preset" ]; then
         window_cmd=
       fi
 
+      if [ "$window_oneshot" == "true" ]; then
+        window_oneshot=true
+      else
+        window_oneshot=false
+      fi
+
       if [ "$window_name" == "$first_window" ]; then
         continue
       fi
@@ -51,9 +58,10 @@ if [ "$1" = "--preset" ]; then
       tmux new-window \
         -t $session_name \
         -n $window_name \
-        $(if [ -z "$window_dir" ]; then echo ""; else echo "-c $window_dir"; fi)
+        $(if [ -z "$window_dir" ]; then echo ""; else echo "-c $window_dir"; fi) \
+        $(if [[ -n "$window_cmd" && "$window_oneshot" == true ]]; then echo "$window_cmd"; fi)
 
-      if [ -n "$window_cmd" ]; then
+      if [[ -n "$window_cmd" && "$window_oneshot" == false ]]; then
         tmux send-keys -t $session_name:$window_name "$window_cmd" C-m
       fi
     done

@@ -36,15 +36,27 @@
                 "cmd": {
                   "description": "Command to run in the window (optional)",
                   "type": "string"
+                },
+                "oneshot": {
+                  "description": "Whether to run the command once and then close the window (optional)",
+                  "type": "boolean"
                 }
               },
-              "required": ["name"]
+              "required": [
+                "name"
+              ]
             }
           }
         },
-        "required": ["session_name", "project_dir", "windows"]
+        "required": [
+          "session_name",
+          "project_dir",
+          "windows"
+        ]
       }
     }
   },
-  "required": ["projects"]
+  "required": [
+    "projects"
+  ]
 }
