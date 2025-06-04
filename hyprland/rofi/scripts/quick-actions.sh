@@ -1,14 +1,32 @@
 #!/bin/bash
-# filepath: /home/marcos/.dotfiles/hyprland/rofi/scripts/quick-actions.sh
+
+_get_idle_status() {
+  local is_active
+  if [[ "$(systemctl --user is-active hypridle.service)" == "active" ]]; then
+    is_active=true
+  else
+    is_active=false
+  fi
+
+  return_format=${1:-"plain"}
+
+  if [[ "$return_format" == "plain" ]]; then
+    echo "$is_active"
+  elif [[ "$return_format" == "emoji" ]]; then
+    [[ "$is_active" == true ]] && echo "🟢 Active" || echo "🔴 Inactive"
+  fi
+}
 
 declare -A actions
 actions["search"]=" Search"
 actions["emulators"]=" Android Emulators"
+actions["toggle_idle"]=" Toggle Idle Service $(_get_idle_status 'emoji')"
 
 # Create array of options
 options=(
   "${actions["search"]}"
   "${actions["emulators"]}"
+  "${actions["toggle_idle"]}"
 )
 
 # Present main menu with proper formatting
@@ -116,6 +134,21 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
   fi
 
   tmux new-session -d -s android-emulator "$emulator_cmd"
+
+  exit
+fi
+
+# Handle idle service submenu
+if [[ "$chosen_action" == "${actions["toggle_idle"]}" ]]; then
+  is_active=$(_get_idle_status)
+
+  if [[ "$is_active" == "true" ]]; then
+    systemctl --user stop hypridle.service
+    notify-send "Idle service" "Idle service has been stopped."
+  else
+    systemctl --user start hypridle.service
+    notify-send "Idle service" "Idle service has been started."
+  fi
 
   exit
 fi
