@@ -14,11 +14,14 @@ alias foldersize="du -h -d 1 ."
 alias vim="nvim"
 alias neofetch="fastfetch"
 
-# Arch Linux
-alias upd="flatpak update && yay -Syu"
+function upd -d "Update all packages"
+    # Arch Linux
+    flatpak update && yay -Syu
+    # Debian
+    # sudo apt update && sudo apt upgrade
+end
 
-# Pop!_OS, WSL
-# alias upd="sudo apt update && sudo apt upgrade"
+# Debian
 # alias fd="fdfind"
 
 # WSL
