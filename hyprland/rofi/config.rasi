@@ -1,5 +1,5 @@
 configuration {
-  modi:                 "drun,window,run,vscode";
+  modi:                 "drun,vscode,window,run";
   show-icons:           true;
   terminal:             "ghostty";
   window-format:        "{w} · {c} · {t}";
