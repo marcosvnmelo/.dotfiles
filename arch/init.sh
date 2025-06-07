@@ -17,7 +17,9 @@ sudo pacman -S --noconfirm --needed linux-headers
 sudo pacman -S --noconfirm --needed nvidia-dkms nvidia-utils egl-wayland
 sudo pacman -S --noconfirm --needed intel-media-driver vulkan-intel libva-intel-driver
 sudo pacman -S --noconfirm --needed git base-devel
-sudo pacman -S --noconfirm --needed brightnessctl fastfetch bluez bluez-utils fuse sof-firmware
+sudo pacman -S --noconfirm --needed \
+  brightnessctl fastfetch bluez bluez-utils fuse sof-firmware \
+  pipewire-libcamera
 
 if [[ -z $(which yay) ]]; then
   bash -c "git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay && makepkg -si"
