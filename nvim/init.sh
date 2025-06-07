@@ -19,10 +19,8 @@ if [[ $INSTALL_OS = 'debian' ]]; then
 fi
 
 if [[ -d ~/.config/nvim ]]; then
-  echo "Neovim already installed"
-else
-  mkdir -p ~/.config/nvim
-  git clone https://github.com/marcosvnmelo/nvim-config ~/.config/nvim
+  rm -rf ~/.config/nvim
+  ln -s "$CURRENT_DIR/config" ~/.config/nvim
 fi
 
 # Install neovim dependencies
