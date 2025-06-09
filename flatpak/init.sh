@@ -15,8 +15,12 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   it.mijorus.gearlever \
   io.beekeeperstudio.Studio \
   io.dbeaver.DBeaverCommunity \
-  com.github.unrud.VideoDownloader
+  com.github.unrud.VideoDownloader \
+  md.obsidian.Obsidian
 
 # Zen browser
 xdg-settings set default-web-browser app.zen_browser.zen.desktop
 flatpak override --user --env=MOZ_DISABLE_WAYLAND_PROXY=1 app.zen_browser.zen
+
+# Obsidian
+flatpak override --user --socket=wayland md.obsidian.Obsidian
