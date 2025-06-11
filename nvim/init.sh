@@ -20,8 +20,8 @@ fi
 
 if [[ -d ~/.config/nvim ]]; then
   rm -rf ~/.config/nvim
-  ln -s "$CURRENT_DIR/config" ~/.config/nvim
 fi
+ln -s "$CURRENT_DIR/config" ~/.config/nvim
 
 # Install neovim dependencies
 
