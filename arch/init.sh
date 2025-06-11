@@ -14,7 +14,7 @@ echo '*************************************************'
 
 sudo pacman -Syy --noconfirm
 sudo pacman -S --noconfirm --needed linux-headers
-sudo pacman -S --noconfirm --needed nvidia-dkms nvidia-utils egl-wayland
+sudo pacman -S --noconfirm --needed nvidia-open-dkms nvidia-utils
 sudo pacman -S --noconfirm --needed intel-media-driver vulkan-intel libva-intel-driver
 sudo pacman -S --noconfirm --needed git base-devel
 sudo pacman -S --noconfirm --needed \
@@ -31,3 +31,4 @@ sudo systemctl enable bluetooth
 
 # Fix windows timezone on dual boot
 timdatectl set-local-rtc 1
+
