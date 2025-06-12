@@ -30,5 +30,4 @@ fi
 sudo systemctl enable bluetooth
 
 # Fix windows timezone on dual boot
-timdatectl set-local-rtc 1
-
+sudo timedatectl set-local-rtc 1
