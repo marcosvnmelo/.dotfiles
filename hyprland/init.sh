@@ -105,7 +105,7 @@ ln -s $CURRENT_DIR/wireplumber ~/.config
 # Custom card symlink
 mkdir -p ~/.config/hypr-cards
 ln -sf /dev/dri/by-path/pci-0000:00:02.0-card ~/.config/hypr-cards/cardIntel
-ls -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr-cards/cardNvidia
+ln -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr-cards/cardNvidia
 
 # Systemd config
 mkdir -p ~/.config/systemd/user
