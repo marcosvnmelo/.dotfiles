@@ -24,3 +24,6 @@ flatpak override --user --env=MOZ_DISABLE_WAYLAND_PROXY=1 app.zen_browser.zen
 
 # Obsidian
 flatpak override --user --socket=wayland md.obsidian.Obsidian
+
+# Vesktop
+flatpak override --user --nosocket=x11 dev.vencord.Vesktop
