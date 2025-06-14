@@ -16,7 +16,8 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   io.beekeeperstudio.Studio \
   io.dbeaver.DBeaverCommunity \
   com.github.unrud.VideoDownloader \
-  md.obsidian.Obsidian
+  md.obsidian.Obsidian \
+  org.guitarix.Guitarix
 
 # Zen browser
 xdg-settings set default-web-browser app.zen_browser.zen.desktop
@@ -27,3 +28,7 @@ flatpak override --user --socket=wayland md.obsidian.Obsidian
 
 # Vesktop
 flatpak override --user --nosocket=x11 dev.vencord.Vesktop
+
+# Guitarix
+flatpak override --user --socket=wayland org.guitarix.Guitarix
+flatpak override --user --env=PIPEWIRE_LATENCY=128/44100 org.guitarix.Guitarix
