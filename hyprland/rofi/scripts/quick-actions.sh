@@ -95,7 +95,7 @@ gen_gpu_mode_list() {
 }
 
 if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
-  sdk_path=~/Android/sdk
+  sdk_path=~/Android/Sdk
   emulator_path=$sdk_path/emulator/emulator
   # Get list of available AVDs
   avd_list=$($emulator_path -list-avds)
