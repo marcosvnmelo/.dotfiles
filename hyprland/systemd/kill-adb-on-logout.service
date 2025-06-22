@@ -13,7 +13,7 @@ ExecStart=/bin/true
 RemainAfterExit=yes
 # This is the command that will run when your user session is stopping.
 # Replace /usr/bin/adb with the actual path you found in step 1.
-ExecStop=/home/marcos/Android/sdk/platform-tools/adb kill-server
+ExecStop=/home/marcos/Android/Sdk/platform-tools/adb kill-server
 # Optional: To see output from this command in your user journal
 StandardOutput=journal
 StandardError=journal
