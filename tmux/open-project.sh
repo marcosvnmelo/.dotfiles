@@ -22,7 +22,7 @@ if [ "$1" = "--preset" ]; then
 
     if ! tmux has-session -t=$session_name 2>/dev/null; then
       tmux new -ds $session_name -n $first_window -c $project_dir
-      tmux send-keys -t $session_name:0 "$first_window_cmd" C-m
+      tmux send-keys -t $session_name:1 "$first_window_cmd" C-m
     else
       continue
     fi
@@ -70,7 +70,7 @@ if [ "$1" = "--preset" ]; then
   first_session=$(jq -r '.projects[0].session_name' "$preset_file")
 
   # Attach to the first session
-  tmux attach -t $first_session:0
+  tmux attach -t $first_session:1
 
   exit 0
 fi
