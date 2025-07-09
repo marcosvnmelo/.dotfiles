@@ -70,7 +70,7 @@ enable_transience
 
 ## nvm ##
 
-set --universal nvm_default_version v22.17.0
+set -U nvm_default_version lts
 
 ## go ##
 set -gx PATH $PATH /usr/local/go/bin
