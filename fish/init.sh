@@ -17,7 +17,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
-  sudo apt-add-repository ppa:fish-shell/release-3 -y
+  sudo add-apt-repository ppa:fish-shell/release-4 -y
 
   sudo apt update -y && sudo apt upgrade -y
 
