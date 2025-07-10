@@ -1,5 +1,13 @@
 #!/usr/bin/bash
 
+if [[ $INSTALL_IN_WSL = true ]]; then
+  echo '*********************************************************'
+  echo "*            Ignoring Flatpak on $INSTALL_OS            *"
+  echo '*********************************************************'
+
+  return 0 2>/dev/null || exit 0
+fi
+
 echo '**************************************'
 echo '*         Installing Flatpak         *'
 echo '**************************************'
@@ -7,6 +15,12 @@ echo '**************************************'
 if [[ $INSTALL_OS = 'arch' ]]; then
   sudo pacman -S --noconfirm --needed flatpak
 fi
+
+if [[ $INSTALL_OS = 'debian' ]]; then
+  sudo apt install -y flatpak gnome-software-plugin-flatpak
+fi
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   com.rtosta.zapzap \
