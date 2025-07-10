@@ -9,18 +9,13 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
-  curl -LO 'https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz'
-
-  sudo tar -C /opt -xzf nvim-linux64.tar.gz
-
-  rm nvim-linux64.tar.gz
-
-  sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/bin/nvim
+  sudo snap install nvim --classic
 fi
 
 if [[ -d ~/.config/nvim ]]; then
   rm -rf ~/.config/nvim
 fi
+git submodule update --init -- "$CURRENT_DIR/config"
 ln -s "$CURRENT_DIR/config" ~/.config/nvim
 
 # Install neovim dependencies
