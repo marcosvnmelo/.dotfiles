@@ -1,5 +1,13 @@
 #!/usr/bin/bash
 
+if [[ $INSTALL_IN_WSL = true ]]; then
+  echo '*******************************************************'
+  echo "*            Ignoring Theme on $INSTALL_OS            *"
+  echo '*******************************************************'
+
+  return 0 2>/dev/null || exit 0
+fi
+
 THEME_NAME="kanagawa-dragon"
 
 echo '******************************************'
