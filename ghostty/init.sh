@@ -1,5 +1,13 @@
 #!/usr/bin/bash
 
+if [[ $INSTALL_IN_WSL = true ]]; then
+  echo '*********************************************************'
+  echo "*            Ignoring Ghostty on $INSTALL_OS            *"
+  echo '*********************************************************'
+
+  return 0 2>/dev/null || exit 0
+fi
+
 echo '**************************************'
 echo '*         Installing Ghostty         *'
 echo '**************************************'
@@ -11,8 +19,7 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
-  # TODO: implement script
-  echo 'Not implemented yet'
+  bash -c "curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh | bash"
 fi
 
 # Create symbolic link for ghostty configuration file
