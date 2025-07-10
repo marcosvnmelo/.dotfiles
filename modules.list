@@ -1,5 +1,6 @@
 arch
 man
+zip
 fish
 snap
 tmux
@@ -9,7 +10,6 @@ lazygit
 lazydocker
 delta
 gh
-zip
 # aws
 eza
 bat
