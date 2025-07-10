@@ -1,7 +1,7 @@
 arch
 man
 fish
-# snap
+snap
 tmux
 pnpm
 nvim
