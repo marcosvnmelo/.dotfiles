@@ -9,6 +9,5 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
-  # TODO: implement script
-  echo 'Not implemented yet'
+  sudo snap install android-studio --classic
 fi
