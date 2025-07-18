@@ -107,3 +107,4 @@ fzf_configure_bindings --directory=ctrl-t --git_status=ctrl-g
 bind ctrl-o '~/.dotfiles/tmux/open-project.sh'
 bind ctrl-shift-o '~/.dotfiles/tmux/open-project.sh --preset'
 bind ctrl-shift-b btop
+bind ctrl-shift-t 'tmux a'
