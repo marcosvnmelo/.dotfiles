@@ -30,6 +30,22 @@ function neofetch -d "Use fastfetch instead of neofetch"
     fastfetch $argv
 end
 
+function nx -d "Use nx from pnpm"
+    set -l USE_PROJECT_NX true
+
+    set -l output (pnpm nx --version 2>&1) # capture both stdout and stderr
+
+    if string match -q "not found" "$result"
+        set USE_PROJECT_NX false
+    end
+
+    if test $USE_PROJECT_NX = true
+        pnpm nx $argv
+    else
+        pnpm dlx nx $argv
+    end
+end
+
 function upd -d "Update all packages"
     # Arch Linux
     flatpak update && yay -Syu
