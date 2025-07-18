@@ -22,7 +22,7 @@ function foldersize -d "Show folder size with depth 1"
     du -h -d 1 .
 end
 
-function vim -d "Use neovim instead of vim"
+function vi -d "Use neovim instead of vi"
     nvim $argv
 end
 

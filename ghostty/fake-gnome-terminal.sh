@@ -9,5 +9,5 @@ args=$(for i in "$args"; do sed s/\-\-window//g <<< "$i" ; done)
 
 log=$(mktemp)
 printf "command that was run: ghostty $args\n\n" > $log
-[ $EDITOR ] || EDITOR=vim
+[ $EDITOR ] || EDITOR=vi
 ((ghostty $args >> $log || ghostty -e $EDITOR $log) && rm -f $log) &

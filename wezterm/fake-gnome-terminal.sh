@@ -9,5 +9,5 @@ args=$(for i in "$args"; do sed s/\-\-window//g <<< "$i" ; done)
 
 log=$(mktemp)
 printf "command that was run: wezterm $args\n\n" > $log
-[ $EDITOR ] || EDITOR=vim
+[ $EDITOR ] || EDITOR=vi
 ((wezterm $args >> $log || wezterm -e $EDITOR $log) && rm -f $log) &
