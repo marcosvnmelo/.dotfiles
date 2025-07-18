@@ -17,16 +17,35 @@ _get_idle_status() {
   fi
 }
 
+_get_docker_status() {
+  local is_something_running
+  if [[ "$(docker ps -q)" != "" ]]; then
+    is_something_running=true
+  else
+    is_something_running=false
+  fi
+
+  return_format=${1:-"plain"}
+
+  if [[ "$return_format" == "plain" ]]; then
+    echo "$is_something_running"
+  elif [[ "$return_format" == "emoji" ]]; then
+    [[ "$is_something_running" == true ]] && echo "🟢 Running" || echo "🔴 Stopped"
+  fi
+}
+
 declare -A actions
 actions["search"]=" Search"
 actions["emulators"]=" Android Emulators"
 actions["toggle_idle"]=" Toggle Idle Service $(_get_idle_status 'emoji')"
+actions["stop_docker"]=" Stop Docker $(_get_docker_status 'emoji')"
 
 # Create array of options
 options=(
   "${actions["search"]}"
   "${actions["emulators"]}"
   "${actions["toggle_idle"]}"
+  "${actions["stop_docker"]}"
 )
 
 # Present main menu with proper formatting
@@ -148,6 +167,20 @@ if [[ "$chosen_action" == "${actions["toggle_idle"]}" ]]; then
   else
     systemctl --user start hypridle.service
     notify-send "Idle service" "Idle service has been started."
+  fi
+
+  exit
+fi
+
+# Handle docker submenu
+if [[ "$chosen_action" == "${actions["stop_docker"]}" ]]; then
+  is_something_running=$(_get_docker_status)
+
+  if [[ "$is_something_running" == "true" ]]; then
+    docker stop $(docker ps -q)
+    notify-send "Docker" "Docker containers have been stopped."
+  else
+    notify-send "Docker" "No containers are running."
   fi
 
   exit
