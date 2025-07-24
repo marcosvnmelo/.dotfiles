@@ -31,7 +31,10 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   io.dbeaver.DBeaverCommunity \
   com.github.unrud.VideoDownloader \
   md.obsidian.Obsidian \
-  org.guitarix.Guitarix
+  org.guitarix.Guitarix \
+  com.github.tenderowl.frog
+
+# com.warlordsoftwares.formatlab
 
 # Zen browser
 xdg-settings set default-web-browser app.zen_browser.zen.desktop
