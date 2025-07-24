@@ -33,9 +33,7 @@ end
 function nx -d "Use nx from pnpm"
     set -l USE_PROJECT_NX true
 
-    set -l output (pnpm nx --version 2>&1) # capture both stdout and stderr
-
-    if string match -q "not found" "$result"
+    if test -f package.json
         set USE_PROJECT_NX false
     end
 
