@@ -31,16 +31,16 @@ function neofetch -d "Use fastfetch instead of neofetch"
 end
 
 function nx -d "Use nx from pnpm"
-    set -l USE_PROJECT_NX true
+    set -l USE_PROJECT_NX false
 
     if test -f package.json
-        set USE_PROJECT_NX false
+        set USE_PROJECT_NX true
     end
 
-    if test $USE_PROJECT_NX = true
+    if test $USE_PROJECT_NX = false
         pnpm nx $argv
     else
-        pnpm dlx nx $argv
+        pnpx nx $argv
     end
 end
 
