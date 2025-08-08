@@ -20,5 +20,5 @@ fi
 
 echo "$history_json" | jq -r '.entries
   | to_entries[]
-  | (.key + 1 | tostring) + ". " + (if .value.label then .value.label else .value.folderUri end)' |
+  | (.key + 1 | tostring) + ". " + (if .value.label then .value.label elif .value.folderUri then .value.folderUri else .value.fileUri end)' |
   sed "s|file://$HOME|~|"
