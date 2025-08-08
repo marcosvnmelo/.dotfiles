@@ -19,7 +19,8 @@ sudo pacman -S --noconfirm --needed intel-media-driver vulkan-intel libva-intel-
 sudo pacman -S --noconfirm --needed git base-devel
 sudo pacman -S --noconfirm --needed \
   brightnessctl fastfetch bluez bluez-utils fuse sof-firmware \
-  pipewire-libcamera wireless-regdb
+  pipewire-libcamera wireless-regdb \
+  inetutils
 
 # Install yay
 if [[ -z $(which yay) ]]; then
