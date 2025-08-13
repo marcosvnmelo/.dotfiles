@@ -11,3 +11,5 @@ fi
 if [[ $INSTALL_OS = 'debian' ]]; then
   sudo snap install btop
 fi
+
+ln -sf "$CURRENT_DIR"/btop.conf ~/.config/btop/btop.conf
