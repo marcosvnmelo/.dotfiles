@@ -16,6 +16,7 @@ echo '*********************************************'
 sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
   hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
+  greetd-tuigreet \
   nautilus python-nautilus file-roller loupe pavucontrol nwg-displays \
   cliphist wtype \
   mpv
@@ -62,20 +63,24 @@ if [[ -d ~/.config/fontconfig ]]; then
 fi
 ln -s $CURRENT_DIR/fontconfig ~/.config/fontconfig
 
-# Sddm config
-sudo systemctl enable sddm.service
+# Greetd tuigreet config
+sudo systemctl enable greetd.service
+sudo ln -sf $CURRENT_DIR/greetd/config.toml /etc/greetd/config.toml
 
-sudo mkdir /etc/sddm.conf.d
-sudo ln -sf $CURRENT_DIR/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
+# Sddm config
+# sudo systemctl enable sddm.service
+#
+# sudo mkdir /etc/sddm.conf.d
+# sudo ln -sf $CURRENT_DIR/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
 
 # Sddm theme
-mkdir -p /tmp/dotfiles
-
-git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme /tmp/dotfiles/sddm-theme
-
-sudo mkdir -p /usr/share/sddm/themes
-sudo cp -r /tmp/dotfiles/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
-sudo rm -r /tmp/dotfiles
+# mkdir -p /tmp/dotfiles
+#
+# git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme /tmp/dotfiles/sddm-theme
+#
+# sudo mkdir -p /usr/share/sddm/themes
+# sudo cp -r /tmp/dotfiles/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
+# sudo rm -r /tmp/dotfiles
 
 # Code flags
 sudo ln -sf $CURRENT_DIR/code-flags.conf ~/.config/code-flags.conf
@@ -109,9 +114,6 @@ ln -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr-cards/cardNvidia
 
 # Systemd config
 mkdir -p ~/.config/systemd/user
-
-sudo ln -sf "$CURRENT_DIR"/systemd/arrpc_gen_env_vars.sh /usr/local/bin/arrpc_gen_env_vars.sh
-sudo /usr/local/bin/arrpc_gen_env_vars.sh >/run/arrpc-env.conf
 
 function gen_services_list() {
   ls $CURRENT_DIR/systemd/*.service
