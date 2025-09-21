@@ -19,6 +19,9 @@ if [[ $INSTALL_OS = 'debian' ]]; then
   sudo apt update -y && sudo apt install gh -y
 fi
 
+# Install fish completions
+gh completion -s fish >~/.config/fish/completions/gh.fish
+
 # Install github cli extensions
 #
 # fish -c "gh extension install https://github.com/nektos/gh-act"
