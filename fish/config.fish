@@ -31,17 +31,7 @@ function neofetch -d "Use fastfetch instead of neofetch"
 end
 
 function nx -d "Use nx from pnpm"
-    set -l USE_PROJECT_NX false
-
-    if test -f package.json
-        set USE_PROJECT_NX true
-    end
-
-    if test $USE_PROJECT_NX = false
-        pnpm nx $argv
-    else
-        pnpx nx $argv
-    end
+    pnpm nx $argv
 end
 
 function upd -d "Update all packages"
@@ -94,7 +84,7 @@ set -gx PATH $PATH $GOPATH/bin
 # pnpm
 set -gx PNPM_HOME "/home/marcos/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
 
