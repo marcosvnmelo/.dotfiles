@@ -94,7 +94,7 @@ ln -s $CURRENT_DIR/swaync ~/.config/swaync
 # Kanata config
 USER_GROUPS=$(groups $USER)
 if [[ $USER_GROUPS != *uinput* ]]; then
-  sudo groupadd uinput
+  sudo groupadd --system uinput
   sudo usermod -aG input $USER
   sudo usermod -aG uinput $USER
   echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee -a /etc/udev/rules.d/99-input.rules
