@@ -69,6 +69,7 @@ URLS=(
   ["ArchPackages"]="https://archlinux.org/packages/?q="
   ["AUR"]="https://aur.archlinux.org/packages?O=0&SeB=nd&outdated=&SB=p&SO=d&PP=50&submit=Go&K="
   ["Translate"]="https://translate.google.com/?sl=auto&tl=en&op=translate&text="
+  ["Context7"]="https://context7.com/?q="
 )
 
 gen_url_list() {
@@ -81,6 +82,7 @@ gen_url_list() {
   echo "ArchPackages"
   echo "AUR"
   echo "Translate"
+  echo "Context7"
 }
 
 if [[ "$chosen_action" == "${actions["search"]}" ]]; then
