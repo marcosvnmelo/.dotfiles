@@ -3,60 +3,69 @@
   "title": "Schema for open-project.json",
   "type": "object",
   "properties": {
-    "projects": {
-      "description": "List of projects to open",
+    "workflows": {
       "type": "array",
+      "description": "List of existing workflows",
       "items": {
-        "description": "Project to open",
         "type": "object",
         "properties": {
-          "session_name": {
-            "description": "Name of the tmux session",
+          "name": {
+            "description": "Name of the workflow",
             "type": "string"
           },
-          "project_dir": {
-            "description": "Directory of the project",
-            "type": "string"
-          },
-          "windows": {
-            "description": "List of windows to open in the project's tmux session",
+          "projects": {
             "type": "array",
+            "description": "List of projects to open",
             "items": {
-              "description": "Window to open in the project's tmux session",
+              "description": "Project to open",
               "type": "object",
               "properties": {
-                "name": {
-                  "description": "Name of the window",
+                "session_name": {
+                  "description": "Name of the tmux session",
                   "type": "string"
                 },
-                "dir": {
-                  "description": "Directory of the window (optional)",
+                "project_dir": {
+                  "description": "Directory of the project",
                   "type": "string"
                 },
-                "cmd": {
-                  "description": "Command to run in the window (optional)",
-                  "type": "string"
-                },
-                "oneshot": {
-                  "description": "Whether to run the command once and then close the window (optional)",
-                  "type": "boolean"
+                "windows": {
+                  "type": "array",
+                  "description": "List of windows to open in the project's tmux session",
+                  "items": {
+                    "description": "Window to open in the project's tmux session",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name of the window",
+                        "type": "string"
+                      },
+                      "dir": {
+                        "description": "Directory of the window (optional)",
+                        "type": "string"
+                      },
+                      "cmd": {
+                        "description": "Command to run in the window (optional)",
+                        "type": "string"
+                      },
+                      "oneshot": {
+                        "description": "Whether to run the command once and then close the window (optional)",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": ["name"]
+                  },
+                  "minItems": 1
                 }
               },
-              "required": [
-                "name"
-              ]
-            }
+              "required": ["session_name", "project_dir", "windows"]
+            },
+            "minItems": 1
           }
         },
-        "required": [
-          "session_name",
-          "project_dir",
-          "windows"
-        ]
-      }
+        "required": ["name", "projects"]
+      },
+      "minItems": 1
     }
   },
-  "required": [
-    "projects"
-  ]
+  "required": ["workflows"]
 }

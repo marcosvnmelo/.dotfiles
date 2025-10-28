@@ -9,7 +9,33 @@ if [ "$1" = "--preset" ]; then
     exit 1
   fi
 
-  for project in $(jq -r '.projects[] | @base64' "$preset_file"); do
+  # Get workflow names and let user select with fzf
+  workflow_count=$(jq -r '.workflows | length' "$preset_file")
+  
+  if [ "$workflow_count" -eq 0 ]; then
+    echo "No workflows found in preset file"
+    exit 1
+  fi
+  
+  if [ "$workflow_count" -eq 1 ]; then
+    # If only one workflow, use it directly
+    workflow_index=0
+  else
+    # Build a list of workflows with their names and project counts for display
+    workflow_list=$(jq -r '.workflows | to_entries | .[] | "\(.key):\(.value.name) (\(.value.projects | length) project(s))"' "$preset_file")
+    
+    selected_workflow=$(echo "$workflow_list" | fzf --height 40% --reverse --header "Select a workflow")
+    
+    if [ -z "$selected_workflow" ]; then
+      exit 0
+    fi
+    
+    # Extract the workflow index from the selection
+    workflow_index=$(echo "$selected_workflow" | cut -d: -f1)
+  fi
+
+  # Get projects from the specified workflow
+  for project in $(jq -r ".workflows[$workflow_index].projects[] | @base64" "$preset_file"); do
     _jq() {
       echo "$project" | base64 --decode | jq -r "$@"
     }
@@ -67,7 +93,7 @@ if [ "$1" = "--preset" ]; then
     done
   done
 
-  first_session=$(jq -r '.projects[0].session_name' "$preset_file")
+  first_session=$(jq -r ".workflows[$workflow_index].projects[0].session_name" "$preset_file")
 
   # Attach to the first session
   tmux attach -t $first_session:1
