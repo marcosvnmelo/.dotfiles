@@ -14,7 +14,7 @@ echo '*******************************************'
 
 if [[ $INSTALL_OS = 'arch' ]]; then
   # Install Docker
-  sudo pacman -S --noconfirm --needed docker docker-compose cni-plugins
+  sudo pacman -S --noconfirm --needed docker docker-compose docker-buildx cni-plugins
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
