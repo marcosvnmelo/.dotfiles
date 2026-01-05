@@ -32,7 +32,8 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   com.github.unrud.VideoDownloader \
   md.obsidian.Obsidian \
   org.guitarix.Guitarix \
-  com.github.tenderowl.frog
+  com.github.tenderowl.frog \
+  io.missioncenter.MissionCenter
 
 # com.warlordsoftwares.formatlab
 
