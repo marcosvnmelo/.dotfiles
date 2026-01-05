@@ -28,7 +28,7 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   app.zen_browser.zen \
   it.mijorus.gearlever \
   io.beekeeperstudio.Studio \
-  io.dbeaver.DBeaverCommunity \
+  com.usebruno.Bruno \
   com.github.unrud.VideoDownloader \
   md.obsidian.Obsidian \
   org.guitarix.Guitarix \
