@@ -30,5 +30,8 @@ fi
 # enable bluetooth
 sudo systemctl enable bluetooth
 
+# Setup swap file
+bash "$(dirname "$0")/setup-swap.sh"
+
 # Fix windows timezone on dual boot
 # timedatectl set-local-rtc 1
