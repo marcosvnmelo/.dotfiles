@@ -21,11 +21,12 @@ ln -s "$CURRENT_DIR/config" ~/.config/nvim
 # Install neovim dependencies
 
 if [[ $INSTALL_OS = 'arch' ]]; then
-  sudo pacman -S --noconfirm --needed ripgrep fd fzf
+  sudo pacman -S --noconfirm --needed ripgrep fd fzf ast-grep luarocks
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
-  sudo apt install -y gcc ripgrep fd-find fzf build-essential
+  sudo apt install -y gcc ripgrep fd-find fzf build-essential luarocks
+  # TODO: Install ast-grep
 fi
 
 fish -c "nvm use lts && \
