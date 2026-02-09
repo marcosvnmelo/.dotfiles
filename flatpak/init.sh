@@ -23,7 +23,6 @@ fi
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
-  com.rtosta.zapzap \
   dev.vencord.Vesktop \
   app.zen_browser.zen \
   it.mijorus.gearlever \
@@ -35,6 +34,7 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   com.github.tenderowl.frog \
   io.missioncenter.MissionCenter
 
+# com.rtosta.zapzap
 # com.warlordsoftwares.formatlab
 
 # Zen browser
