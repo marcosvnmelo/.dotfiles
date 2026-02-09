@@ -39,6 +39,7 @@ actions["search"]=" Search"
 actions["emulators"]=" Android Emulators"
 actions["toggle_idle"]=" Toggle Idle Service $(_get_idle_status 'emoji')"
 actions["stop_docker"]=" Stop Docker $(_get_docker_status 'emoji')"
+actions["clean_swap"]="󰃢 Clean Swap"
 
 # Create array of options
 options=(
@@ -46,6 +47,7 @@ options=(
   "${actions["emulators"]}"
   "${actions["toggle_idle"]}"
   "${actions["stop_docker"]}"
+  "${actions["clean_swap"]}"
 )
 
 # Present main menu with proper formatting
@@ -185,6 +187,13 @@ if [[ "$chosen_action" == "${actions["stop_docker"]}" ]]; then
     notify-send "Docker" "No containers are running."
   fi
 
+  exit
+fi
+
+# Handle clean swap submenu
+if [[ "$chosen_action" == "${actions["clean_swap"]}" ]]; then
+  pkexec bash -c "sudo swapoff -a && sudo swapon -a"
+  notify-send "Swap" "Swap has been cleaned."
   exit
 fi
 
