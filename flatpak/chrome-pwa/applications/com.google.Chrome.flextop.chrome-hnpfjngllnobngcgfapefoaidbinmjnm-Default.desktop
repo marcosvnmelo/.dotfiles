@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=WhatsApp Web
+Exec=flatpak 'run' '--command=/app/bin/chrome' 'com.google.Chrome' '--profile-directory=Default' '--app-id=hnpfjngllnobngcgfapefoaidbinmjnm'
+Icon=chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default
+StartupWMClass=crx_hnpfjngllnobngcgfapefoaidbinmjnm
+X-Flatpak-Part-Of=com.google.Chrome
+TryExec=/var/lib/flatpak/exports/bin/com.google.Chrome
