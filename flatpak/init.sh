@@ -32,7 +32,8 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   md.obsidian.Obsidian \
   org.guitarix.Guitarix \
   com.github.tenderowl.frog \
-  io.missioncenter.MissionCenter
+  io.missioncenter.MissionCenter \
+  org.mozilla.Thunderbird
 
 # com.rtosta.zapzap
 # com.warlordsoftwares.formatlab
@@ -67,3 +68,7 @@ done
 
 rm -rf ~/.local/share/icons/hicolor
 ln -sf "$CURRENT_DIR"/chrome-pwa/icons/hicolor ~/.local/share/icons/
+
+# Thunderbird
+flatpak override --user --socket=wayland org.mozilla.Thunderbird
+flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
