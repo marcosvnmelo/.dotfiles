@@ -33,7 +33,7 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   org.guitarix.Guitarix \
   com.github.tenderowl.frog \
   io.missioncenter.MissionCenter \
-  org.mozilla.Thunderbird
+  eu.betterbird.Betterbird com.ulduzsoft.Birdtray
 
 # com.rtosta.zapzap
 # com.warlordsoftwares.formatlab
@@ -70,5 +70,18 @@ rm -rf ~/.local/share/icons/hicolor
 ln -sf "$CURRENT_DIR"/chrome-pwa/icons/hicolor ~/.local/share/icons/
 
 # Thunderbird
-flatpak override --user --socket=wayland org.mozilla.Thunderbird
-flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
+# flatpak override --user --socket=wayland org.mozilla.Thunderbird
+# flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
+
+# Betterbird
+flatpak override --user \
+  --filesystem=~/.var/app/eu.betterbird.Betterbird \
+  --env=QT_SCALE_FACTOR=1.6 \
+  com.ulduzsoft.Birdtray
+
+# --nosocket=wayland eu.betterbird.Betterbird
+# --env=GDK_DPI_SCALE=1.6 eu.betterbird.Betterbird
+flatpak override --user \
+  --env=MOZ_DISABLE_WAYLAND_PROXY=1 \
+  --env=MOZ_ENABLE_WAYLAND=1 \
+  eu.betterbird.Betterbird
