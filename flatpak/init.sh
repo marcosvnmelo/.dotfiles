@@ -31,6 +31,7 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   com.github.unrud.VideoDownloader \
   md.obsidian.Obsidian \
   org.guitarix.Guitarix \
+  org.videolan.VLC \
   com.github.tenderowl.frog \
   io.missioncenter.MissionCenter \
   eu.betterbird.Betterbird com.ulduzsoft.Birdtray
@@ -85,3 +86,8 @@ flatpak override --user \
   --env=MOZ_DISABLE_WAYLAND_PROXY=1 \
   --env=MOZ_ENABLE_WAYLAND=1 \
   eu.betterbird.Betterbird
+
+# VLC
+flatpak override --user \
+  --env=QT_SCALE_FACTOR=1.6 \
+  org.videolan.VLC
