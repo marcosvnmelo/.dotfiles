@@ -66,4 +66,4 @@ for file in "$CURRENT_DIR"/chrome-pwa/applications/*; do
 done
 
 rm -rf ~/.local/share/icons/hicolor
-ln -sf /usr/share/icons/hicolor ~/.local/share/icons/
+ln -sf "$CURRENT_DIR"/chrome-pwa/icons/hicolor ~/.local/share/icons/
