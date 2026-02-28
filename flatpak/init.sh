@@ -39,6 +39,9 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
 # com.rtosta.zapzap
 # com.warlordsoftwares.formatlab
 
+# Global
+flatpak override --user --env=QT_SCALE_FACTOR=1.6
+
 # Zen browser
 xdg-settings set default-web-browser app.zen_browser.zen.desktop
 flatpak override --user --env=MOZ_DISABLE_WAYLAND_PROXY=1 app.zen_browser.zen
@@ -77,7 +80,7 @@ ln -sf "$CURRENT_DIR"/chrome-pwa/icons/hicolor ~/.local/share/icons/
 # Betterbird
 flatpak override --user \
   --filesystem=~/.var/app/eu.betterbird.Betterbird \
-  --env=QT_SCALE_FACTOR=1.6 \
+  --talk-name=org.freedesktop.Notifications \
   com.ulduzsoft.Birdtray
 
 # --nosocket=wayland eu.betterbird.Betterbird
@@ -86,8 +89,3 @@ flatpak override --user \
   --env=MOZ_DISABLE_WAYLAND_PROXY=1 \
   --env=MOZ_ENABLE_WAYLAND=1 \
   eu.betterbird.Betterbird
-
-# VLC
-flatpak override --user \
-  --env=QT_SCALE_FACTOR=1.6 \
-  org.videolan.VLC
