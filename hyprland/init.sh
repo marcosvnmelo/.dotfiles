@@ -12,7 +12,9 @@ echo '*********************************************'
 echo '*            Installing Hyprland            *'
 echo '*********************************************'
 
-# Hyprland packages
+GREETER=greetd # greetd | sddm
+
+# NOTE: Hyprland packages
 sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
   hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
@@ -27,25 +29,25 @@ yay -S --noconfirm --needed swaync envycontrol \
   network-manager-applet indicator-sound-switcher \
   nautilus-open-any-terminal gnome-keyring
 
-# Waybar config
+# NOTE: Waybar config
 if [[ -d ~/.config/waybar ]]; then
   rm -rf ~/.config/waybar
 fi
 ln -s $CURRENT_DIR/waybar ~/.config/waybar
 
-# Hyprland config
+# NOTE: Hyprland config
 if [[ -d ~/.config/hypr ]]; then
   rm -rf ~/.config/hypr
 fi
 ln -s $CURRENT_DIR/hypr ~/.config/hypr
 
-# Rofi config
+# NOTE: Rofi config
 if [[ -d ~/.config/rofi ]]; then
   rm -rf ~/.config/rofi
 fi
 ln -s $CURRENT_DIR/rofi ~/.config/rofi
 
-# GTK settings
+# NOTE: GTK settings
 gsettings set org.gnome.desktop.interface gtk-theme Kanagawa-Dark-Dragon
 gsettings set org.gnome.desktop.interface icon-theme Kanagawa
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
@@ -54,45 +56,65 @@ gsettings set org.gnome.desktop.interface font-name "NotoSans Font 11"
 gsettings set org.gnome.desktop.interface document-font-name "NotoSans Font 11"
 gsettings set org.gnome.desktop.interface monospace-font-name "NotoSansM Nerd Font Mono 10"
 
-# Bookmarks
-mkdir ~/.config/gtk-3.0
+# NOTE: Bookmarks
+mkdir -p ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/bookmarks
 
-# Fonts config
+# NOTE: Fonts config
 if [[ -d ~/.config/fontconfig ]]; then
   rm -rf ~/.config/fontconfig
 fi
 ln -s $CURRENT_DIR/fontconfig ~/.config/fontconfig
 
-# Greetd tuigreet config
-sudo systemctl enable greetd.service
-sudo ln -sf $CURRENT_DIR/greetd/config.toml /etc/greetd/config.toml
+# NOTE: Greetd tuigreet config
+if [[ $GREETER == 'greetd' ]]; then
+  local is_sddm_enabled
+  is_sddm_enabled=$(systemctl is-enabled sddm.service)
 
-# Sddm config
-# sudo systemctl enable sddm.service
-#
-# sudo mkdir /etc/sddm.conf.d
-# sudo ln -sf $CURRENT_DIR/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
+  if [[ "$is_sddm_enabled" == "active" ]]; then
+    sudo systemctl disable sddm.service
+    sudo systemctl stop sddm.service
+  fi
 
-# Sddm theme
-# mkdir -p /tmp/dotfiles
-#
-# git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme /tmp/dotfiles/sddm-theme
-#
-# sudo mkdir -p /usr/share/sddm/themes
-# sudo cp -r /tmp/dotfiles/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
-# sudo rm -r /tmp/dotfiles
+  sudo systemctl enable greetd.service
+  sudo ln -sf $CURRENT_DIR/greetd/config.toml /etc/greetd/config.toml
+fi
 
-# Code flags
+# NOTE: Sddm config
+if [[ $GREETER == 'sddm' ]]; then
+  local is_greetd_enabled
+  is_greetd_enabled=$(systemctl is-enabled greetd.service)
+
+  if [[ "$is_greetd_enabled" == "active" ]]; then
+    sudo systemctl disable greetd.service
+    sudo systemctl stop greetd.service
+  fi
+
+  sudo systemctl enable sddm.service
+
+  sudo mkdir /etc/sddm.conf.d
+  sudo ln -sf $CURRENT_DIR/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
+
+  Sddm theme
+  mkdir -p /tmp/dotfiles
+
+  git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme /tmp/dotfiles/sddm-theme
+
+  sudo mkdir -p /usr/share/sddm/themes
+  sudo cp -r /tmp/dotfiles/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
+  sudo rm -r /tmp/dotfiles
+fi
+
+# NOTE: Code flags
 sudo ln -sf $CURRENT_DIR/code-flags.conf ~/.config/code-flags.conf
 
-# Swaync style
+# NOTE: Swaync style
 if [[ -d ~/.config/swaync ]]; then
   rm -rf ~/.config/swaync
 fi
 ln -s $CURRENT_DIR/swaync ~/.config/swaync
 
-# Kanata config
+# NOTE: Kanata config
 USER_GROUPS=$(groups $USER)
 if [[ $USER_GROUPS != *uinput* ]]; then
   sudo groupadd --system uinput
@@ -102,18 +124,18 @@ if [[ $USER_GROUPS != *uinput* ]]; then
   sudo modprobe uinput
 fi
 
-# Wireplumber config
+# NOTE: Wireplumber config
 if [[ -d ~/.config/wireplumber ]]; then
   rm -rf ~/.config/wireplumber
 fi
 ln -s $CURRENT_DIR/wireplumber ~/.config
 
-# Custom card symlink
+# NOTE: Custom card symlink
 mkdir -p ~/.config/hypr-cards
 ln -sf /dev/dri/by-path/pci-0000:00:02.0-card ~/.config/hypr-cards/cardIntel
 ln -sf /dev/dri/by-path/pci-0000:01:00.0-card ~/.config/hypr-cards/cardNvidia
 
-# Systemd config
+# NOTE: Systemd config
 mkdir -p ~/.config/systemd/user
 
 function gen_services_list() {
