@@ -1,0 +1,29 @@
+# Kanagawa - The Great Wave
+# Inspired by the colors of the famous painting "The Great Wave off Kanagawa" by Katsushika Hokusai
+
+[meta]
+version = 1
+name = "Kanagawa-Dragon"
+description = "Inspired by the colors of the famous painting by Katsushika Hokusai"
+variant = "dark"
+
+[colors.core]
+background = "#181616"        # sumiInk3 - main background
+foreground = "#c5c9c5"        # fujiWhite - main text
+secondary_background = "#16161d"  # sumiInk0 - darker surfaces
+border = "#0d0c0c"            # sumiInk4 - subtle borders
+accent = "#8ba4b0"            # crystalBlue - primary accent
+
+[colors.accents]
+blue = "#8ba4b0"              # crystalBlue - calm blue
+green = "#76946a"             # autumnGreen - natural green
+magenta = "#957FB8"           # oniViolet - mystical violet
+orange = "#e46876"            # surimiOrange - warm orange
+purple = "#938AA9"            # springViolet1 - soft purple
+red = "#c4746e"               # autumnRed - muted red
+yellow = "#DCA561"            # autumnYellow - golden yellow
+cyan = "#7FB4CA"              # springBlue - aqua blue
+
+[colors.list.item.selection]
+background = "#262631"
+secondary_background = "#363646"

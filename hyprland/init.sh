@@ -23,6 +23,7 @@ sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland xdg-des
 
 yay -S --noconfirm --needed swaync envycontrol \
   hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
+  nodejs-lts-krypton vicinae-bin \
   network-manager-applet indicator-sound-switcher \
   nautilus-open-any-terminal gnome-keyring
 
@@ -128,3 +129,11 @@ systemctl --user daemon-reload
 for file in $(gen_services_list); do
   systemctl --user enable $(basename $file)
 done
+
+# NOTE: Vicinae config
+if [[ -d ~/.config/vicinae ]]; then
+  rm -rf ~/.config/vicinae
+fi
+ln -s $CURRENT_DIR/vicinae/config ~/.config/vicinae
+
+ln -sf $CURRENT_DIR/vicinae/local/share/themes/kanagawa-dragon.toml ~/.local/share/vicinae/themes/kanagawa-dragon.toml

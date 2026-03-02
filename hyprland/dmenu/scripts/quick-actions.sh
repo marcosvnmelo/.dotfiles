@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# NOTE: Get dmenu name from first argument
+# rofi | vicinae
+DMENU=${1:-"rofi"}
+
 _get_idle_status() {
   local is_active
   if [[ "$(systemctl --user is-active hypridle.service)" == "active" ]]; then
@@ -51,7 +55,11 @@ options=(
 )
 
 # Present main menu with proper formatting
-chosen_action=$(printf "%s\n" "${options[@]}" | rofi -dmenu -i -config regular -p "󰅒 Quick Actions")
+if [[ "$DMENU" == "rofi" ]]; then
+  chosen_action=$(printf "%s\n" "${options[@]}" | rofi -dmenu -i -config regular -p "󰅒 Quick Actions")
+else
+  chosen_action=$(printf "%s\n" "${options[@]}" | vicinae dmenu --no-footer -p "󰅒 Quick Actions")
+fi
 
 # Exit if no selection
 if [[ -z "$chosen_action" ]]; then
@@ -88,10 +96,18 @@ gen_url_list() {
 }
 
 if [[ "$chosen_action" == "${actions["search"]}" ]]; then
-  platform=$( (gen_url_list) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
+  if [[ "$DMENU" == "rofi" ]]; then
+    platform=$( (gen_url_list) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
+  else
+    platform=$( (gen_url_list) | vicinae dmenu --no-footer -p "Search > ")
+  fi
 
   if [[ -n "$platform" ]]; then
-    query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
+    if [[ "$DMENU" == "rofi" ]]; then
+      query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
+    else
+      query=$( (echo) | vicinae dmenu --no-footer -p "Query > ")
+    fi
 
     if [[ -n "$query" ]]; then
       url=${URLS[$platform]}$query
@@ -134,13 +150,21 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
     done
   }
 
-  avd=$( (gen_avd_list) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
+  if [[ "$DMENU" == "rofi" ]]; then
+    avd=$( (gen_avd_list) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
+  else
+    avd=$( (gen_avd_list) | vicinae dmenu --no-footer -p "Search > ")
+  fi
 
   if [[ -z "$avd" ]]; then
     exit
   fi
 
-  gpu_mode=$( (gen_gpu_mode_list) | rofi -dmenu -i -no-custom -location 0 -p "GPU Mode > " -config regular)
+  if [[ "$DMENU" == "rofi" ]]; then
+    gpu_mode=$( (gen_gpu_mode_list) | rofi -dmenu -i -no-custom -location 0 -p "GPU Mode > " -config regular)
+  else
+    gpu_mode=$( (gen_gpu_mode_list) | vicinae dmenu --no-footer -p "GPU Mode > ")
+  fi
 
   if [[ -z "$gpu_mode" ]]; then
     exit
