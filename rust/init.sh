@@ -18,3 +18,6 @@ sudo pacman -S --noconfirm --needed rustup
 
 # Install Rust
 rustup default stable
+
+# Install rust-analyzer for Neovim (LSP)
+rustup component add rust-analyzer
