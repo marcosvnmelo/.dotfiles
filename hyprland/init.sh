@@ -27,7 +27,8 @@ yay -S --noconfirm --needed swaync envycontrol \
   hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
   nodejs-lts-krypton vicinae-bin \
   network-manager-applet indicator-sound-switcher \
-  nautilus-open-any-terminal gnome-keyring
+  nautilus-open-any-terminal gnome-keyring \
+  noctalia-shell qt6-multimedia-ffmpeg
 
 # NOTE: Waybar config
 if [[ -d ~/.config/waybar ]]; then
