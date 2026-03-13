@@ -34,7 +34,8 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   org.videolan.VLC \
   com.github.tenderowl.frog \
   io.missioncenter.MissionCenter \
-  eu.betterbird.Betterbird com.ulduzsoft.Birdtray
+  eu.betterbird.Betterbird com.ulduzsoft.Birdtray \
+  io.github.shonebinu.Brief
 
 # com.rtosta.zapzap
 # com.warlordsoftwares.formatlab
