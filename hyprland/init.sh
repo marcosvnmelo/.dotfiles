@@ -15,15 +15,15 @@ echo '*********************************************'
 GREETER=greetd # greetd | sddm
 
 # NOTE: Hyprland packages
-sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
+yay -S --noconfirm --needed \
+  hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
   hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
   greetd-tuigreet \
   nautilus python-nautilus file-roller loupe pavucontrol nwg-displays \
   cliphist wtype \
-  mpv
-
-yay -S --noconfirm --needed swaync envycontrol \
+  mpv \
+  swaync envycontrol \
   hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
   nodejs-lts-krypton vicinae-bin \
   network-manager-applet indicator-sound-switcher \
