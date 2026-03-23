@@ -95,7 +95,7 @@
             ],
             "left": [
                 {
-                    "characterCount": 2,
+                    "characterCount": 7,
                     "colorizeIcons": false,
                     "emptyColor": "secondary",
                     "enableScrollWheel": true,
@@ -109,8 +109,8 @@
                     "labelMode": "index",
                     "occupiedColor": "secondary",
                     "pillSize": 0.6,
-                    "showApplications": false,
-                    "showApplicationsHover": false,
+                    "showApplications": true,
+                    "showApplicationsHover": true,
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
@@ -657,7 +657,7 @@
         "automationEnabled": false,
         "directory": "/home/marcos/.dotfiles/hyprland/wallpapers",
         "enableMultiMonitorDirectories": false,
-        "enabled": false,
+        "enabled": true,
         "favorites": [
         ],
         "fillColor": "#000000",

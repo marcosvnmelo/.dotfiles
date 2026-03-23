@@ -1,0 +1,17 @@
+workspace "dev browser"
+
+workspace "terminal"
+
+workspace "vscode"
+
+workspace "browser" {
+  open-on-output "HDMI-A-1"
+}
+
+workspace "messaging"
+
+workspace "mail" {
+    layout {
+        default-column-width { proportion 1.0; }
+    }
+}

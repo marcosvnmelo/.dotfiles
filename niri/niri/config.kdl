@@ -1,0 +1,20 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://yalter.github.io/niri/Configuration:-Introduction
+
+include "input.kdl"
+
+include "env.kdl"
+
+include "monitors.kdl"
+
+include "style.kdl"
+
+include "autostart.kdl"
+
+include "workspaces.kdl"
+
+include "windows.kdl"
+
+include "keybinds.kdl"

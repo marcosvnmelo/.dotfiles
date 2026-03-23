@@ -1,0 +1,92 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match title=r#"Picture(\s|-)in(\s|-)(p|P)icture"#
+
+    open-floating true
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    default-column-width { fixed 500; }
+    default-window-height { fixed 280; }
+    open-focused false
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+
+// NOTE: Messaging
+window-rule {
+    match app-id="vesktop"
+
+    open-on-workspace "messaging"
+}
+window-rule {
+    match app-id="chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default"
+
+    open-on-workspace "messaging"
+}
+
+// NOTE: Mail
+window-rule {
+    match app-id="eu.betterbird.Betterbird"
+    exclude title="Edit Item"
+
+    open-on-workspace "mail"
+}
+window-rule {
+    match app-id="eu.betterbird.Betterbird"
+    match title="Edit Item"
+
+    open-floating true
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+// Set transparent workspace background color so you see the backdrop at all times.
+layout {
+  background-color "transparent"
+}
+
+// Optionally, disable the workspace shadows in the overview.
+overview {
+  workspace-shadow {
+    off
+  }
+}
