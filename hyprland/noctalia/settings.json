@@ -8,7 +8,9 @@
         "customLaunchPrefixEnabled": false,
         "density": "default",
         "enableClipPreview": true,
+        "enableClipboardChips": true,
         "enableClipboardHistory": false,
+        "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
@@ -23,7 +25,6 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "useApp2Unit": false,
         "viewMode": "grid"
     },
     "audio": {
@@ -116,7 +117,7 @@
                 },
                 {
                     "compactMode": false,
-                    "hideMode": "idle",
+                    "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
                     "maxWidth": 145,
@@ -129,10 +130,6 @@
                     "textColor": "none",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
-                },
-                {
-                    "id": "Spacer",
-                    "width": 20
                 },
                 {
                     "compactMode": true,
@@ -227,15 +224,6 @@
                     "id": "Clock",
                     "tooltipFormat": "dd / MM MMMM / yyyy",
                     "useCustomFont": false
-                },
-                {
-                    "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "noctalia",
-                    "id": "ControlCenter",
-                    "useDistroLogo": false
                 }
             ]
         }
@@ -358,8 +346,10 @@
         "indicatorColor": "primary",
         "indicatorOpacity": 0.6,
         "indicatorThickness": 3,
+        "launcherIcon": "",
         "launcherIconColor": "none",
         "launcherPosition": "end",
+        "launcherUseDistroLogo": false,
         "monitors": [
             "eDP-1"
         ],
@@ -438,6 +428,7 @@
         "telemetryEnabled": true
     },
     "hooks": {
+        "colorGeneration": "",
         "darkModeChange": "",
         "enabled": false,
         "performanceModeDisabled": "",
@@ -549,7 +540,8 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": false
+        "autoUpdate": false,
+        "notifyUpdates": true
     },
     "sessionMenu": {
         "countdownDuration": 10000,
@@ -618,7 +610,7 @@
         "showHeader": true,
         "showKeybinds": true
     },
-    "settingsVersion": 57,
+    "settingsVersion": 59,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -672,6 +664,11 @@
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
         "monitorDirectories": [
+            {
+                "directory": "/home/marcos/.dotfiles/hyprland/wallpapers",
+                "name": "eDP-1",
+                "wallpaper": ""
+            }
         ],
         "overviewBlur": 0.4,
         "overviewEnabled": false,
@@ -685,7 +682,14 @@
         "sortOrder": "name_desc",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
-        "transitionType": "random",
+        "transitionType": [
+            "fade",
+            "disc",
+            "stripes",
+            "wipe",
+            "pixelate",
+            "honeycomb"
+        ],
         "useSolidColor": false,
         "useWallhaven": false,
         "viewMode": "recursive",
