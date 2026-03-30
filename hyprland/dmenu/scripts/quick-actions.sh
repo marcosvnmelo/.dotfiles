@@ -44,6 +44,7 @@ actions["emulators"]=" Android Emulators"
 actions["toggle_idle"]=" Toggle Idle Service $(_get_idle_status 'emoji')"
 actions["stop_docker"]=" Stop Docker $(_get_docker_status 'emoji')"
 actions["clean_swap"]="󰃢 Clean Swap"
+actions["toggle_statusbar"]=" Toggle Statusbar"
 
 # Create array of options
 options=(
@@ -52,6 +53,7 @@ options=(
   "${actions["toggle_idle"]}"
   "${actions["stop_docker"]}"
   "${actions["clean_swap"]}"
+  "${actions["toggle_statusbar"]}"
 )
 
 # Present main menu with proper formatting
@@ -218,6 +220,13 @@ fi
 if [[ "$chosen_action" == "${actions["clean_swap"]}" ]]; then
   pkexec bash -c "sudo swapoff -a && sudo swapon -a"
   notify-send "Swap" "Swap has been cleaned."
+  exit
+fi
+
+# Handle toggle statusbar submenu
+if [[ "$chosen_action" == "${actions["toggle_statusbar"]}" ]]; then
+  pkexec bash -c "qs -c noctalia-shell kill || qs -c noctalia-shell"
+
   exit
 fi
 
