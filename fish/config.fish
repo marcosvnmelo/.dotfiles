@@ -36,7 +36,7 @@ end
 
 function upd -d "Update all packages"
     # Arch Linux
-    flatpak update && yay -Syu
+    flatpak update && yay -Syu --answerclean A --answerdiff N
     # Debian
     # sudo apt update && sudo apt upgrade
 end
