@@ -11,7 +11,7 @@ function cat -d "Use bat instead of cat"
 end
 
 function ls -d "Use eza with icons and colors"
-    eza --icons=always --color=always $argv
+    eza --icons=always --color=always --group-directories-first -1 $argv
 end
 
 function filesize -d "Show file sizes sorted by size"
