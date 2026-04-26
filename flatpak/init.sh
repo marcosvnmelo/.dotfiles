@@ -52,6 +52,7 @@ flatpak override --user --socket=wayland md.obsidian.Obsidian
 
 # Vesktop
 flatpak override --user --nosocket=x11 dev.vencord.Vesktop
+flatpak override --user --filesystem=xdg-documents:ro dev.vencord.Vesktop
 
 # Guitarix
 flatpak override --user --socket=wayland org.guitarix.Guitarix
