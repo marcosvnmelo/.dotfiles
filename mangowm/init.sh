@@ -14,9 +14,7 @@ echo '********************************************'
 
 # NOTE: MangoWM packages
 yay -S --noconfirm --needed \
-  mangowm-git \
-  grim slurp wl-clipboard tesseract tesseract-data-eng imagemagick zbar curl translate-shell wf-recorder ffmpeg \
-  gifski
+  mangowm-git
 
 # NOTE: MangoWM config
 if [[ -d ~/.config/mango ]]; then

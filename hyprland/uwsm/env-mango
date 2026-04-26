@@ -1,0 +1,2 @@
+export AQ_DRM_DEVICES="$HOME/.config/hypr-cards/cardIntel:$HOME/.config/hypr-cards/cardNvidia"
+export WLR_DRM_DEVICES="$HOME/.config/hypr-cards/cardIntel:$HOME/.config/hypr-cards/cardNvidia"
