@@ -27,12 +27,8 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   app.zen_browser.zen \
   it.mijorus.gearlever \
   io.beekeeperstudio.Studio \
-  com.usebruno.Bruno \
-  com.github.unrud.VideoDownloader \
   md.obsidian.Obsidian \
-  org.guitarix.Guitarix \
   org.videolan.VLC \
-  com.github.tenderowl.frog \
   io.missioncenter.MissionCenter \
   eu.betterbird.Betterbird \
   io.github.shonebinu.Brief
@@ -40,6 +36,10 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
 # com.rtosta.zapzap
 # com.warlordsoftwares.formatlab
 # com.ulduzsoft.Birdtray
+# com.github.tenderowl.frog
+# com.github.unrud.VideoDownloader
+# com.usebruno.Bruno
+# org.guitarix.Guitarix
 
 # Global
 flatpak override --user --env=QT_SCALE_FACTOR=1.6
