@@ -34,11 +34,12 @@ flatpak install -y --or-update flathub com.github.tchx84.Flatseal \
   org.videolan.VLC \
   com.github.tenderowl.frog \
   io.missioncenter.MissionCenter \
-  eu.betterbird.Betterbird com.ulduzsoft.Birdtray \
+  eu.betterbird.Betterbird \
   io.github.shonebinu.Brief
 
 # com.rtosta.zapzap
 # com.warlordsoftwares.formatlab
+# com.ulduzsoft.Birdtray
 
 # Global
 flatpak override --user --env=QT_SCALE_FACTOR=1.6
