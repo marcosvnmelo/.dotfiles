@@ -17,7 +17,7 @@ GREETER=greetd # greetd | sddm
 # NOTE: Hyprland packages
 yay -S --noconfirm --needed \
   hyprland \
-  hyprlock hypridle hyprpicker hyprpaper hyprshutdown hyprshot-git \
+  hyprlock hypridle hyprpicker hyprpaper hyprshot-git \
   xdg-desktop-portal-hyprland \
   xdg-desktop-portal-gtk polkit-gnome \
   waybar \
