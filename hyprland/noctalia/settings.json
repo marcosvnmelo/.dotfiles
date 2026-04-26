@@ -570,14 +570,14 @@
         "powerOptions": [
             {
                 "action": "shutdown",
-                "command": "",
+                "command": "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "1"
             },
             {
                 "action": "reboot",
-                "command": "",
+                "command": "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "2"

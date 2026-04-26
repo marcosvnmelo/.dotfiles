@@ -17,7 +17,7 @@ GREETER=greetd # greetd | sddm
 # NOTE: Hyprland packages
 yay -S --noconfirm --needed \
   hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
-  hyprlock hypridle hyprpicker hyprpaper waybar blueman rofi-wayland \
+  hyprlock hypridle hyprpicker hyprpaper hyprshutdown waybar blueman rofi-wayland \
   sddm qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
   greetd-tuigreet \
   nautilus python-nautilus file-roller loupe pavucontrol nwg-displays \
@@ -69,7 +69,7 @@ ln -s $CURRENT_DIR/fontconfig ~/.config/fontconfig
 
 # NOTE: Greetd tuigreet config
 if [[ $GREETER == 'greetd' ]]; then
-  local is_sddm_enabled
+  set is_sddm_enabled
   is_sddm_enabled=$(systemctl is-enabled sddm.service)
 
   if [[ "$is_sddm_enabled" == "active" ]]; then
@@ -83,7 +83,7 @@ fi
 
 # NOTE: Sddm config
 if [[ $GREETER == 'sddm' ]]; then
-  local is_greetd_enabled
+  set is_greetd_enabled
   is_greetd_enabled=$(systemctl is-enabled greetd.service)
 
   if [[ "$is_greetd_enabled" == "active" ]]; then
