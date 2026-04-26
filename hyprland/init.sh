@@ -16,19 +16,28 @@ GREETER=greetd # greetd | sddm
 
 # NOTE: Hyprland packages
 yay -S --noconfirm --needed \
-  hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-gnome \
-  hyprlock hypridle hyprpicker hyprpaper hyprshutdown waybar blueman rofi-wayland \
-  sddm qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
+  hyprland \
+  hyprlock hypridle hyprpicker hyprpaper hyprshutdown hyprshot-git \
+  xdg-desktop-portal-hyprland \
+  xdg-desktop-portal-gtk polkit-gnome \
+  waybar \
+  blueman swaync pavucontrol network-manager-applet indicator-sound-switcher nwg-displays \
+  uwsm \
+  sddm \
+  qt5-quickcontrols2 qt6-5compat qt6-svg qt5-wayland qt6-wayland \
   greetd-tuigreet \
-  nautilus python-nautilus file-roller loupe pavucontrol nwg-displays \
-  cliphist wtype \
+  kanata-bin \
+  nautilus \
+  python-nautilus file-roller loupe nautilus-open-any-terminal gnome-keyring \
+  cliphist wtype wl-clipboard \
   mpv \
-  swaync envycontrol \
-  hyprshot-git kanata-bin rofi-power-menu rofi-emoji-git rofi-calc-git \
-  nodejs-lts-krypton vicinae-bin \
-  network-manager-applet indicator-sound-switcher \
-  nautilus-open-any-terminal gnome-keyring \
-  noctalia-shell qt6-multimedia-ffmpeg
+  envycontrol \
+  rofi-wayland \
+  rofi-power-menu rofi-emoji-git rofi-calc-git \
+  vicinae-bin \
+  nodejs-lts-krypton \
+  noctalia-shell \
+  qt6-multimedia-ffmpeg grim slurp tesseract tesseract-data-eng zbar translate-shell wf-recorder gifski
 
 # NOTE: Waybar config
 if [[ -d ~/.config/waybar ]]; then
@@ -160,3 +169,12 @@ fi
 ln -s $CURRENT_DIR/vicinae/config ~/.config/vicinae
 
 ln -sf $CURRENT_DIR/vicinae/local/share/themes/kanagawa-dragon.toml ~/.local/share/vicinae/themes/kanagawa-dragon.toml
+
+systemctl --user enable vicinae.service
+
+# NOTE: Uwsm config
+if [[ -d ~/.config/uwsm ]]; then
+  rm -rf ~/.config/uwsm
+fi
+
+ln -s $CURRENT_DIR/uwsm ~/.config/uwsm

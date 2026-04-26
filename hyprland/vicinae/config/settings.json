@@ -7,26 +7,42 @@
 // If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
 //
 // Learn more about configuration at https://docs.vicinae.com/config
+
 {
-  "$schema": "https://vicinae.com/schemas/config.json",
-  "font": {
-    "normal": {
-      "family": "NotoSansM Nerd Font Mono"
-    }
-  },
-  "theme": {
-    "dark": {
-      "name": "kanagawa-dragon",
-      "icon_theme": "oomox-Kanagawa"
-    }
-  },
-  "launcher_window": {
-    "opacity": 0.85,
-    "client_side_decorations": {
-      "enabled": true
-    }
-  },
-  "favorites": [
-    "applications:app.zen_browser.zen"
-  ]
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "font": {
+      "normal": {
+         "family": "NotoSansM Nerd Font Mono"
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "kanagawa-dragon",
+         "icon_theme": "oomox-Kanagawa"
+      }
+   },
+   "launcher_window": {
+      "opacity": 0.85,
+      "client_side_decorations": {
+         "enabled": true
+      }
+   },
+   "favorites": [
+      "applications:app.zen_browser.zen"
+   ],
+   "providers": {
+      "applications": {
+         "preferences": {
+            "defaultAction": "focus",
+            "launchPrefix": "uwsm-app --",
+            "paths": [
+               "/home/marcos/.local/share/applications",
+               "/home/marcos/.local/share/flatpak/exports/share/applications",
+               "/var/lib/flatpak/exports/share/applications",
+               "/usr/local/share/applications",
+               "/usr/share/applications"
+            ]
+         }
+      }
+   }
 }

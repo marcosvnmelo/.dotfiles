@@ -2,5 +2,5 @@
 vt = 1
 
 [default_session]
-command = "tuigreet --cmd start-hyprland --remember --remember-user-session --time"
+command = "tuigreet --cmd 'uwsm start hyprland-uwsm.desktop' --remember --remember-user-session --time"
 user = "greeter"

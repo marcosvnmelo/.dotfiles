@@ -1,0 +1,7 @@
+export XCURSOR_SIZE="24"
+export XCURSOR_THEME="Bibata-Modern-Classic"
+export HYPRCURSOR_SIZE="24"
+export HYPRCURSOR_THEME="Bibata-Modern-Classic"
+
+export AQ_DRM_DEVICES="$HOME/.config/hypr-cards/cardIntel:$HOME/.config/hypr-cards/cardNvidia"
+export WLR_DRM_DEVICES="$HOME/.config/hypr-cards/cardIntel:$HOME/.config/hypr-cards/cardNvidia"

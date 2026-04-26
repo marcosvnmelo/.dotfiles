@@ -225,7 +225,7 @@ fi
 
 # Handle toggle statusbar submenu
 if [[ "$chosen_action" == "${actions["toggle_statusbar"]}" ]]; then
-  pkexec bash -c "qs -c noctalia-shell kill || qs -c noctalia-shell"
+  pkexec bash -c "qs -c noctalia-shell kill || uwsm-app -- qs -c noctalia-shell"
 
   exit
 fi

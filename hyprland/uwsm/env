@@ -1,0 +1,22 @@
+export GDK_SCALE="1"
+export __GL_VRR_ALLOWED="0"
+
+export XDG_PICTURES_DIR="Pictures/Screenshots"
+
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME="qt6ct"
+export QT_AUTO_SCREEN_SCALE_FACTOR="1"
+export GSK_RENDERER="ngl"
+
+export ADW_DEBUG_COLOR_SCHEME="prefer-dark"
+
+export GTK_THEME="Kanagawa-Dark-Dragon"
+export EDITOR="nvim"
+
+export EDGE_PATH="/var/lib/flatpak/app/com.google.Chrome/current/active/export/bin/com.google.Chrome"
+export CHROME_PATH="/var/lib/flatpak/app/com.google.Chrome/current/active/export/bin/com.google.Chrome"
+
+export QT_IM_MODULE="fcitx"
+export XMODIFIERS="@im=fcitx"
+export LC_CTYPE="pt_BR.UTF-8"

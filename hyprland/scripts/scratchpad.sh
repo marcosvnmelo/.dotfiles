@@ -25,7 +25,7 @@ function _toggle_scratchpad() {
 }
 
 function _open_app() {
-  fish -c "$OPEN_APP_CMD"
+  fish -c "uwsm-app -- $OPEN_APP_CMD"
 }
 
 function _check_if_app_running() {
