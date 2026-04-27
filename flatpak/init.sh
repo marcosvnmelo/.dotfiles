@@ -59,23 +59,6 @@ flatpak override --user --filesystem=xdg-documents:ro dev.vencord.Vesktop
 flatpak override --user --socket=wayland org.guitarix.Guitarix
 flatpak override --user --env=PIPEWIRE_LATENCY=128/44100 org.guitarix.Guitarix
 
-# Chrome (pwa)
-flatpak override --user \
-  --filesystem=~/.local/share/applications \
-  --filesystem=~/.local/share/icons com.google.Chrome
-
-mkdir -p ~/.local/share/applications
-mkdir -p ~/.local/share/icons
-
-for file in "$CURRENT_DIR"/chrome-pwa/applications/*; do
-  if [[ -f "$file" ]]; then
-    ln -sf "$file" ~/.local/share/applications/"$(basename "$file")"
-  fi
-done
-
-rm -rf ~/.local/share/icons/hicolor
-ln -sf "$CURRENT_DIR"/chrome-pwa/icons/hicolor ~/.local/share/icons/
-
 # Thunderbird
 # flatpak override --user --socket=wayland org.mozilla.Thunderbird
 # flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
