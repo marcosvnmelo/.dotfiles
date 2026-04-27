@@ -570,56 +570,56 @@
         "powerOptions": [
             {
                 "action": "shutdown",
-                "command": "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'",
+                "command": "~/.local/bin/session-action shutdown",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "1"
             },
             {
                 "action": "reboot",
-                "command": "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'",
+                "command": "~/.local/bin/session-action reboot",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "2"
             },
             {
                 "action": "rebootToUefi",
-                "command": "",
+                "command": "~/.local/bin/session-action rebootToUefi",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "3"
             },
             {
                 "action": "suspend",
-                "command": "",
+                "command": "~/.local/bin/session-action suspend",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "4"
             },
             {
                 "action": "hibernate",
-                "command": "",
+                "command": "~/.local/bin/session-action hibernate",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "5"
             },
             {
                 "action": "logout",
-                "command": "",
+                "command": "~/.local/bin/session-action logout",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "6"
             },
             {
                 "action": "lock",
-                "command": "",
+                "command": "~/.local/bin/session-action lock",
                 "countdownEnabled": true,
                 "enabled": false,
                 "keybind": ""
             },
             {
                 "action": "userspaceReboot",
-                "command": "",
+                "command": "~/.local/bin/session-action userspaceReboot",
                 "countdownEnabled": true,
                 "enabled": false,
                 "keybind": ""
