@@ -13,24 +13,42 @@ fi
 case "$session_action" in
 "shutdown")
   if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
-    hyprshutdown -t 'Shutting down...' --no-exit --post-cmd 'systemctl poweroff'
-  else
-    systemctl poweroff
+    hyprshutdown -t 'Shutting down...' --no-exit
+
+    sleep 1
+
+    until [[ -z "$(pgrep 'hyprshutdown')" ]]; do
+      sleep 1
+    done
   fi
+
+  systemctl poweroff
   ;;
 "reboot")
   if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
     hyprshutdown -t 'Restarting...' --no-exit --post-cmd 'systemctl reboot'
-  else
-    systemctl reboot
+
+    sleep 1
+
+    until [[ -z "$(pgrep 'hyprshutdown')" ]]; do
+      sleep 1
+    done
   fi
+
+  systemctl reboot
   ;;
 "rebootToUefi")
   if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
     hyprshutdown -t 'Restarting to UEFI...' --no-exit --post-cmd 'systemctl reboot --firmware-setup'
-  else
-    systemctl reboot --firmware-setup
+
+    sleep 1
+
+    until [[ -z "$(pgrep 'hyprshutdown')" ]]; do
+      sleep 1
+    done
   fi
+
+  systemctl reboot --firmware-setup
   ;;
 "suspend")
   systemctl suspend
@@ -41,9 +59,15 @@ case "$session_action" in
 "logout")
   if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
     hyprshutdown -t 'Logging out...' --no-exit --post-cmd 'uwsm stop'
-  else
-    uwsm stop
+
+    sleep 1
+
+    until [[ -z "$(pgrep 'hyprshutdown')" ]]; do
+      sleep 1
+    done
   fi
+
+  uwsm stop
   ;;
 "lock")
   if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
@@ -55,9 +79,15 @@ case "$session_action" in
 "userspaceReboot")
   if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
     hyprshutdown -t 'Restarting userspace...' --no-exit --post-cmd 'systemctl soft-reboot'
-  else
-    systemctl soft-reboot
+
+    sleep 1
+
+    until [[ -z "$(pgrep 'hyprshutdown')" ]]; do
+      sleep 1
+    done
   fi
+
+  systemctl soft-reboot
   ;;
 *)
   notify-send "Session action" "Invalid session action."
