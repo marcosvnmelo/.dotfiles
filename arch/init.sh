@@ -35,3 +35,8 @@ bash "$(dirname "$0")/setup-swap.sh"
 
 # Fix windows timezone on dual boot
 # timedatectl set-local-rtc 1
+
+# Enable nvidia services (fixes suspense/hibernate issues)
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-resume.service
