@@ -1,15 +1,17 @@
+
 [Unit]
 Description=arRPC (Discord RPC)
 Documentation=https://arrpc.openasar.dev/
 After=network.target
 
 [Service]
-Type=simple
-Environment=PATH=/usr/bin
-ExecStart=/usr/bin/sh -c 'export PATH=$HOME/.local/share/pnpm:$HOME/.local/share/nvm/$(ls $HOME/.local/share/nvm | tail -n1)/bin:$PATH && pnpm dlx arrpc'
-
+Type=notify
+ExecStart=/usr/bin/fish -c "pnpx arrpc 2>&1 | sed -u -r 's/\\x1B\\[[0-9;]*[mK]//g' | gawk '{ print } /\\[arRPC > process\\] started/ { system(\"systemd-notify --ready\"); fflush(); }'"
+NotifyAccess=all
 Restart=on-failure
 RestartSec=10
+TimeoutStartSec=60
 
 [Install]
 WantedBy=default.target
+
