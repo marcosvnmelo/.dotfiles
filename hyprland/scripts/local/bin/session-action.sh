@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# NOTE: Execute a session action using hyprshutdown if running on Hyprland
+# Usage: ~/.local/bin/session-action.sh <action>
+
 session_action=${1}
 
 if [[ -z "$session_action" ]]; then

@@ -184,6 +184,16 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
 
   tmux new-session -d -s android-emulator "$emulator_cmd"
 
+  until [[ -n "$(hyprctl clients -j | jq -r '.[] | select(.class == "Emulator") | .pid')" ]]; do sleep 1; done
+
+  sleep 3
+
+  hyprctl dispatch settiled "title:^.*Android Emulator.*$"
+
+  sleep 3
+
+  hyprctl dispatch resizewindowpixel "445 100%,title:^.*Android Emulator.*$"
+
   exit
 fi
 

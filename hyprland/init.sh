@@ -184,7 +184,6 @@ ln -s $CURRENT_DIR/uwsm ~/.config/uwsm
 for file in "$CURRENT_DIR"/scripts/local/bin/*; do
   if [[ -f "$file" ]]; then
     file_name=$(basename "$file")
-    file_name_no_ext="${file_name%.*}"
-    ln -sf "$file" ~/.local/bin/"$file_name_no_ext"
+    ln -sf "$file" ~/.local/bin/"$file_name"
   fi
 done

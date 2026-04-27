@@ -570,56 +570,56 @@
         "powerOptions": [
             {
                 "action": "shutdown",
-                "command": "~/.local/bin/session-action shutdown",
+                "command": "~/.local/bin/session-action.sh shutdown",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "1"
             },
             {
                 "action": "reboot",
-                "command": "~/.local/bin/session-action reboot",
+                "command": "~/.local/bin/session-action.sh reboot",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "2"
             },
             {
                 "action": "rebootToUefi",
-                "command": "~/.local/bin/session-action rebootToUefi",
+                "command": "~/.local/bin/session-action.sh rebootToUefi",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "3"
             },
             {
                 "action": "suspend",
-                "command": "~/.local/bin/session-action suspend",
+                "command": "~/.local/bin/session-action.sh suspend",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "4"
             },
             {
                 "action": "hibernate",
-                "command": "~/.local/bin/session-action hibernate",
+                "command": "~/.local/bin/session-action.sh hibernate",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "5"
             },
             {
                 "action": "logout",
-                "command": "~/.local/bin/session-action logout",
+                "command": "~/.local/bin/session-action.sh logout",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "6"
             },
             {
                 "action": "lock",
-                "command": "~/.local/bin/session-action lock",
+                "command": "~/.local/bin/session-action.sh lock",
                 "countdownEnabled": true,
                 "enabled": false,
                 "keybind": ""
             },
             {
                 "action": "userspaceReboot",
-                "command": "~/.local/bin/session-action userspaceReboot",
+                "command": "~/.local/bin/session-action.sh userspaceReboot",
                 "countdownEnabled": true,
                 "enabled": false,
                 "keybind": ""

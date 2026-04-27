@@ -1,8 +1,6 @@
 export GDK_SCALE="1"
 export __GL_VRR_ALLOWED="0"
 
-export XDG_PICTURES_DIR="Pictures/Screenshots"
-
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME="qt6ct"
