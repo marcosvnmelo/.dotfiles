@@ -459,7 +459,7 @@
     },
     "idle": {
         "customCommands": "[]",
-        "enabled": false,
+        "enabled": true,
         "fadeDuration": 5,
         "lockCommand": "",
         "lockTimeout": 70,
@@ -675,7 +675,7 @@
         "automationEnabled": false,
         "directory": "/home/marcos/.dotfiles/hyprland/wallpapers",
         "enableMultiMonitorDirectories": false,
-        "enabled": false,
+        "enabled": true,
         "favorites": [
         ],
         "fillColor": "#000000",
