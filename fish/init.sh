@@ -73,8 +73,3 @@ get_completions_list() {
 for completion in $(get_completions_list); do
   ln -sf "$CURRENT_DIR/completions/$completion" ~/.config/fish/completions/$completion
 done
-
-# HACK: Workaround for missing node in PATH
-# due to nvm plugin from fisher not being loaded
-# in some cases
-sudo ln -sf "$CURRENT_DIR"/fish-nvm.sh /etc/profile.d/fish-nvm.sh

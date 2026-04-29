@@ -18,3 +18,11 @@ export CHROME_PATH="/var/lib/flatpak/app/com.google.Chrome/current/active/export
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
 export LC_CTYPE="pt_BR.UTF-8"
+
+if [ -d "$HOME/.local/share/nvm" ]; then
+  NODE_VERSION="$(ls $HOME/.local/share/nvm | tail -n1)"
+
+  if [ -n "$NODE_VERSION" ]; then
+    export PATH="$HOME/.local/share/nvm/$NODE_VERSION/bin:$PATH"
+  fi
+fi

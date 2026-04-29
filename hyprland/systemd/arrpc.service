@@ -6,7 +6,7 @@ After=network.target
 
 [Service]
 Type=notify
-ExecStart=/usr/bin/fish -c "pnpx arrpc 2>&1 | sed -u -r 's/\\x1B\\[[0-9;]*[mK]//g' | gawk '{ print } /\\[arRPC > process\\] started/ { system(\"systemd-notify --ready\"); fflush(); }'"
+ExecStart=/usr/bin/fish -l -c "arrpc 2>&1 | sed -u -r 's/\\x1B\\[[0-9;]*[mK]//g' | gawk '{ print } /\\[arRPC > process\\] started/ { system(\"systemd-notify --ready\"); fflush(); }'"
 NotifyAccess=all
 Restart=on-failure
 RestartSec=10

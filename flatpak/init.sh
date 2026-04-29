@@ -55,6 +55,12 @@ flatpak override --user --socket=wayland md.obsidian.Obsidian
 flatpak override --user --nosocket=x11 dev.vencord.Vesktop
 flatpak override --user --filesystem=xdg-documents:ro dev.vencord.Vesktop
 
+if command -v pnpm >/dev/null 2>&1; then
+  pnpm install -g arrpc
+else
+  echo "Warning: pnpm not found. Skipping arrpc installation."
+fi
+
 # Guitarix
 flatpak override --user --socket=wayland org.guitarix.Guitarix
 flatpak override --user --env=PIPEWIRE_LATENCY=128/44100 org.guitarix.Guitarix
