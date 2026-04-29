@@ -9,12 +9,12 @@ if [[ $INSTALL_OS = 'arch' ]]; then
 fi
 
 if [[ $INSTALL_OS = 'debian' ]]; then
-  mkdir -p /tmp/dotfiles
+  mkdir -p "$INSTALL_TEMP_DIR"
 
   BAT_VERSION=$(curl -s "https://api.github.com/repos/sharkdp/bat/releases/latest" | grep -Po '"tag_name": "\K[^"]*' | sed 's/v//')
-  curl -Lo /tmp/dotfiles/bat.deb \
+  curl -Lo "$INSTALL_TEMP_DIR"/bat.deb \
     "https://github.com/sharkdp/bat/releases/download/v${BAT_VERSION}/bat_${BAT_VERSION}_amd64.deb"
-  sudo dpkg -i /tmp/dotfiles/bat.deb
+  sudo dpkg -i "$INSTALL_TEMP_DIR"/bat.deb
 
-  rm -rf /tmp/dotfiles
+  rm -rf "$INSTALL_TEMP_DIR"
 fi

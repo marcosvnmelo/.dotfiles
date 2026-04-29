@@ -32,7 +32,7 @@ sudo chsh -s /usr/bin/fish "$USER"
 
 mkdir -p ~/.config/fish
 
-ln -sf ~/.dotfiles/fish/config.fish ~/.config/fish/config.fish
+ln -sf "$CURRENT_DIR"/config.fish ~/.config/fish/config.fish
 
 # Install starship prompt
 
@@ -40,7 +40,7 @@ if [[ -z $(which starship) ]]; then
   curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
 
-ln -sf ~/.dotfiles/fish/starship.toml ~/.config/starship.toml
+ln -sf "$CURRENT_DIR"/starship.toml ~/.config/starship.toml
 
 # Install fisher
 
@@ -71,7 +71,7 @@ get_completions_list() {
 }
 
 for completion in $(get_completions_list); do
-  ln -sf ~/.dotfiles/fish/completions/$completion ~/.config/fish/completions/$completion
+  ln -sf "$CURRENT_DIR/completions/$completion" ~/.config/fish/completions/$completion
 done
 
 # HACK: Workaround for missing node in PATH

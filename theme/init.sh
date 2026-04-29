@@ -29,16 +29,16 @@ fi
 mkdir ~/.themes
 mkdir ~/.icons
 
-mkdir -p /tmp/dotfiles
+mkdir -p "$INSTALL_TEMP_DIR"
 
-git clone https://github.com/Fausto-Korpsvart/Kanagawa-GKT-Theme.git /tmp/dotfiles/kanagawa-gtk-theme
+git clone https://github.com/Fausto-Korpsvart/Kanagawa-GKT-Theme.git "$INSTALL_TEMP_DIR"/kanagawa-gtk-theme
 
-/tmp/dotfiles/kanagawa-gtk-theme/themes/install.sh --tweaks dragon
+"$INSTALL_TEMP_DIR"/kanagawa-gtk-theme/themes/install.sh --tweaks dragon
 
 rm -rf ~/.icons/Kanagawa
-mv /tmp/dotfiles/kanagawa-gtk-theme/icons/Kanagawa ~/.icons
+mv "$INSTALL_TEMP_DIR"/kanagawa-gtk-theme/icons/Kanagawa ~/.icons
 
-rm -rf /tmp/dotfiles
+rm -rf "$INSTALL_TEMP_DIR"
 
 # Cursor
 cp -r /usr/share/icons/Bibata-Modern-Classic ~/.icons

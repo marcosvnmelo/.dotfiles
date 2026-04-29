@@ -24,11 +24,11 @@ fi
 
 mkdir -p ~/.config/wezterm
 
-ln -sf ~/.dotfiles/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+ln -sf "$CURRENT_DIR"/wezterm.lua ~/.config/wezterm/wezterm.lua
 
 # Create symbolic link to gnome-terminal redirect to wezterm
 if [[ $INSTALL_OS = 'arch' ]]; then
-  sudo ln -sf ~/.dotfiles/wezterm/fake-gnome-terminal.sh /usr/bin/gnome-terminal
+  sudo ln -sf "$CURRENT_DIR"/fake-gnome-terminal.sh /usr/bin/gnome-terminal
 fi
 
 # Set wezterm as default terminal

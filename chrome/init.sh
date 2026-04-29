@@ -15,14 +15,14 @@ if [[ $INSTALL_MODE = 'bare' ]]; then
   if [[ $INSTALL_OS = 'debian' ]]; then
     flatpak install -y --or-update flathub com.google.Chrome
 
-    mkdir -p /tmp/dotfiles
+    mkdir -p "$INSTALL_TEMP_DIR"
 
     curl -L 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' \
-      -o /tmp/dotfiles/chrome.deb
+      -o "$INSTALL_TEMP_DIR"/chrome.deb
 
-    sudo apt install --fix-missing /tmp/dotfiles/chrome.deb -y
+    sudo apt install --fix-missing "$INSTALL_TEMP_DIR"/chrome.deb -y
 
-    rm -rf /tmp/dotfiles
+    rm -rf "$INSTALL_TEMP_DIR"
   fi
 
 fi

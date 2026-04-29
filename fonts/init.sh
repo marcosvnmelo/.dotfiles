@@ -22,15 +22,15 @@ fi
 if [[ $INSTALL_OS = 'debian' ]]; then
   FONT_VERSION=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | grep -Po '"tag_name": "v\K[^"]*')
 
-  mkdir -p /tmp/dotfiles
+  mkdir -p "$INSTALL_TEMP_DIR"
   mkdir -p ~/.local/share/fonts
 
-  curl -Lo /tmp/dotfiles/fira_code.zip \
+  curl -Lo "$INSTALL_TEMP_DIR"/fira_code.zip \
     "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
-  unzip /tmp/dotfiles/fira_code.zip -d /tmp/dotfiles
+  unzip "$INSTALL_TEMP_DIR"/fira_code.zip -d "$INSTALL_TEMP_DIR"
 
-  mv /tmp/dotfiles/*.ttf ~/.local/share/fonts
+  mv "$INSTALL_TEMP_DIR"/*.ttf ~/.local/share/fonts
 
-  rm -rf /tmp/dotfiles
+  rm -rf "$INSTALL_TEMP_DIR"
 fi

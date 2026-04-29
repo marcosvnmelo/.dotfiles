@@ -12,13 +12,13 @@ if [[ $INSTALL_OS = 'debian' ]]; then
   DELTA_VERSION=$(curl -s "https://api.github.com/repos/dandavison/delta/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
   DEB_FILE="git-delta_${DELTA_VERSION}_amd64.deb"
 
-  mkdir -p /tmp/dotfiles
+  mkdir -p "$INSTALL_TEMP_DIR"
 
   curl -Lo \
-    "/tmp/dotfiles/${DEB_FILE}" \
+    "$INSTALL_TEMP_DIR/${DEB_FILE}" \
     "https://github.com/dandavison/delta/releases/latest/download/${DEB_FILE}"
 
-  sudo dpkg -i "/tmp/dotfiles/${DEB_FILE}"
+  sudo dpkg -i "$INSTALL_TEMP_DIR/${DEB_FILE}"
 
-  rm -rf /tmp/dotfiles
+  rm -rf "$INSTALL_TEMP_DIR"
 fi

@@ -11,18 +11,18 @@ fi
 if [[ $INSTALL_OS = 'debian' ]]; then
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 
-  mkdir -p /tmp/dotfiles
+  mkdir -p "$INSTALL_TEMP_DIR"
 
-  curl -Lo /tmp/dotfiles/lazygit.tar.gz \
+  curl -Lo "$INSTALL_TEMP_DIR"/lazygit.tar.gz \
     "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 
-  tar xf /tmp/dotfiles/lazygit.tar.gz -C /tmp/dotfiles
+  tar xf "$INSTALL_TEMP_DIR"/lazygit.tar.gz -C "$INSTALL_TEMP_DIR"
 
-  sudo install /tmp/dotfiles/lazygit /usr/local/bin
+  sudo install "$INSTALL_TEMP_DIR"/lazygit /usr/local/bin
 
-  rm /tmp/dotfiles/lazygit.tar.gz
-  rm -rf /tmp/dotfiles
+  rm "$INSTALL_TEMP_DIR"/lazygit.tar.gz
+  rm -rf "$INSTALL_TEMP_DIR"
 fi
 
 mkdir -p ~/.config/lazygit
-ln -sf ~/.dotfiles/lazygit/config.yml ~/.config/lazygit/config.yml
+ln -sf "$CURRENT_DIR"/config.yml ~/.config/lazygit/config.yml

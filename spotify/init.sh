@@ -22,7 +22,7 @@ if [[ $INSTALL_OS = 'debian' ]]; then
   return 0 2>/dev/null || exit 0
 fi
 
-ln -sf ~/.dotfiles/spotify/spotify-launcher.conf ~/.config/spotify-launcher.conf
+ln -sf "$CURRENT_DIR"/spotify-launcher.conf ~/.config/spotify-launcher.conf
 
 # INFO: run this command after the first initialization
 # bash <(curl -sSL https://spotx-official.github.io/run.sh)

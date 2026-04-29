@@ -25,4 +25,4 @@ fi
 
 # Create a symlink for the tmux configuration file
 
-ln -sf ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sf "$CURRENT_DIR"/tmux.conf ~/.tmux.conf

@@ -15,8 +15,8 @@ fi
 if [[ -d ~/.config/nvim ]]; then
   rm -rf ~/.config/nvim
 fi
-git submodule update --init -- "$CURRENT_DIR/config"
-ln -s "$CURRENT_DIR/config" ~/.config/nvim
+git submodule update --init -- "$CURRENT_DIR"/config
+ln -s "$CURRENT_DIR"/config ~/.config/nvim
 
 # Install neovim dependencies
 

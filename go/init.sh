@@ -11,11 +11,11 @@ fi
 if [[ $INSTALL_OS = 'debian' ]]; then
   file=$(curl -L -s 'https://go.dev/dl' | grep -m 1 '/dl/go.*.linux-amd64' | awk -F "/" '{print $3}' | awk -F '">' '{print $1}')
 
-  mkdir -p /tmp/dotfiles
+  mkdir -p "$INSTALL_TEMP_DIR"
 
-  curl -L "https://go.dev/dl/$file" -o /tmp/dotfiles/go.tar.gz
+  curl -L "https://go.dev/dl/$file" -o "$INSTALL_TEMP_DIR"/go.tar.gz
   sudo rm -rf /usr/local/go
-  sudo tar -C /usr/local -xzf /tmp/dotfiles/go.tar.gz
+  sudo tar -C /usr/local -xzf "$INSTALL_TEMP_DIR"/go.tar.gz
 
-  rm -rf /tmp/dotfiles
+  rm -rf "$INSTALL_TEMP_DIR"
 fi

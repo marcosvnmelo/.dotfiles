@@ -22,9 +22,9 @@ fi
 
 # Create config directory
 mkdir -p ~/.config/yazi/plugins/
-ln -sf ~/.dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml
-ln -sf ~/.dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml
-ln -sf ~/.dotfiles/yazi/init.lua ~/.config/yazi/init.lua
+ln -sf "$CURRENT_DIR"/keymap.toml ~/.config/yazi/keymap.toml
+ln -sf "$CURRENT_DIR"/theme.toml ~/.config/yazi/theme.toml
+ln -sf "$CURRENT_DIR"/init.lua ~/.config/yazi/init.lua
 
 if [[ $IS_FIRST_INSTALL = true ]]; then
   # Install plugins

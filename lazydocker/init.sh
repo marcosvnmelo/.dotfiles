@@ -13,4 +13,4 @@ if [[ $INSTALL_OS = 'debian' ]]; then
 fi
 
 mkdir -p ~/.config/lazydocker
-ln -sf ~/.dotfiles/lazydocker/config.yml ~/.config/lazydocker/config.yml
+ln -sf "$CURRENT_DIR"/config.yml ~/.config/lazydocker/config.yml

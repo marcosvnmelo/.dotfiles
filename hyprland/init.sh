@@ -106,13 +106,13 @@ if [[ $GREETER == 'sddm' ]]; then
   sudo ln -sf $CURRENT_DIR/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf
 
   Sddm theme
-  mkdir -p /tmp/dotfiles
+  mkdir -p "$INSTALL_TEMP_DIR"
 
-  git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme /tmp/dotfiles/sddm-theme
+  git clone https://github.com/marcosvnmelo/sddm-kanagawa-dragon-theme "$INSTALL_TEMP_DIR"/sddm-theme
 
   sudo mkdir -p /usr/share/sddm/themes
-  sudo cp -r /tmp/dotfiles/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
-  sudo rm -r /tmp/dotfiles
+  sudo cp -r "$INSTALL_TEMP_DIR"/sddm-theme/kanagawa-dragon /usr/share/sddm/themes
+  sudo rm -r "$INSTALL_TEMP_DIR"
 fi
 
 # NOTE: Code flags
