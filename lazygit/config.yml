@@ -32,4 +32,3 @@ customCommands:
     context: 'status'
     command: 'gh repo view --web'
     loadingText: 'Opening in browser...'
-    output: terminal
