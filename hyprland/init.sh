@@ -19,7 +19,7 @@ yay -S --noconfirm --needed \
   hyprland \
   hyprlock hypridle hyprpicker hyprpaper hyprshutdown hyprshot-git \
   xdg-desktop-portal-hyprland \
-  xdg-desktop-portal-gtk polkit-gnome \
+  xdg-desktop-portal-gtk mate-polkit \
   waybar \
   blueman swaync pavucontrol network-manager-applet indicator-sound-switcher nwg-displays \
   uwsm \

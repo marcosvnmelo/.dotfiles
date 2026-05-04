@@ -1,0 +1,14 @@
+[Unit]
+Description=MATE Polkit Authentication Agent
+Requisite=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+# Path may vary by distro (check /usr/libexec/ or /usr/lib/mate-polkit/)
+ExecStart=/usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+Restart=on-failure
+Slice=session.slice
+
+[Install]
+WantedBy=graphical-session.target
