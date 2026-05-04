@@ -105,14 +105,15 @@ if [[ "$chosen_action" == "${actions["search"]}" ]]; then
   fi
 
   if [[ -n "$platform" ]]; then
-    if [[ "$DMENU" == "rofi" ]]; then
-      query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
-    else
-      query=$( (echo) | vicinae dmenu --no-footer -p "Query > ")
-    fi
+    query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
+    # if [[ "$DMENU" == "rofi" ]]; then
+    #   query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
+    # else
+    #   query=$( (echo) | vicinae dmenu --no-footer -p "Query > ")
+    # fi
 
     if [[ -n "$query" ]]; then
-      url=${URLS[$platform]}$query
+      url="${URLS[$platform]}$query"
       xdg-open "$url"
       exit
     else
