@@ -134,37 +134,37 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 -- Move active window around current workspace with shiftMod + hjkl keys
 ---@param direction 'left' | 'right' | 'up' | 'down'
----@return string
-function moveActiveWindow(direction)
-	local directionCoordinates = ""
-  local directionLetter = direction:sub(1, 1)
+---@return function
+local moveActiveWindow = function(direction)
+  return function ()
+    local activeWindow = hl.get_active_window()
 
-	if direction == "left" then
-		directionCoordinates = "{ x = -30, y = 0, relative = true, activewindow = true }"
-	elseif direction == "right" then
-		directionCoordinates = "{ x = 30, y = 0, relative = true, activewindow = true }"
-	elseif direction == "up" then
-		directionCoordinates = "{ y = -30, x = 0, relative = true, activewindow = true }"
-	elseif direction == "down" then
-		directionCoordinates = "{ y = 30, x = 0, relative = true, activewindow = true }"
-	end
+    if activeWindow ~= nil and activeWindow.floating then
+      if direction == "left" then
+        hl.dispatch(hl.dsp.window.move({ x = -30, y = 0, relative = true, activewindow = true }))
+      elseif direction == "right" then
+        hl.dispatch(hl.dsp.window.move({x = 30, y = 0, relative = true, activewindow = true }))
+      elseif direction == "up" then
+        hl.dispatch(hl.dsp.window.move({y = -30, x = 0, relative = true, activewindow = true }))
+      elseif direction == "down" then
+        hl.dispatch(hl.dsp.window.move({y = 30, x = 0, relative = true, activewindow = true }))
+      end
+    end
 
-  local moveCommand = ""
+    local directionLetter = direction:sub(1, 1)
 
-  if direction == "left" or direction == "right" then
-    moveCommand = "hyprctl dispatch 'hl.dsp.layout(\"swapcol " .. directionLetter .. "\")'"
-  else
-    moveCommand = "hyprctl dispatch 'hl.dsp.window.move({ direction = \"" .. directionLetter .. "\" })'"
+
+    if direction == "left" or direction == "right" then
+      hl.dispatch(hl.dsp.layout("swapcol " .. directionLetter))
+    else
+      hl.dispatch(hl.dsp.window.move({ direction = directionLetter }))
+    end
   end
-
-	return 'grep -q "true" <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch \'hl.dsp.window.move('
-		.. directionCoordinates
-		.. ")' || " .. moveCommand
 end
-hl.bind(shiftMod .. " + H", hl.dsp.exec_cmd(moveActiveWindow("left")))
-hl.bind(shiftMod .. " + L", hl.dsp.exec_cmd(moveActiveWindow("right")))
-hl.bind(shiftMod .. " + K", hl.dsp.exec_cmd(moveActiveWindow("up")))
-hl.bind(shiftMod .. " + J", hl.dsp.exec_cmd(moveActiveWindow("down")))
+hl.bind(shiftMod .. " + H", moveActiveWindow("left"))
+hl.bind(shiftMod .. " + L", moveActiveWindow("right"))
+hl.bind(shiftMod .. " + K", moveActiveWindow("up"))
+hl.bind(shiftMod .. " + J", moveActiveWindow("down"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with shiftMod + [0-9]
