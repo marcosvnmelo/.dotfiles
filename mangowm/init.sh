@@ -21,3 +21,9 @@ if [[ -d ~/.config/mango ]]; then
   rm -rf ~/.config/mango
 fi
 ln -s $CURRENT_DIR/mango ~/.config/mango
+
+# NOTE: MangoWM uwsm
+if [[ -f /usr/share/wayland-sessions/mango-uwsm.desktop ]]; then
+  sudo rm -rf /usr/share/wayland-sessions/mango-uwsm.desktop
+fi
+sudo cp "$CURRENT_DIR"/usr/share/wayland-sessions/mango-uwsm.desktop /usr/share/wayland-sessions/mango-uwsm.desktop
