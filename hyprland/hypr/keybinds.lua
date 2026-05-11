@@ -138,11 +138,17 @@ function moveActiveWindow(direction)
 		directionCoordinates = "{ y = 30, x = 0, relative = true, activewindow = true }"
 	end
 
+  local moveCommand = ""
+
+  if direction == "left" or direction == "right" then
+    moveCommand = "hyprctl dispatch 'hl.dsp.layout(\"swapcol " .. directionLetter .. "\")'"
+  else
+    moveCommand = "hyprctl dispatch 'hl.dsp.window.move({ direction = \"" .. directionLetter .. "\" })'"
+  end
+
 	return 'grep -q "true" <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch \'hl.dsp.window.move('
 		.. directionCoordinates
-		.. ")' || hyprctl dispatch 'hl.dsp.window.move({ direction = \""
-		.. directionLetter
-		.. "\" })'"
+		.. ")' || " .. moveCommand
 end
 hl.bind(shiftMod .. " + H", hl.dsp.exec_cmd(moveActiveWindow("left")))
 hl.bind(shiftMod .. " + L", hl.dsp.exec_cmd(moveActiveWindow("right")))
