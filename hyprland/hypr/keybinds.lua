@@ -115,9 +115,20 @@ hl.bind(shiftMod .. " + Period", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .
 -- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. '~/.dotfiles/hyprland/dmenu/scripts/quick-actions.sh rofi'))
 -- hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. '-modi "window" -show window'))
 
+---@param direction 'left' | 'right'
+local function horizontalFocus(direction)
+  ---@type string
+  local layout = hl.get_config('general.layout')
+  if layout == "scrolling" then
+    return hl.dsp.layout("focus " .. direction)
+  end
+
+  return hl.dsp.focus({ direction })
+end
+
 -- Move focus with mainMod + hjkl keys
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + H", horizontalFocus("left"))
+hl.bind(mainMod .. " + L", horizontalFocus("right"))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
