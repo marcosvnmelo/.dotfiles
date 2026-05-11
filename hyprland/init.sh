@@ -37,7 +37,8 @@ yay -S --noconfirm --needed \
   vicinae-bin \
   nodejs-lts-krypton \
   noctalia-shell \
-  qt6-multimedia-ffmpeg grim slurp tesseract tesseract-data-eng zbar translate-shell wf-recorder gifski
+  qt6-multimedia-ffmpeg grim slurp tesseract tesseract-data-eng zbar translate-shell \
+  wf-recorder gifski wayland-pipewire-idle-inhibit
 
 # NOTE: Waybar config
 if [[ -d ~/.config/waybar ]]; then
@@ -157,6 +158,8 @@ for file in $(gen_services_list); do
 done
 
 systemctl --user daemon-reload
+
+systemctl --user enable wayland-pipewire-idle-inhibit.service
 
 for file in $(gen_services_list); do
   systemctl --user enable $(basename $file)
