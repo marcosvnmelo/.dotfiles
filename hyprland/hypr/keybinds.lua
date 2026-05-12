@@ -15,6 +15,18 @@ local ctrlMod = mainMod .. "+ CTRL"
 
 local scriptDir = "~/.dotfiles/hyprland/scripts"
 
+---@param cmd table
+---@return string
+local function build_cmd(cmd)
+	return table.concat(cmd, " ")
+end
+
+---@param cmd table
+---@return HL.Dispatcher
+local function dsp_build_cmd(cmd)
+	return hl.dsp.exec_cmd(build_cmd(cmd))
+end
+
 -- Binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 
 -- NOTE: Terminal
@@ -31,14 +43,39 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(uwsm .. terminal .. " --command=yazi"
 hl.bind(shiftMod .. " + E", hl.dsp.exec_cmd(uwsm .. fileManager))
 
 -- NOTE: Noctalia
-hl.bind(mainMod .. " + Comma", hl.dsp.exec_cmd(noctaliaIpc .. "settings toggle"))
+hl.bind(
+	mainMod .. " + Comma",
+	dsp_build_cmd({
+		'test -z "$(' .. noctaliaIpc .. 'state all | jq -r .state.openedPanel)"',
+		"&&",
+		noctaliaIpc .. "controlCenter toggle",
+		"||",
+		noctaliaIpc .. "settings toggle",
+	})
+)
 
 -- NOTE: Messaging
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd( scriptDir .. "/scratchpad.sh whatsapp chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default gio launch ~/.local/share/applications/com.google.Chrome.flextop.chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop"))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(scriptDir .. "/scratchpad.sh vesktop vesktop flatpak run dev.vencord.Vesktop"))
+hl.bind(
+	mainMod .. " + W",
+	dsp_build_cmd({
+		scriptDir .. "/scratchpad.sh",
+		"whatsapp",
+		"chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default",
+		'"uwsm-app -- ~/.local/share/applications/com.google.Chrome.flextop.chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop"',
+	})
+)
+hl.bind(
+	mainMod .. " + D",
+	dsp_build_cmd({
+		scriptDir .. "/scratchpad.sh",
+		"vesktop",
+		"vesktop",
+		'"flatpak run dev.vencord.Vesktop"',
+	})
+)
 
 -- NOTE: Vicinae
-hl.bind("ALT_L + Space", hl.dsp.exec_cmd(dmenu .. "vicinae://close || " .. dmenu .. "vicinae://open?popToRoot=true"))
+hl.bind("ALT + Space", hl.dsp.exec_cmd(dmenu .. "vicinae://close || " .. dmenu .. "vicinae://open?popToRoot=true"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(dmenu .. "vicinae://launch/clipboard/history"))
 hl.bind(mainMod .. " + Period", hl.dsp.exec_cmd(dmenu .. "vicinae://launch/core/search-emojis"))
 -- TODO: create a extension to search nerdy icons
@@ -52,7 +89,7 @@ hl.bind(shiftMod .. " + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
 -- NOTE: Hyprshot
 local save_menu = " -o /tmp -s -- ~/.local/bin/save-temp-screenshot.sh"
 hl.bind("Print", hl.dsp.exec_cmd(uwsm .. "hyprshot -m window" .. save_menu))
-hl.bind("ALT_L + Print", hl.dsp.exec_cmd(uwsm .. "hyprshot -m window -m active" .. save_menu))
+hl.bind("ALT + Print", hl.dsp.exec_cmd(uwsm .. "hyprshot -m window -m active" .. save_menu))
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd(uwsm .. "hyprshot -m region" .. save_menu))
 hl.bind("CTRL + Print", hl.dsp.exec_cmd(uwsm .. "hyprshot -m output" .. save_menu))
 
@@ -60,14 +97,32 @@ hl.bind("CTRL + Print", hl.dsp.exec_cmd(uwsm .. "hyprshot -m output" .. save_men
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(uwsm .. "hyprpicker -a"))
 
 -- NOTE: Paste
-hl.bind(shiftMod .. " + V", hl.dsp.exec_cmd('sh -c "cliphist list | head -n 1 | cliphist decode | wtype -s 500 -d 50 -"'))
+hl.bind(
+	shiftMod .. " + V",
+	hl.dsp.exec_cmd('sh -c "cliphist list | head -n 1 | cliphist decode | wtype -s 500 -d 50 -"')
+)
 
 -- NOTE: Media control
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
-
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMicMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	{ locked = true, repeating = true }
+)
 
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
@@ -85,7 +140,38 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 
 -- NOTE: Window manager
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + M", hl.dsp.layout("colresize 1.0"))
+hl.bind(mainMod .. " + M", function()
+	local activeWindow = hl.get_active_window()
+
+	if activeWindow == nil then
+		return
+	end
+
+	local isFullWidthColumn = false
+
+	local tags = activeWindow.tags
+
+	if type(tags) == "string" then
+		if tags == "full_width_column" then
+			isFullWidthColumn = true
+		end
+	elseif type(tags) == "table" then
+		for _, tag in pairs(tags) do
+			if tag == "full_width_column" then
+				isFullWidthColumn = true
+			end
+		end
+	end
+
+	if isFullWidthColumn then
+		hl.dispatch(hl.dsp.layout("promote"))
+		hl.dispatch(hl.dsp.layout("focus l"))
+		hl.dispatch(hl.dsp.layout("focus r"))
+	else
+		hl.dispatch(hl.dsp.layout("colresize 1.0"))
+	end
+	hl.dispatch(hl.dsp.window.tag({ tag = "full_width_column" }))
+end)
 hl.bind(ctrlMod .. " + M", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + F", hl.dsp.window.float())
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
@@ -93,6 +179,7 @@ hl.bind(mainMod .. " + O", hl.dsp.layout("togglesplit"))
 -- hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("pkill -x fcitx5 || fcitx5"), { long_press = true, non_consuming = true })
 
 hl.bind(mainMod .. " + R", hl.dsp.layout("colresize +conf"))
+hl.bind(shiftMod .. " + R", hl.dsp.exec_cmd("hyprctl reload"))
 
 hl.bind("ALT + Tab", function()
 	hl.dispatch(hl.dsp.window.cycle_next())
@@ -111,19 +198,22 @@ end)
 -- hl.bind("ALT_L + SHIFT + Space", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. ' -show calc -modi calc -no-show-match -no-sort -config regular'))
 -- hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. ' -modi cliphist-rofi-img -show cliphist-rofi-img -show-icons -config regular'))
 -- hl.bind(mainMod .. " + Period", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. '-modi "emoji,nerdy" -show emoji -config regular'))
-hl.bind(shiftMod .. " + Period", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. '-modi "emoji,nerdy" -show nerdy -config regular'))
+hl.bind(
+	shiftMod .. " + Period",
+	hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. '-modi "emoji,nerdy" -show nerdy -config regular')
+)
 -- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. '~/.dotfiles/hyprland/dmenu/scripts/quick-actions.sh rofi'))
 -- hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. '-modi "window" -show window'))
 
 ---@param direction 'left' | 'right'
 local function horizontalFocus(direction)
-  ---@type string
-  local layout = hl.get_config('general.layout')
-  if layout == "scrolling" then
-    return hl.dsp.layout("focus " .. direction)
-  end
+	---@type string
+	local layout = hl.get_config("general.layout")
+	if layout == "scrolling" then
+		return hl.dsp.layout("focus " .. direction)
+	end
 
-  return hl.dsp.focus({ direction })
+	return hl.dsp.focus({ direction })
 end
 
 -- Move focus with mainMod + hjkl keys
@@ -136,30 +226,29 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 ---@param direction 'left' | 'right' | 'up' | 'down'
 ---@return function
 local moveActiveWindow = function(direction)
-  return function ()
-    local activeWindow = hl.get_active_window()
+	return function()
+		local activeWindow = hl.get_active_window()
 
-    if activeWindow ~= nil and activeWindow.floating then
-      if direction == "left" then
-        hl.dispatch(hl.dsp.window.move({ x = -30, y = 0, relative = true, activewindow = true }))
-      elseif direction == "right" then
-        hl.dispatch(hl.dsp.window.move({x = 30, y = 0, relative = true, activewindow = true }))
-      elseif direction == "up" then
-        hl.dispatch(hl.dsp.window.move({y = -30, x = 0, relative = true, activewindow = true }))
-      elseif direction == "down" then
-        hl.dispatch(hl.dsp.window.move({y = 30, x = 0, relative = true, activewindow = true }))
-      end
-    end
+		if activeWindow ~= nil and activeWindow.floating then
+			if direction == "left" then
+				hl.dispatch(hl.dsp.window.move({ x = -30, y = 0, relative = true, activewindow = true }))
+			elseif direction == "right" then
+				hl.dispatch(hl.dsp.window.move({ x = 30, y = 0, relative = true, activewindow = true }))
+			elseif direction == "up" then
+				hl.dispatch(hl.dsp.window.move({ y = -30, x = 0, relative = true, activewindow = true }))
+			elseif direction == "down" then
+				hl.dispatch(hl.dsp.window.move({ y = 30, x = 0, relative = true, activewindow = true }))
+			end
+		end
 
-    local directionLetter = direction:sub(1, 1)
+		local directionLetter = direction:sub(1, 1)
 
-
-    if direction == "left" or direction == "right" then
-      hl.dispatch(hl.dsp.layout("swapcol " .. directionLetter))
-    else
-      hl.dispatch(hl.dsp.window.move({ direction = directionLetter }))
-    end
-  end
+		if direction == "left" or direction == "right" then
+			hl.dispatch(hl.dsp.layout("swapcol " .. directionLetter))
+		else
+			hl.dispatch(hl.dsp.window.move({ direction = directionLetter }))
+		end
+	end
 end
 hl.bind(shiftMod .. " + H", moveActiveWindow("left"))
 hl.bind(shiftMod .. " + L", moveActiveWindow("right"))
@@ -175,7 +264,15 @@ for i = 1, 10 do
 end
 
 -- Mail special workspace
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(scriptDir .. "/scratchpad.sh mail eu.betterbird.Betterbird flatpak run eu.betterbird.Betterbird"))
+hl.bind(
+	mainMod .. " + B",
+	hl.dsp.exec_cmd(build_cmd({
+		scriptDir .. "/scratchpad.sh",
+		"mail",
+		"eu.betterbird.Betterbird",
+		'"flatpak run eu.betterbird.Betterbird"',
+	}))
+)
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -187,6 +284,6 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Resize windows
 hl.bind(ctrlMod .. " + l", hl.dsp.window.resize({ x = 30, y = 0, relative = true }))
-hl.bind(ctrlMod .. " + h", hl.dsp.window.resize({ x = -30, y = 0, relative = true  }))
-hl.bind(ctrlMod .. " + k", hl.dsp.window.resize({ x = 0, y = -30, relative = true  }))
-hl.bind(ctrlMod .. " + j", hl.dsp.window.resize({ x = 0, y = 30, relative = true  }))
+hl.bind(ctrlMod .. " + h", hl.dsp.window.resize({ x = -30, y = 0, relative = true }))
+hl.bind(ctrlMod .. " + k", hl.dsp.window.resize({ x = 0, y = -30, relative = true }))
+hl.bind(ctrlMod .. " + j", hl.dsp.window.resize({ x = 0, y = 30, relative = true }))

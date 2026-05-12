@@ -88,13 +88,6 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "full-width-column",
-	match = { tag = "full_width_column" },
-
-	maximize = true,
-})
-
-hl.window_rule({
 	name = "float-xdg-desktop-portal-gtk",
 	match = { class = "xdg-desktop-portal-gtk" },
 
@@ -157,7 +150,7 @@ hl.window_rule({
 	name = "android-emulator-rounding",
 	match = { class = "Emulator", title = "^(Android Emulator -)(.*)$" },
 
-	rounding = "30%",
+	rounding = 20,
 	float = false,
 	size = "445 100%",
 })
