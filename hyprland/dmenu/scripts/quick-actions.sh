@@ -3,25 +3,35 @@
 # NOTE: Get dmenu name from first argument
 # rofi | vicinae
 DMENU=${1:-"rofi"}
+# hypridle | noctalia-idle
+IDLE_SERVICE="noctalia-idle"
 
-_get_idle_status() {
-  local is_active
-  if [[ "$(systemctl --user is-active hypridle.service)" == "active" ]]; then
-    is_active=true
-  else
-    is_active=false
-  fi
+function get_idle_status() {
+  local is_active=false
+  case "$IDLE_SERVICE" in
+  "hypridle")
+    if [[ "$(systemctl --user is-active hypridle.service)" == "active" ]]; then
+      is_active=true
+    fi
+    ;;
+
+  "noctalia-idle")
+    ;;
+  esac
 
   return_format=${1:-"plain"}
 
-  if [[ "$return_format" == "plain" ]]; then
+  case "$return_format" in
+  "plain")
     echo "$is_active"
-  elif [[ "$return_format" == "emoji" ]]; then
+    ;;
+  "emoji")
     [[ "$is_active" == true ]] && echo "🟢 Active" || echo "🔴 Inactive"
-  fi
+    ;;
+  esac
 }
 
-_get_docker_status() {
+function get_docker_status() {
   local is_something_running
   if [[ "$(docker ps -q)" != "" ]]; then
     is_something_running=true
@@ -38,78 +48,97 @@ _get_docker_status() {
   fi
 }
 
-declare -A actions
-actions["search"]=" Search"
-actions["emulators"]=" Android Emulators"
-actions["toggle_idle"]=" Toggle Idle Service $(_get_idle_status 'emoji')"
-actions["stop_docker"]=" Stop Docker $(_get_docker_status 'emoji')"
-actions["clean_swap"]="󰃢 Clean Swap"
-actions["toggle_statusbar"]=" Toggle Statusbar"
+function print_options() {
+  printf "%s\n" "$@"
+}
 
-# Create array of options
-options=(
-  "${actions["search"]}"
-  "${actions["emulators"]}"
-  "${actions["toggle_idle"]}"
-  "${actions["stop_docker"]}"
-  "${actions["clean_swap"]}"
-  "${actions["toggle_statusbar"]}"
+declare -A ACTIONS=(
+  ["search"]=" Search"
+  ["emulators"]=" Android Emulators"
+  ["toggle_idle"]=" Toggle Idle Service $(get_idle_status 'emoji')"
+  ["stop_docker"]=" Stop Docker $(get_docker_status 'emoji')"
+  ["clean_swap"]="󰃢 Clean Swap"
+  ["toggle_statusbar"]=" Toggle Statusbar"
 )
 
-# Present main menu with proper formatting
-if [[ "$DMENU" == "rofi" ]]; then
-  chosen_action=$(printf "%s\n" "${options[@]}" | rofi -dmenu -i -config regular -p "󰅒 Quick Actions")
-else
-  chosen_action=$(printf "%s\n" "${options[@]}" | vicinae dmenu --no-footer -p "󰅒 Quick Actions")
+# HACK: Create array of options in the correct order,
+# since expanding associative arrays doesn't keep the order
+declare -a OPTIONS=(
+  "${ACTIONS["search"]}"
+  "${ACTIONS["emulators"]}"
+  "${ACTIONS["toggle_idle"]}"
+  "${ACTIONS["stop_docker"]}"
+  "${ACTIONS["clean_swap"]}"
+  "${ACTIONS["toggle_statusbar"]}"
+)
+
+# HACK: Remove idle service from options if it's not running hypridle
+if [[ "$IDLE_SERVICE" == "noctalia-idle" ]]; then
+  unset 'OPTIONS[2]'
+  OPTIONS=("${OPTIONS[@]}")
 fi
+
+# Present main menu with proper formatting
+case "$DMENU" in
+"rofi")
+  chosen_action=$(print_options "${OPTIONS[@]}" | rofi -dmenu -i -config regular -p "󰅒 Quick Actions")
+  ;;
+"vicinae")
+  chosen_action=$(print_options "${OPTIONS[@]}" | vicinae dmenu --no-footer -p "󰅒 Quick Actions")
+  ;;
+esac
 
 # Exit if no selection
 if [[ -z "$chosen_action" ]]; then
   exit
 fi
 
-# Handle search submenu
-declare -A URLS
+case "$chosen_action" in
+"${ACTIONS["search"]}") # Handle search submenu
+  declare -A URLS=(
+    ["Google"]="https://www.google.com/search?q="
+    ["Youtube"]="https://www.youtube.com/results?search_query="
+    ["NPM"]="https://www.npmjs.com/search?q="
+    ["Github"]="https://github.com/search?q="
+    ["Stackoverflow"]="http://stackoverflow.com/search?q="
+    ["Duckduckgo"]="https://www.duckduckgo.com/?q="
+    ["ArchPackages"]="https://archlinux.org/packages/?q="
+    ["AUR"]="https://aur.archlinux.org/packages?O=0&SeB=nd&outdated=&SB=p&SO=d&PP=50&submit=Go&K="
+    ["Translate"]="https://translate.google.com/?sl=auto&tl=en&op=translate&text="
+    ["Context7"]="https://context7.com/?q="
+  )
 
-URLS=(
-  ["Google"]="https://www.google.com/search?q="
-  ["Youtube"]="https://www.youtube.com/results?search_query="
-  ["NPM"]="https://www.npmjs.com/search?q="
-  ["Github"]="https://github.com/search?q="
-  ["Stackoverflow"]="http://stackoverflow.com/search?q="
-  ["Duckduckgo"]="https://www.duckduckgo.com/?q="
-  ["ArchPackages"]="https://archlinux.org/packages/?q="
-  ["AUR"]="https://aur.archlinux.org/packages?O=0&SeB=nd&outdated=&SB=p&SO=d&PP=50&submit=Go&K="
-  ["Translate"]="https://translate.google.com/?sl=auto&tl=en&op=translate&text="
-  ["Context7"]="https://context7.com/?q="
-)
+  declare -a URL_OPTIONS=(
+    "Google"
+    "Youtube"
+    "NPM"
+    "Github"
+    "Stackoverflow"
+    "Duckduckgo"
+    "ArchPackages"
+    "AUR"
+    "Translate"
+    "Context7"
+  )
 
-gen_url_list() {
-  echo "Google"
-  echo "Youtube"
-  echo "NPM"
-  echo "Github"
-  echo "Stackoverflow"
-  echo "Duckduckgo"
-  echo "ArchPackages"
-  echo "AUR"
-  echo "Translate"
-  echo "Context7"
-}
+  declare platform=""
 
-if [[ "$chosen_action" == "${actions["search"]}" ]]; then
-  if [[ "$DMENU" == "rofi" ]]; then
-    platform=$( (gen_url_list) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
-  else
-    platform=$( (gen_url_list) | vicinae dmenu --no-footer -p "Search > ")
-  fi
+  case "$DMENU" in
+  "rofi")
+    platform=$( (print_options ${URL_OPTIONS[@]}) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
+    ;;
+  "vicinae")
+    platform=$( (print_options ${URL_OPTIONS[@]}) | vicinae dmenu --no-footer -p "Search > ")
+    ;;
+  esac
 
   if [[ -n "$platform" ]]; then
-    query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
+    query=$(rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
+    # NOTE: Vicinae stopped returning the query when there's no options to select
     # if [[ "$DMENU" == "rofi" ]]; then
-    #   query=$( (echo) | rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
+    #   query=$(rofi -dmenu -matching fuzzy -location 0 -p "Query > " -config input)
     # else
-    #   query=$( (echo) | vicinae dmenu --no-footer -p "Query > ")
+    #   query=$(vicinae dmenu --no-footer -p "Query > ")
     # fi
 
     if [[ -n "$query" ]]; then
@@ -123,57 +152,60 @@ if [[ "$chosen_action" == "${actions["search"]}" ]]; then
   else
     exit
   fi
-fi
+  ;;
 
-# Handle Android emulators submenu
-declare -A GPU_MODES
+"${ACTIONS["emulators"]}") # Handle Android emulators submenu
+  declare -A GPU_MODES=(
+    ["host"]="GPU (⚡ Fast)"
+    ["swiftshader_indirect"]="CPU (🐢 Slow)"
+  )
 
-GPU_MODES["GPU (⚡ Fast)"]="host"
-GPU_MODES["CPU (🐢 Slow)"]="swiftshader_indirect"
+  declare -a GPU_MODE_OPTIONS=(
+    "${GPU_MODES["host"]}"
+    "${GPU_MODES["swiftshader_indirect"]}"
+  )
 
-gen_gpu_mode_list() {
-  echo "GPU (⚡ Fast)"
-  echo "CPU (🐢 Slow)"
-}
-
-if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
-  sdk_path=~/Android/Sdk
-  emulator_path=$sdk_path/emulator/emulator
+  declare sdk_path=~/Android/Sdk
+  declare emulator_path=$sdk_path/emulator/emulator
   # Get list of available AVDs
-  avd_list=$($emulator_path -list-avds)
+  declare avd_list="$($emulator_path -list-avds)"
 
   if [[ -z "$avd_list" ]]; then
     notify-send "No Android Virtual Devices found" "Please create an AVD using Android Studio first."
     exit 1
   fi
 
-  gen_avd_list() {
-    for avd in $avd_list; do
-      echo "$avd"
-    done
-  }
+  declare avd=""
 
-  if [[ "$DMENU" == "rofi" ]]; then
-    avd=$( (gen_avd_list) | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
-  else
-    avd=$( (gen_avd_list) | vicinae dmenu --no-footer -p "Search > ")
-  fi
+  case "$DMENU" in
+  "rofi")
+    avd=$(print_options "$avd_list" | rofi -dmenu -matching fuzzy -i -no-custom -location 0 -p "Search > " -config regular)
+    ;;
+  "vicinae")
+    avd=$(print_options "$avd_list" | vicinae dmenu --no-footer -p "Search > ")
+    ;;
+  esac
 
   if [[ -z "$avd" ]]; then
     exit
   fi
 
-  if [[ "$DMENU" == "rofi" ]]; then
-    gpu_mode=$( (gen_gpu_mode_list) | rofi -dmenu -i -no-custom -location 0 -p "GPU Mode > " -config regular)
-  else
-    gpu_mode=$( (gen_gpu_mode_list) | vicinae dmenu --no-footer -p "GPU Mode > ")
-  fi
+  declare gpu_mode=""
+
+  case "$DMENU" in
+  "rofi")
+    gpu_mode=$(print_options "${GPU_MODE_OPTIONS[@]}" | rofi -dmenu -i -no-custom -location 0 -p "GPU Mode > " -config regular)
+    ;;
+  "vicinae")
+    gpu_mode=$(print_options "${GPU_MODE_OPTIONS[@]}" | vicinae dmenu --no-footer -p "GPU Mode > ")
+    ;;
+  esac
 
   if [[ -z "$gpu_mode" ]]; then
     exit
   fi
 
-  emulator_cmd="$emulator_path \@$avd -no-boot-anim -no-snapshot -gpu ${GPU_MODES[$gpu_mode]}"
+  declare emulator_cmd="$emulator_path \@$avd -no-boot-anim -no-snapshot -gpu ${GPU_MODES[$gpu_mode]}"
 
   if [[ "GPU_MODES[$gpu_mode]" != "host" ]]; then
     tmux new-session -d -s android-emulator \
@@ -196,11 +228,10 @@ if [[ "$chosen_action" == "${actions["emulators"]}" ]]; then
   hyprctl dispatch resizewindowpixel "445 100%,title:^.*Android Emulator.*$"
 
   exit
-fi
+  ;;
 
-# Handle idle service submenu
-if [[ "$chosen_action" == "${actions["toggle_idle"]}" ]]; then
-  is_active=$(_get_idle_status)
+"${ACTIONS["toggle_idle"]}") # Handle idle service submenu
+  is_active=$(get_idle_status)
 
   if [[ "$is_active" == "true" ]]; then
     systemctl --user stop hypridle.service
@@ -211,11 +242,10 @@ if [[ "$chosen_action" == "${actions["toggle_idle"]}" ]]; then
   fi
 
   exit
-fi
+  ;;
 
-# Handle docker submenu
-if [[ "$chosen_action" == "${actions["stop_docker"]}" ]]; then
-  is_something_running=$(_get_docker_status)
+"${ACTIONS["stop_docker"]}") # Handle docker submenu
+  is_something_running=$(get_docker_status)
 
   if [[ "$is_something_running" == "true" ]]; then
     docker stop $(docker ps -q)
@@ -225,22 +255,21 @@ if [[ "$chosen_action" == "${actions["stop_docker"]}" ]]; then
   fi
 
   exit
-fi
+  ;;
 
-# Handle clean swap submenu
-if [[ "$chosen_action" == "${actions["clean_swap"]}" ]]; then
+"${ACTIONS["clean_swap"]}") # Handle clean swap submenu
   pkexec bash -c "sudo swapoff -a && sudo swapon -a"
   notify-send "Swap" "Swap has been cleaned."
   exit
-fi
+  ;;
 
-# Handle toggle statusbar submenu
-if [[ "$chosen_action" == "${actions["toggle_statusbar"]}" ]]; then
-  pkexec bash -c "qs -c noctalia-shell kill || uwsm-app -- qs -c noctalia-shell"
+"${ACTIONS["toggle_statusbar"]}") # Handle toggle statusbar submenu
+  qs -c noctalia-shell kill || uwsm-app -- qs -c noctalia-shell
 
   exit
-fi
-
-# Handle no valid action
-notify-send "Invalid action" "Please select a valid action from the menu."
-exit 1
+  ;;
+*) # Handle no valid action
+  notify-send "Invalid action" "Please select a valid action from the menu."
+  exit 1
+  ;;
+esac
