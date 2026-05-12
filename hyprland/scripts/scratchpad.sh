@@ -17,11 +17,11 @@ if [[ -z "$APP_CLASS" ]]; then
 fi
 
 function _move_to_scratchpad() {
-  hyprctl dispatch movetoworkspace special:$SCRATCHPAD_NAME, class:$APP_CLASS
+  hyprctl dispatch "hl.dsp.window.move({ workspace = 'special:$SCRATCHPAD_NAME', window = 'class:$APP_CLASS' })"
 }
 
 function _toggle_scratchpad() {
-  hyprctl dispatch togglespecialworkspace $SCRATCHPAD_NAME
+  hyprctl dispatch "hl.dsp.workspace.toggle_special('$SCRATCHPAD_NAME')"
 }
 
 function _open_app() {
