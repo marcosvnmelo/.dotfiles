@@ -600,15 +600,15 @@
                 "action": "hibernate",
                 "command": "~/.local/bin/session-action.sh hibernate",
                 "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "5"
+                "enabled": false,
+                "keybind": ""
             },
             {
                 "action": "logout",
                 "command": "~/.local/bin/session-action.sh logout",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": "6"
+                "keybind": "5"
             },
             {
                 "action": "lock",
@@ -621,8 +621,8 @@
                 "action": "userspaceReboot",
                 "command": "~/.local/bin/session-action.sh userspaceReboot",
                 "countdownEnabled": true,
-                "enabled": false,
-                "keybind": ""
+                "enabled": true,
+                "keybind": "6"
             }
         ],
         "showHeader": true,
