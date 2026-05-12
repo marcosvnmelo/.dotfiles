@@ -1,6 +1,12 @@
 -- Refer to https://wiki.hyprland.org/Configuring/Variables/
 
 hl.config({
+	cursor = {
+		no_hardware_cursors = true,
+	},
+})
+
+hl.config({
 	-- https://wiki.hyprland.org/Configuring/Variables/#general
 	general = {
 		gaps_in = 5,
