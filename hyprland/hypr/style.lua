@@ -114,6 +114,7 @@ hl.config({
 -- https://wiki.hyprland.org/Configuring/Variables/#misc
 hl.config({
 	misc = {
+		disable_autoreload = true, -- If true, Hyprland will not automatically reload the config file when it is changed.
 		disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
 		focus_on_activate = true, -- Whether Hyprland should focus an app that requests to be focused (an activate request)
 	},
