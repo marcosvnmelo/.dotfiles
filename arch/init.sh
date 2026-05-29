@@ -40,3 +40,8 @@ bash "$(dirname "$0")/setup-swap.sh"
 sudo systemctl enable nvidia-suspend.service
 sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
+sudo systemctl enable nvidia-suspend-then-hibernate.service
+# WARN: Ensure nvidia-persistenced is disabled
+sudo systemctl disable --now nvidia-persistenced.service
+# HACK: ERROR! JPAC is not created/already destroyed, ignoring request.
+sudo systemctl disable --now nvidia-powerd.service
