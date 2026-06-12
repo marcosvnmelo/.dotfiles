@@ -1,5 +1,5 @@
--- Last Example update: Apr 27, 2026
--- Commit: examples: fix missing permissions entry in lua example config
+-- Last Example update: Apr 29, 2026
+-- Commit: animations: add springs
 
 ------------------
 ---- MONITORS ----
