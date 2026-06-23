@@ -448,11 +448,11 @@
     "hooks": {
         "colorGeneration": "",
         "darkModeChange": "",
-        "enabled": false,
+        "enabled": true,
         "performanceModeDisabled": "",
         "performanceModeEnabled": "",
-        "screenLock": "",
-        "screenUnlock": "",
+        "screenLock": "systemctl --user stop wayland-pipewire-idle-inhibit.service",
+        "screenUnlock": "systemctl --user start wayland-pipewire-idle-inhibit.service",
         "session": "",
         "startup": "",
         "wallpaperChange": ""
