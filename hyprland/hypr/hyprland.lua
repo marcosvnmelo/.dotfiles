@@ -1,5 +1,5 @@
--- Last Example update: Apr 29, 2026
--- Commit: animations: add springs
+-- Last Example update: Jul 22, 2026
+-- COMMIT: example: update hyprland.lua default springs
 
 ------------------
 ---- MONITORS ----
