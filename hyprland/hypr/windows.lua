@@ -84,7 +84,8 @@ hl.window_rule({
 	move = "((monitor_w)-(window_w)-10) ((monitor_h)-(window_h)-10)",
 	size = "500 280",
 	no_initial_focus = true,
-	pin = true,
+	-- pin = true,
+	content = "video",
 })
 
 hl.window_rule({
