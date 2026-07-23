@@ -34,7 +34,7 @@ sudo systemctl enable bluetooth
 bash "$(dirname "$0")/setup-swap.sh"
 
 # Fix windows timezone on dual boot
-# timedatectl set-local-rtc 1
+sudo timedatectl set-local-rtc 1
 
 # Enable nvidia services (fixes suspense/hibernate issues)
 sudo systemctl enable nvidia-suspend.service
