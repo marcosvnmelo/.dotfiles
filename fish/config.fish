@@ -14,12 +14,12 @@ function ls -d "Use eza with icons and colors"
     eza --icons=always --color=always --group-directories-first -1 $argv
 end
 
-function filesize -d "Show file sizes sorted by size"
-    du -sh * | sort -h
+function filesize -d "Show sizes of all files in current dir, sorted largest to smallest"
+    find . -mindepth 1 -maxdepth 1 -type f -exec du -sh {} + 2>/dev/null | sort -hr
 end
 
-function foldersize -d "Show folder size with depth 1"
-    du -h -d 1 .
+function foldersize -d "Show sizes of all directories in current dir, sorted largest to smallest"
+    find . -mindepth 1 -maxdepth 1 -type d -exec du -sh {} + 2>/dev/null | sort -hr
 end
 
 function vi -d "Use neovim instead of vi"
