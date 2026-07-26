@@ -18,7 +18,7 @@ bun
 go
 # ngrok
 jq
-# yq
+yq
 # rust
 # wezterm
 ghostty
