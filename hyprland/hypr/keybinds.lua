@@ -6,7 +6,7 @@ local terminal = "ghostty"
 local fileManager = "nautilus"
 local menu = "rofi "
 local dmenu = "vicinae "
-local noctaliaIpc = "qs -c noctalia-shell ipc call "
+local noctaliaIpc = "noctalia msg "
 
 -- See https://wiki.hyprland.org/Configuring/Keywords/
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
@@ -34,9 +34,9 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(uwsm .. terminal))
 
 -- NOTE: Session
 -- hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(uwsm .. "hyprlock"))
-hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(noctaliaIpc .. "lockScreen lock"))
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(noctaliaIpc .. "session lock"))
 -- hl.bind(shiftMod .. " + Escape", hl.dsp.exec_cmd("pkill -x " .. menu .. " || " .. uwsm .. menu .. "-show p -modi p:'rofi-power-menu' -config power"))
-hl.bind(shiftMod .. " + Escape", hl.dsp.exec_cmd(noctaliaIpc .. "sessionMenu toggle"))
+hl.bind(shiftMod .. " + Escape", hl.dsp.exec_cmd(noctaliaIpc .. "panel-toggle session"))
 
 -- NOTE: File managers
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(uwsm .. terminal .. " --command=yazi"))
@@ -46,11 +46,11 @@ hl.bind(shiftMod .. " + E", hl.dsp.exec_cmd(uwsm .. fileManager))
 hl.bind(
 	mainMod .. " + Comma",
 	dsp_build_cmd({
-		'test -z "$(' .. noctaliaIpc .. 'state all | jq -r .state.openedPanel)"',
+		'test "$(' .. noctaliaIpc .. 'status | jq -r .panelOpen)" == "true"',
 		"&&",
-		noctaliaIpc .. "controlCenter toggle",
+		noctaliaIpc .. "settings-open",
 		"||",
-		noctaliaIpc .. "settings toggle",
+		noctaliaIpc .. "panel-toggle control-center",
 	})
 )
 

@@ -67,7 +67,10 @@ hl.layer_rule({
 
 hl.layer_rule({
 	name = "noctalia",
-	match = { namespace = "noctalia-background-.*$" },
+	match = {
+		namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+	},
+	no_anim = true,
 	ignore_alpha = 0.5,
 	blur = true,
 	blur_popups = true,
@@ -84,7 +87,7 @@ hl.window_rule({
 	move = "((monitor_w)-(window_w)-10) ((monitor_h)-(window_h)-10)",
 	size = "500 280",
 	no_initial_focus = true,
-	-- pin = true,
+	pin = true,
 	content = "video",
 })
 

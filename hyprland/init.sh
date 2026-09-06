@@ -36,7 +36,7 @@ yay -S --noconfirm --needed \
   rofi-power-menu rofi-emoji-git rofi-calc-git \
   vicinae-bin \
   nodejs-lts-krypton \
-  noctalia-shell \
+  noctalia \
   qt6-multimedia-ffmpeg grim slurp tesseract tesseract-data-eng zbar translate-shell \
   wf-recorder gifski wayland-pipewire-idle-inhibit
 
@@ -174,6 +174,12 @@ ln -s $CURRENT_DIR/vicinae/config ~/.config/vicinae
 ln -sf $CURRENT_DIR/vicinae/local/share/themes/kanagawa-dragon.toml ~/.local/share/vicinae/themes/kanagawa-dragon.toml
 
 systemctl --user enable vicinae.service
+
+# NOTE: Noctalia config
+if [[ -d ~/.config/noctalia ]]; then
+  rm -rf ~/.config/noctalia
+fi
+ln -s $CURRENT_DIR/noctalia ~/.config/noctalia
 
 # NOTE: Uwsm config
 if [[ -d ~/.config/uwsm ]]; then
